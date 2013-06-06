@@ -1,0 +1,34 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>uManage</title>
+    @Styles.Render("~/styles/css", "~/styles/ums")
+    <script>
+        // Must be first. IE10 mobile viewport fix
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    </script>
+    @Scripts.Render("~/scripts/modernizr")
+</head>
+<body>
+    <div id="applicationHost">
+        <div class="splash">
+            <div class="message">
+                Loading!!!
+            </div>
+            <i class="icon-spinner icon-2x icon-spin active"></i>
+        </div>
+    </div>
+    @Scripts.Render("~/scripts/vendor")
+    <script src="/App/durandal/amd/require.js"
+        data-main="App/main"></script>
+</body>
+</html>

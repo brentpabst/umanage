@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Optimization;
 
 namespace _203.UMS.UI
@@ -10,18 +7,32 @@ namespace _203.UMS.UI
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            // Modernizr
-            bundles.Add(new ScriptBundle("~/scripts/modernizr").Include("~/Scripts/modernizr-*"));
+            bundles.IgnoreList.Clear();
+            AddDefaultIgnorePatterns(bundles.IgnoreList);
 
-            // jQuery
-            bundles.Add(new ScriptBundle("~/scripts/jquery").Include(
-                "~/Scripts/jquery-*"));
+            bundles.Add(
+                new ScriptBundle("~/scripts/modernizr")
+                    .Include("~/scripts/modernizr-{version}.js"));
 
-            // Bootstrap
-            bundles.Add(new ScriptBundle("~/scripts/bootstrap").Include(
-                "~/Scripts/bootstrap.*"));
-            bundles.Add(new StyleBundle("~/styles/bootstrap").Include(
-                "~/Content/bootstrap.*"));
+            bundles.Add(
+              new ScriptBundle("~/scripts/vendor")
+                .Include("~/Scripts/jquery-{version}.min.js")
+                .Include("~/Scripts/bootstrap.min.js")
+                .Include("~/Scripts/knockout-{version}.js")
+                .Include("~/Scripts/sammy-{version}.js")
+                .Include("~/Scripts/moment.min.js")
+                .Include("~/Scripts/Q.js")
+                .Include("~/Scripts/toastr.min.js")
+            );
+
+            bundles.Add(
+             new StyleBundle("~/styles/css")
+                .Include("~/Content/ie10mobile.css") // Must be first. IE10 mobile viewport fix
+                .Include("~/Content/bootstrap.min.css")
+                .Include("~/Content/bootstrap-responsive.min.css")
+                .Include("~/Content/durandal.css")
+                .Include("~/Content/toastr.css")
+             );
 
             // Site
             var site = new Bundle("~/styles/ums")
@@ -29,7 +40,20 @@ namespace _203.UMS.UI
             site.Transforms.Add(new LessTransform());
             site.Transforms.Add(new CssMinify());
             bundles.Add(site);
+        }
 
+        public static void AddDefaultIgnorePatterns(IgnoreList ignoreList)
+        {
+            if (ignoreList == null)
+            {
+                throw new ArgumentNullException("ignoreList");
+            }
+
+            ignoreList.Ignore("*.intellisense.js");
+            ignoreList.Ignore("*-vsdoc.js");
+            //ignoreList.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
+            //ignoreList.Ignore("*.min.js", OptimizationMode.WhenDisabled);
+            //ignoreList.Ignore("*.min.css", OptimizationMode.WhenDisabled);
         }
 
         public class LessTransform : IBundleTransform
