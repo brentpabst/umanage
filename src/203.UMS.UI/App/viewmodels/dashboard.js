@@ -1,12 +1,15 @@
-﻿define(
-    function () {
+﻿define(['viewmodels/shell', 'services/logger'], function (shell, logger) {
+    var vm = {
+        activate: activate,
+        title: 'Dashboard View'
+    };
 
-        var vm = {
-            activate: activate
-        };
-        return vm;
+    return vm;
 
-        function activate() {
-            // This isn't requesting the view file like it should... not sure why.
-        }
-    });
+    //#region Internal Methods
+    function activate() {
+        logger.log('Dashboard View Activated', null, 'dashboard', true);
+        return true;
+    }
+    //#endregion
+});

@@ -1,24 +1,25 @@
-﻿define(['durandal/system',
-    'services/logger',
-    'durandal/plugins/router',
-    'durandal/app',
-    'config'],
-function (system, logger, router, app, config) {
+﻿define(['durandal/system', 'durandal/plugins/router', 'services/logger'],
+    function (system, router, logger) {
+        var shell = {
+            activate: activate,
+            router: router
+        };
 
-    var shell = {
-        activate: activate,
-        router: router
-    };
-    return shell;
+        return shell;
 
-    function activate() {
-        app.title = config.appTitle;
-        boot();
-    }
+        //#region Internal Methods
+        function activate() {
+            return boot();
+        }
 
-    function boot() {
-        logger.log('uManage Loaded!', null, system.getModuleId(shell), true);
-        router.map(config.routes);
-        return router.activate(config.startModule);
-    }
-});
+        function boot() {
+            router.mapNav('dashboard').settings = {};
+            log('uManage Loaded!', null, true);
+            return router.activate('dashboard');
+        }
+
+        function log(msg, data, showToast) {
+            logger.log(msg, data, system.getModuleId(shell), showToast);
+        }
+        //#endregion
+    });

@@ -2,28 +2,31 @@
     paths: { "text": "durandal/amd/text" }
 });
 
-define(function (require) {
-    var system = require('durandal/system'),
-        app = require('durandal/app'),
-        router = require('durandal/plugins/router'),
-        viewLocator = require('durandal/viewLocator'),
-        logger = require('services/logger');
+define(['durandal/app', 'durandal/viewLocator', 'durandal/system', 'durandal/plugins/router', 'services/logger'],
+    function (app, viewLocator, system, router, logger) {
 
-    system.debug(true);
+        // Enable debug message to show in the console 
+        system.debug(true);
 
-    app.start().then(function () {
-        viewLocator.useConvention();
+        app.start().then(function () {
+            toastr.options.positionClass = 'toast-bottom-right';
+            toastr.options.backgroundpositionClass = 'toast-bottom-right';
 
-        router.useConvention();
+            router.handleInvalidRoute = function (route, params) {
+                logger.logError('No Route Found', route, 'main', true);
+            };
 
-        app.adaptToDevice();
-        app.setRoot('viewmodels/shell', 'entrance');
+            // When finding a viewmodel module, replace the viewmodel string 
+            // with view to find it partner view.
+            router.useConvention();
+            viewLocator.useConvention();
 
-        // override bad route behavior to write to 
-        // console log and show error toast
-        router.handleInvalidRoute = function (route, params) {
-            logger.logError('No route found', route, 'main', true);
-        };
+            // Set the application title
+            app.title = "uManage";
+
+            // Adapt to touch devices
+            app.adaptToDevice();
+            //Show the app by setting the root view model for our application.
+            app.setRoot('viewmodels/shell');
+        });
     });
-
-});
