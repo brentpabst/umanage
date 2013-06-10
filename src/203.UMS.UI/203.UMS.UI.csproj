@@ -156,6 +156,8 @@
     <Content Include="App\viewmodels\dashboard.js" />
     <Content Include="App\viewmodels\shell.js" />
     <Content Include="App\views\dashboard.html" />
+    <Content Include="App\views\foot.html" />
+    <Content Include="App\views\head.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
@@ -166,6 +168,8 @@
     <Content Include="Content\images\Background.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\images\No-Photo.png" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Global.asax" />

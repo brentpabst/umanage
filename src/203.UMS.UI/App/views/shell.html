@@ -1,7 +1,18 @@
-﻿<div class="container-fluid page-host">
-    <!--ko compose: {  
-model: router.activeItem, 
-afterCompose: router.afterCompose, 
-transition:'entrance'}-->
-    <!--/ko-->
+﻿<div class="container">
+    <header class="row">
+        <div class="span12" data-bind="compose: { view: 'head' }">
+        </div>
+    </header>
+    <section class="row">
+        <div class="span12" data-bind="compose: {
+            model: router.activeItem,
+            afterCompose: router.afterCompose,
+            transition: 'entrance'
+        }">
+        </div>
+    </section>
+    <footer class="row">
+        <div class="span12" data-bind="compose: { view: 'foot' }">
+        </div>
+    </footer>
 </div>
