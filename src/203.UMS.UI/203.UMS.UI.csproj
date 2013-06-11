@@ -201,9 +201,7 @@
     <Content Include="Scripts\jquery-2.0.1.min.map" />
     <Content Include="Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

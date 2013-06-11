@@ -1,24 +1,93 @@
-﻿@font-normal: .9em "Segoe UI", Tahoma, "Trebuchet MS", sans-serif;
-@font-light: .9em "Segoe UI Light", Tahoma, "Trebuchet MS", sans-serif;
-@font-dark: .9em "Segoe UI SemiBold", Tahoma, "Trebuchet MS", sans-serif;
+﻿//#region Color Wheel
+/*
+	http://colorschemedesigner.com/#0041T00rBw0w0
+
+    #DCDCDC background
+    #A5A5A5 silver acccent
+    #C1C1C1 light silver accent
+    #848484 gray
+    #B0B0B0 light gray acccent
+    #636363 dark gray
+    #2B5656 blue/INFO
+    #397239 green/OK
+    #8F6847 yellow/WARN
+    #8F4747 red/ERROR
+
+*/
+//#endregion
+
+//#region Variables
+// Fonts
+@font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+@font-family-light: "Segoe UI Light", "Segoe Light", "Segoe UI", "Helvetica-Light", Arial, Helvetica, sans-serif;
+@font-family-heavy: "Segoe UI SemiBold", "Segoe SemiBold", "Segoe UI", "Helvetica-Bold", Arial, Helvetica, sans-serif;
+
+// Colors
+@color-background: #DCDCDC;
+@color-background-inverse: #FFFFFF;
+@color-silver-accent: #A5A5A5;
+@color-light-silver-acccent: #C1C1C1;
+@color-gray-accent: #848484;
+@color-light-gray-accent: #B0B0B0;
+@color-dark-gray-accent: #636363;
+@color-blue-accent: #2B5656;
+@color-green-accent: #397239;
+@color-yellow-accent: #8F6847;
+@color-red-accent: #8F4747;
+//#endregion
+
+//#region Mixins
+.background-color(@r: 0, @g: 0, @b: 0, @alpha) {
+    background-color: rgba(@r,@g,@b,@alpha);
+}
+
+.box-shadow(@x: 0px, @y: 3px, @blur: 5px, @spread: 2px, @hex: #000000) {
+    -moz-box-shadow: @x @y @blur @spread @hex;
+    -webkit-box-shadow: @x @y @blur @spread @hex;
+    box-shadow: @x @y @blur @spread @hex;
+}
+//#endregion
 
 body {
-    font: @font-normal;
-    color: #666;
-    background: #dcdcdc;
+    font: .9em/1.2em @font-family;
+    color: @color-dark-gray-accent;
     cursor: default;
-    background: #dcdcdc url(/Content/images/Background.png) no-repeat fixed left bottom;
+    background: @color-background url(/Content/images/Background.png) no-repeat fixed left bottom;
     background-size: contain;
     margin: 2% 0;
 }
 
+#applicationHost {
+    width: 100%;
+    height: 100%;
+
+    #splash {
+        width: 480px;
+        margin: 10% auto;
+        padding: 20px;
+        border: solid 1px @color-gray-accent;
+        border-radius: 30px;
+        background-color: white;
+        .box-shadow(1px,1px,10px,5px,@color-gray-accent);
+        text-align: center;
+
+        a {
+            color: @color-dark-gray-accent;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
 h2 {
-    font: @font-light;
-    font-size: 1.7em;
+    font: 1.7em @font-family-light;
 }
 
 h3 {
-    font: @font-dark;
+    font: .9em @font-family-heavy;
     text-transform: uppercase;
     margin: 0;
 }
@@ -28,7 +97,7 @@ footer {
     font-size: .80em;
 
     a {
-        color: #666;
+        color: @color-dark-gray-accent;
         text-decoration: none;
 
         &:hover {
@@ -41,31 +110,30 @@ footer {
     text-align: right;
 
     h1 {
-        font: @font-light;
-        font-size: 2em;
+        font: 2em @font-family-light;
         font-weight: 100;
         margin-bottom: 5px;
     }
 }
 
 .box {
-    background-color: white;
-    box-shadow: 0 0 10px #888;
+    background-color: @color-background-inverse;
+    box-shadow: 0 0 10px @color-gray-accent;
     border-radius: 5px;
     padding: 5px;
     overflow: auto;
     margin: 10px 0;
 
     .title {
-        background-color: #57a0d3;
-        color: white;
+        background-color: @color-blue-accent;
+        color: @color-light-silver-acccent;
         padding: 2px 5px;
         margin-bottom: 3px;
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
     }
 
-    .content{
+    .content {
         padding: 0 5px;
     }
 }

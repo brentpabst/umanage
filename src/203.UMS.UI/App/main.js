@@ -1,4 +1,5 @@
-﻿require.config({
+﻿/// <reference path="main.js" />
+require.config({
     paths: { "text": "durandal/amd/text" }
 });
 
@@ -27,6 +28,9 @@ define(['durandal/app', 'durandal/viewLocator', 'durandal/system', 'durandal/plu
             // Adapt to touch devices
             app.adaptToDevice();
             //Show the app by setting the root view model for our application.
-            app.setRoot('viewmodels/shell');
+            setTimeout(function() {
+                app.setRoot('viewmodels/shell');
+            }, 5000);
+
         });
     });

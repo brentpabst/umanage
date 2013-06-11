@@ -20,11 +20,17 @@
 </head>
 <body>
     <div id="applicationHost">
-        <div class="splash">
-            <div class="message">
-                Loading!!!
+        <div id="splash">
+            <img src="~/Content/images/Logo.png" alt="uManage" />
+            <br />
+            <br />
+            <h3>Loading...</h3>
+            <div class="progress progress-info progress-striped active">
+                <div class="bar" style="width: 100%;"></div>
             </div>
-            <i class="icon-spinner icon-2x icon-spin active"></i>
+            &copy; 2013 <a href="http://www.brentpabst.com" target="_blank">Brenton J. Pabst</a>
+            <br />
+            <em>A <strong>203 Enterprises</strong> Project</em>
         </div>
     </div>
     @Scripts.Render("~/scripts/vendor")
