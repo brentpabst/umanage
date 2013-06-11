@@ -1,0 +1,5 @@
+﻿<ul class="clearfix" data-bind="foreach: router.visibleRoutes">
+    <li data-bind="css: { active: isActive }">
+        <a data-bind="text: name, attr: { href: hash }"></a>
+    </li>
+</ul>

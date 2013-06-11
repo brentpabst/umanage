@@ -92,6 +92,48 @@ h3 {
     margin: 0;
 }
 
+header {
+    margin-bottom: 20px;
+}
+
+nav {
+    margin-bottom: 10px;
+
+    ul {
+        margin: 0;
+        list-style: none;
+        display: inline-block;
+
+        li {
+            float: left;
+            margin-right: 20px;
+
+            a {
+                font-size: 1.3em;
+                color: @color-dark-gray-accent;
+                text-transform: lowercase;
+
+                &:hover {
+                    color: @color-gray-accent;
+                    text-decoration: none;
+                }
+            }
+
+            &.active {
+                a {
+                    color: black;
+                }
+            }
+            /*
+            &.active {
+                a {
+                    color: black;
+                }
+            }*/
+        }
+    }
+}
+
 footer {
     margin-top: 10px;
     font-size: .80em;

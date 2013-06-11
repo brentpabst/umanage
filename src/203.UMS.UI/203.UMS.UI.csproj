@@ -158,6 +158,7 @@
     <Content Include="App\views\dashboard.html" />
     <Content Include="App\views\foot.html" />
     <Content Include="App\views\head.html" />
+    <Content Include="App\views\nav.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />

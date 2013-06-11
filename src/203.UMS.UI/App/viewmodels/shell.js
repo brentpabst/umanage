@@ -13,7 +13,11 @@
         }
 
         function boot() {
-            router.mapNav('dashboard').settings = {};
+            router.mapNav('dashboard', null, 'Dashboard').settings = { admin: false };
+            router.mapNav('my/info', null, 'Information').settings = { admin: false };
+            router.mapNav('my/account', null, 'Account').settings = { admin: false };
+            router.mapNav('my/password', null, 'Password').settings = { admin: false };
+            router.mapNav('my/photo', null, 'Photo').settings = { admin: false };
             log('uManage Loaded!', null, true);
             return router.activate('dashboard');
         }
