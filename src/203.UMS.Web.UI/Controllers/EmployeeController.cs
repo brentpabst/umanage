@@ -2,6 +2,7 @@
 using AttributeRouting.Web.Http;
 using System.Web;
 using System.Web.Http;
+using _203.UMS.Models;
 
 namespace _203.UMS.Web.UI.Controllers
 {
@@ -9,9 +10,12 @@ namespace _203.UMS.Web.UI.Controllers
     public class EmployeeController : ApiController
     {
         [GET(""), HttpGet]
-        public string GetEmployee()
+        public Employee GetEmployee()
         {
-            return HttpContext.Current.User.Identity.Name;
+            return new Employee
+                {
+                    Username = HttpContext.Current.User.Identity.Name
+                };
         }
     }
 }

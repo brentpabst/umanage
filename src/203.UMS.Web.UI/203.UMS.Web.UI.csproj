@@ -239,6 +239,10 @@
     <Content Include="Scripts\jquery-2.0.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\203.UMS.Models\203.UMS.Models.csproj">
+      <Project>{77A624A5-67FC-4E01-AF00-F920109003E3}</Project>
+      <Name>203.UMS.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\203.UMS.Web\203.UMS.Web.csproj">
       <Project>{7683E05F-F40C-4F52-A2CB-E7297E31848A}</Project>
       <Name>203.UMS.Web</Name>
@@ -276,7 +280,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.7\tools\Microsoft.Bcl.Build.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
