@@ -11,13 +11,14 @@ namespace _203.UMS.Security
         private static readonly byte[] Vector = Encoding.UTF8.GetBytes("@1B2c3D4e5F6g7H8");
         private static readonly byte[] Salt = Encoding.UTF8.GetBytes("uManage!sTh3Gre@t3st");
         private const int KeySize = 256;
+        private const int EncryptionIterations = 1000;
 
-        public static string Ecrypt(string text)
+        public static byte[] Ecrypt(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
                 throw new ArgumentNullException("text");
 
-            var password = new Rfc2898DeriveBytes(Pass, Salt, 2);
+            var password = new Rfc2898DeriveBytes(Pass, Salt, EncryptionIterations);
             var keyBytes = password.GetBytes(KeySize / 8);
 
             using (var aes = new AesManaged())
@@ -30,21 +31,20 @@ namespace _203.UMS.Security
                         var bText = Encoding.UTF8.GetBytes(text);
                         cStream.Write(bText, 0, bText.Length);
                         cStream.FlushFinalBlock();
-                        var cipher = ms.ToArray();
-                        return Convert.ToBase64String(cipher);
+                        return ms.ToArray();
                     }
                 }
             }
         }
 
-        public static string Decrypt(string text)
+        public static string Decrypt(byte[] array)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentNullException("text");
+            if (array==null)
+                throw new ArgumentNullException("array");
 
-            var cipher = Convert.FromBase64String(text);
+            var cipher = array;
 
-            var password = new Rfc2898DeriveBytes(Pass, Salt, 2);
+            var password = new Rfc2898DeriveBytes(Pass, Salt, EncryptionIterations);
             var keyBytes = password.GetBytes(KeySize / 8);
 
             using (var aes = new AesManaged())

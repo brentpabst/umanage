@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace _203.UMS.Models.App
 {
-    public class User
+    public class Employee
     {
         public Guid UserId { get; set; }
 

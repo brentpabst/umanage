@@ -56,6 +56,10 @@
       <Project>{77A624A5-67FC-4E01-AF00-F920109003E3}</Project>
       <Name>203.UMS.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\203.UMS\203.UMS.csproj">
+      <Project>{E29EFC85-E9FA-4B04-8881-AFA9ACE18331}</Project>
+      <Name>203.UMS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

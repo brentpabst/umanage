@@ -1,6 +1,7 @@
-﻿using System;
+﻿using _203.UMS.Directory.Enums;
+using _203.UMS.Extensions;
+using System;
 using System.DirectoryServices;
-using _203.UMS.Directory.Enums;
 
 namespace _203.UMS.Directory
 {

@@ -14,6 +14,6 @@ namespace _203.UMS.Models.App
         [StringLength(75)]
         public string Description { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using _203.UMS.Directory.Extensions;
+using System;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
-using _203.UMS.Directory.Extensions;
 
 namespace _203.UMS.Directory
 {

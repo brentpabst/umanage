@@ -6,6 +6,7 @@ namespace _203.UMS.Models.Directory
     {
         public Guid UserId { get; set; }
         public string UserName { get; set; }
+        public string NtUserName { get; set; }
         public string DistinguishedName { get; set; }
         public bool IsLocked { get; set; }
         public bool IsDisabled { get; set; }

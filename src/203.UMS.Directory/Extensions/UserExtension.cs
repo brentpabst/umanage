@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _203.UMS.Models.Directory;
+using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
@@ -26,6 +27,7 @@ namespace _203.UMS.Directory.Extensions
                        {
                            UserId = p.Guid.GetValueOrDefault(),
                            UserName = p.UserPrincipalName.ToLower(),
+                           NtUserName = p.SamAccountName,
                            DistinguishedName = p.DistinguishedName,
                            IsLocked = p.IsAccountLockedOut(),
                            IsDisabled = !p.Enabled.GetValueOrDefault(),

@@ -32,14 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,19 +51,13 @@
     <Compile Include="App\QuickLink.cs" />
     <Compile Include="App\Role.cs" />
     <Compile Include="App\Setting.cs" />
-    <Compile Include="App\User.cs" />
+    <Compile Include="App\Employee.cs" />
     <Compile Include="App\WallPost.cs" />
     <Compile Include="Config\DatabaseSetting.cs" />
     <Compile Include="Config\DirectorySetting.cs" />
-    <Compile Include="Config\OfflineSetting.cs" />
-    <Compile Include="Config\WallPostSetting.cs" />
-    <Compile Include="Config\WeatherSetting.cs" />
     <Compile Include="Directory\PasswordReminderSetting.cs" />
     <Compile Include="Directory\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\203.UMS\203.UMS.csproj">
