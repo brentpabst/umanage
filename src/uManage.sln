@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "203.UMS.Web.UI", "203.UMS.Web.UI\203.UMS.Web.UI.csproj", "{F393A628-C2C0-4CEE-89DA-9FF4C2D43BC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "203.UMS.Web.Portal", "203.UMS.Web.Portal\203.UMS.Web.Portal.csproj", "{F393A628-C2C0-4CEE-89DA-9FF4C2D43BC5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E47C93E4-5CDD-4909-A058-D3972E6BE96F}"
 	ProjectSection(SolutionItems) = preProject
