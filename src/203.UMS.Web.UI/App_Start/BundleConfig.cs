@@ -16,20 +16,20 @@ namespace _203.UMS.Web.UI
 
             bundles.Add(
               new ScriptBundle("~/scripts/vendor")
-                .Include("~/Scripts/jquery-{version}.min.js")
-                .Include("~/Scripts/bootstrap.min.js")
+                .Include("~/Scripts/jquery-{version}.js")
+                .Include("~/Scripts/bootstrap.js")
                 .Include("~/Scripts/knockout-{version}.js")
                 .Include("~/Scripts/sammy-{version}.js")
-                .Include("~/Scripts/moment.min.js")
+                .Include("~/Scripts/moment.js")
                 .Include("~/Scripts/Q.js")
-                .Include("~/Scripts/toastr.min.js")
+                .Include("~/Scripts/toastr.js")
             );
 
             bundles.Add(
              new StyleBundle("~/styles/css")
                 .Include("~/Content/ie10mobile.css") // Must be first. IE10 mobile viewport fix
-                .Include("~/Content/bootstrap.min.css")
-                .Include("~/Content/bootstrap-responsive.min.css")
+                .Include("~/Content/bootstrap.css")
+                .Include("~/Content/bootstrap-responsive.css")
                 .Include("~/Content/durandal.css")
                 .Include("~/Content/toastr.css")
              );
@@ -51,9 +51,9 @@ namespace _203.UMS.Web.UI
 
             ignoreList.Ignore("*.intellisense.js");
             ignoreList.Ignore("*-vsdoc.js");
-            //ignoreList.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
-            //ignoreList.Ignore("*.min.js", OptimizationMode.WhenDisabled);
-            //ignoreList.Ignore("*.min.css", OptimizationMode.WhenDisabled);
+            ignoreList.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
+            ignoreList.Ignore("*.min.js", OptimizationMode.WhenDisabled);
+            ignoreList.Ignore("*.min.css", OptimizationMode.WhenDisabled);
         }
 
         public class LessTransform : IBundleTransform

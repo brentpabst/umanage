@@ -82,88 +82,110 @@ var noop = function () {};
 
 // Use the fastest possible means to execute a task in a future turn
 // of the event loop.
-var nextTick;
-if (typeof setImmediate === "function") {
-    // In IE10, Node.js 0.9+, or https://github.com/NobleJS/setImmediate
-    if (typeof window !== "undefined") {
-        nextTick = setImmediate.bind(window);
-    } else {
-        nextTick = setImmediate;
-    }
-} else if (typeof process !== "undefined" && process.nextTick) {
-    // Node.js before 0.9. Note that some fake-Node environments, like the
-    // Mocha test runner, introduce a `process` global without a `nextTick`.
+var nextTick =(function () {
+    // linked list of tasks (single, with head node)
+    var head = {task: void 0, next: null};
+    var tail = head;
+    var flushing = false;
+    var requestTick = void 0;
+    var isNodeJS = false;
 
-    nextTick = process.nextTick;
-} else {
-    (function () {
-        // linked list of tasks (single, with head node)
-        var head = {task: void 0, next: null};
-        var tail = head;
-        var maxPendingTicks = 2;
-        var pendingTicks = 0;
-        var queuedTasks = 0;
-        var usedTicks = 0;
-        var requestTick = void 0;
+    function flush() {
+        while (head.next) {
+            head = head.next;
+            var task = head.task;
+            head.task = void 0;
+            var domain = head.domain;
 
-        function onTick() {
-            // In case of multiple tasks ensure at least one subsequent tick
-            // to handle remaining tasks in case one throws.
-            --pendingTicks;
+            if (domain) {
+                head.domain = void 0;
+                domain.enter();
+            }
 
-            if (++usedTicks >= maxPendingTicks) {
-                // Amortize latency after thrown exceptions.
-                usedTicks = 0;
-                maxPendingTicks *= 4; // fast grow!
-                var expectedTicks = queuedTasks && Math.min(
-                    queuedTasks - 1,
-                    maxPendingTicks
-                );
-                while (pendingTicks < expectedTicks) {
-                    ++pendingTicks;
-                    requestTick();
+            try {
+                task();
+
+            } catch (e) {
+                if (isNodeJS) {
+                    // In node, uncaught exceptions are considered fatal errors.
+                    // Re-throw them synchronously to interrupt flushing!
+
+                    // Ensure continuation if the uncaught exception is suppressed
+                    // listening "uncaughtException" events (as domains does).
+                    // Continue in next event to avoid tick recursion.
+                    domain && domain.exit();
+                    setTimeout(flush, 0);
+                    domain && domain.enter();
+
+                    throw e;
+
+                } else {
+                    // In browsers, uncaught exceptions are not fatal.
+                    // Re-throw them asynchronously to avoid slow-downs.
+                    setTimeout(function() {
+                       throw e;
+                    }, 0);
                 }
             }
 
-            while (queuedTasks) {
-                --queuedTasks; // decrement here to ensure it's never negative
-                head = head.next;
-                var task = head.task;
-                head.task = void 0;
-                task();
+            if (domain) {
+                domain.exit();
             }
-
-            usedTicks = 0;
         }
 
-        nextTick = function (task) {
-            tail = tail.next = {task: task, next: null};
-            if (
-                pendingTicks < ++queuedTasks &&
-                pendingTicks < maxPendingTicks
-            ) {
-                ++pendingTicks;
-                requestTick();
-            }
+        flushing = false;
+    }
+
+    nextTick = function (task) {
+        tail = tail.next = {
+            task: task,
+            domain: isNodeJS && process.domain,
+            next: null
         };
 
-        if (typeof MessageChannel !== "undefined") {
-            // modern browsers
-            // http://www.nonblocking.io/2011/06/windownexttick.html
-            var channel = new MessageChannel();
-            channel.port1.onmessage = onTick;
-            requestTick = function () {
-                channel.port2.postMessage(0);
-            };
+        if (!flushing) {
+            flushing = true;
+            requestTick();
+        }
+    };
 
+    if (typeof process !== "undefined" && process.nextTick) {
+        // Node.js before 0.9. Note that some fake-Node environments, like the
+        // Mocha test runner, introduce a `process` global without a `nextTick`.
+        isNodeJS = true;
+
+        requestTick = function () {
+            process.nextTick(flush);
+        };
+
+    } else if (typeof setImmediate === "function") {
+        // In IE10, Node.js 0.9+, or https://github.com/NobleJS/setImmediate
+        if (typeof window !== "undefined") {
+            requestTick = setImmediate.bind(window, flush);
         } else {
-            // old browsers
             requestTick = function () {
-                setTimeout(onTick, 0);
+                setImmediate(flush);
             };
         }
-    })();
-}
+
+    } else if (typeof MessageChannel !== "undefined") {
+        // modern browsers
+        // http://www.nonblocking.io/2011/06/windownexttick.html
+        var channel = new MessageChannel();
+        channel.port1.onmessage = flush;
+        requestTick = function () {
+            channel.port2.postMessage(0);
+        };
+
+    } else {
+        // old browsers
+        requestTick = function () {
+            setTimeout(flush, 0);
+        };
+    }
+
+    return nextTick;
+})();
 
 // Attempt to make generics safe in the face of downstream
 // modifications.
@@ -459,7 +481,7 @@ function defer() {
     var messages = [], progressListeners = [], resolvedPromise;
 
     var deferred = object_create(defer.prototype);
-    var promise = object_create(makePromise.prototype);
+    var promise = object_create(Promise.prototype);
 
     promise.promiseDispatch = function (resolve, op, operands) {
         var args = array_slice(arguments);
@@ -615,8 +637,8 @@ function promise(resolver) {
  * of the returned object, apart from that it is usable whereever promises are
  * bought and sold.
  */
-Q.makePromise = makePromise;
-function makePromise(descriptor, fallback, inspect) {
+Q.makePromise = Promise;
+function Promise(descriptor, fallback, inspect) {
     if (fallback === void 0) {
         fallback = function (op) {
             return reject(new Error(
@@ -624,8 +646,13 @@ function makePromise(descriptor, fallback, inspect) {
             ));
         };
     }
+    if (inspect === void 0) {
+        inspect = function () {
+            return {state: "unknown"};
+        };
+    }
 
-    var promise = object_create(makePromise.prototype);
+    var promise = object_create(Promise.prototype);
 
     promise.promiseDispatch = function (resolve, op, args) {
         var result;
@@ -665,16 +692,82 @@ function makePromise(descriptor, fallback, inspect) {
     return promise;
 }
 
-// provide thenables, CommonJS/Promises/A
-makePromise.prototype.then = function (fulfilled, rejected, progressed) {
-    return when(this, fulfilled, rejected, progressed);
+Promise.prototype.then = function (fulfilled, rejected, progressed) {
+    var self = this;
+    var deferred = defer();
+    var done = false;   // ensure the untrusted promise makes at most a
+                        // single call to one of the callbacks
+
+    function _fulfilled(value) {
+        try {
+            return typeof fulfilled === "function" ? fulfilled(value) : value;
+        } catch (exception) {
+            return reject(exception);
+        }
+    }
+
+    function _rejected(exception) {
+        if (typeof rejected === "function") {
+            makeStackTraceLong(exception, self);
+            try {
+                return rejected(exception);
+            } catch (newException) {
+                return reject(newException);
+            }
+        }
+        return reject(exception);
+    }
+
+    function _progressed(value) {
+        return typeof progressed === "function" ? progressed(value) : value;
+    }
+
+    nextTick(function () {
+        self.promiseDispatch(function (value) {
+            if (done) {
+                return;
+            }
+            done = true;
+
+            deferred.resolve(_fulfilled(value));
+        }, "when", [function (exception) {
+            if (done) {
+                return;
+            }
+            done = true;
+
+            deferred.resolve(_rejected(exception));
+        }]);
+    });
+
+    // Progress propagator need to be attached in the current tick.
+    self.promiseDispatch(void 0, "when", [void 0, function (value) {
+        var newValue;
+        var threw = false;
+        try {
+            newValue = _progressed(value);
+        } catch (e) {
+            threw = true;
+            if (Q.onerror) {
+                Q.onerror(e);
+            } else {
+                throw e;
+            }
+        }
+
+        if (!threw) {
+            deferred.notify(newValue);
+        }
+    }]);
+
+    return deferred.promise;
 };
 
-makePromise.prototype.thenResolve = function (value) {
+Promise.prototype.thenResolve = function (value) {
     return when(this, function () { return value; });
 };
 
-makePromise.prototype.thenReject = function (reason) {
+Promise.prototype.thenReject = function (reason) {
     return when(this, function () { throw reason; });
 };
 
@@ -696,7 +789,7 @@ array_reduce(
         "nodeify"
     ],
     function (undefined, name) {
-        makePromise.prototype[name] = function () {
+        Promise.prototype[name] = function () {
             return Q[name].apply(
                 Q,
                 [this].concat(array_slice(arguments))
@@ -706,11 +799,11 @@ array_reduce(
     void 0
 );
 
-makePromise.prototype.toSource = function () {
+Promise.prototype.toSource = function () {
     return this.toString();
 };
 
-makePromise.prototype.toString = function () {
+Promise.prototype.toString = function () {
     return "[object Promise]";
 };
 
@@ -742,7 +835,9 @@ function nearer(value) {
  */
 Q.isPromise = isPromise;
 function isPromise(object) {
-    return isObject(object) && typeof object.promiseDispatch === "function";
+    return isObject(object) &&
+        typeof object.promiseDispatch === "function" &&
+        typeof object.inspect === "function";
 }
 
 Q.isPromiseAlike = isPromiseAlike;
@@ -875,7 +970,7 @@ resetUnhandledRejections();
  */
 Q.reject = reject;
 function reject(reason) {
-    var rejection = makePromise({
+    var rejection = Promise({
         "when": function (rejected) {
             // note that the error has been handled
             if (rejected) {
@@ -901,7 +996,7 @@ function reject(reason) {
  */
 Q.fulfill = fulfill;
 function fulfill(value) {
-    return makePromise({
+    return Promise({
         "when": function () {
             return value;
         },
@@ -984,7 +1079,7 @@ function coerce(promise) {
  */
 Q.master = master;
 function master(object) {
-    return makePromise({
+    return Promise({
         "isDef": function () {}
     }, function fallback(op, args) {
         return dispatch(object, op, args);
@@ -1011,74 +1106,7 @@ function master(object) {
  */
 Q.when = when;
 function when(value, fulfilled, rejected, progressed) {
-    var deferred = defer();
-    var done = false;   // ensure the untrusted promise makes at most a
-                        // single call to one of the callbacks
-
-    function _fulfilled(value) {
-        try {
-            return typeof fulfilled === "function" ? fulfilled(value) : value;
-        } catch (exception) {
-            return reject(exception);
-        }
-    }
-
-    function _rejected(exception) {
-        if (typeof rejected === "function") {
-            makeStackTraceLong(exception, resolvedValue);
-            try {
-                return rejected(exception);
-            } catch (newException) {
-                return reject(newException);
-            }
-        }
-        return reject(exception);
-    }
-
-    function _progressed(value) {
-        return typeof progressed === "function" ? progressed(value) : value;
-    }
-
-    var resolvedValue = resolve(value);
-    nextTick(function () {
-        resolvedValue.promiseDispatch(function (value) {
-            if (done) {
-                return;
-            }
-            done = true;
-
-            deferred.resolve(_fulfilled(value));
-        }, "when", [function (exception) {
-            if (done) {
-                return;
-            }
-            done = true;
-
-            deferred.resolve(_rejected(exception));
-        }]);
-    });
-
-    // Progress propagator need to be attached in the current tick.
-    resolvedValue.promiseDispatch(void 0, "when", [void 0, function (value) {
-        var newValue;
-        var threw = false;
-        try {
-            newValue = _progressed(value);
-        } catch (e) {
-            threw = true;
-            if (Q.onerror) {
-                Q.onerror(e);
-            } else {
-                throw e;
-            }
-        }
-
-        if (!threw) {
-            deferred.notify(newValue);
-        }
-    }]);
-
-    return deferred.promise;
+    return Q(value).then(fulfilled, rejected, progressed);
 }
 
 /**
@@ -1379,8 +1407,10 @@ function all(promises) {
         var deferred = defer();
         array_reduce(promises, function (undefined, promise, index) {
             var snapshot;
-            if (isPromise(promise) &&
-                (snapshot = promise.inspect()).state === "fulfilled") {
+            if (
+                isPromise(promise) &&
+                (snapshot = promise.inspect()).state === "fulfilled"
+            ) {
                 promises[index] = snapshot.value;
             } else {
                 ++countDown;
