@@ -94,6 +94,7 @@ namespace _203.UMS.Web.Config
         public bool SetDirectorySettings(DirectorySettings dir)
         {
             var s = new Settings(_repo);
+            s.Put("LdapPath", dir.Directory);
             s.Put("LdapUser", dir.Username);
             s.Put("LdapPass", dir.Password, true);
             return true;

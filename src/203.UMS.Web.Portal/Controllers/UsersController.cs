@@ -24,7 +24,6 @@ namespace _203.UMS.Web.UI.Controllers
             _dirRepo = new DirectoryUow(settings);
         }
 
-        // TODO: /users/ - Gets all users
         [GET(""), HttpGet]
         public IQueryable<User> GetUsers()
         {
@@ -47,7 +46,7 @@ namespace _203.UMS.Web.UI.Controllers
         // /users/{id} - Gets or updates the specified user
 
         [GET("{id}"), HttpGet]
-        public User GetUser(string id)
+        public User GetUser(Guid id)
         {
             return _dirRepo.Users.Get(id);
         }
@@ -58,16 +57,31 @@ namespace _203.UMS.Web.UI.Controllers
             throw new NotImplementedException();
         }
 
-         // /users/{id}/account/enable - Enables a user account
-         // /users/{id}/account/disable - Disables a user account
-         // /users/{id}/account/lock - Locks a user account
-         // /users/{id}/account/unlock - Unlocks a user account
-         
-         // /users/{id}/password/expire - Forces a password to expire
-         // /users/{id}/password/code - Generates a password reset code
-         // /users/{id}/password/reset - Changes the user's password with a reset code
-         // /users/{id}/password/change - Changes the user's password
-         
-         // /users/{id}/photo - Gets or Updates the specified user's photo
+        // /users/{id}/account/enable - Enables a user account
+        [GET("{id}/account/enable"), HttpGet]
+        public User Enable(Guid id)
+        {
+            if (!_dirRepo.Users.Enable(id))
+                throw new InvalidOperationException("Failed to enable the user.");
+            return GetUser(id);
+        }
+        
+        // /users/{id}/account/disable - Disables a user account
+        [GET("{id}/account/disable"), HttpGet]
+        public User Disable(Guid id)
+        {
+            if (!_dirRepo.Users.Disable(id))
+                throw new InvalidOperationException("Failed to disable the user.");
+            return GetUser(id);
+        }
+
+        // /users/{id}/account/unlock - Unlocks a user account
+
+        // /users/{id}/password/expire - Forces a password to expire
+        // /users/{id}/password/code - Generates a password reset code
+        // /users/{id}/password/reset - Changes the user's password with a reset code
+        // /users/{id}/password/change - Changes the user's password
+
+        // /users/{id}/photo - Gets or Updates the specified user's photo
     }
 }

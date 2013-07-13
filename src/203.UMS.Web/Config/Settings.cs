@@ -42,15 +42,32 @@ namespace _203.UMS.Web.Config
 
         public void Put(string key, object value, bool encrypt)
         {
+            var isNew = false;
+            var s = _repo.Settings.GetAll().FirstOrDefault(k => k.Key == key);
+            if (s == null)
+            {
+                isNew = true;
+                s = new Setting { SettingId = Guid.NewGuid(), Key = key };
+            }
+
             if (encrypt)
             {
-                var byteArray = Crypto.Ecrypt(value.ToString());
-                _repo.Settings.Add(new Setting { Key = key, ByteValue = byteArray, IsEncrypted = true });
+                s.ByteValue = Crypto.Ecrypt(value.ToString());
+                s.IsEncrypted = true;
+                s.Value = null;
             }
             else
             {
-                _repo.Settings.Add(new Setting { Key = key, Value = value.ToString(), IsEncrypted = false });
+                s.ByteValue = null;
+                s.IsEncrypted = false;
+                s.Value = value.ToString();
             }
+
+            if (isNew)
+                _repo.Settings.Add(s);
+            else
+                _repo.Settings.Update(s);
+
             _repo.Commit();
         }
 

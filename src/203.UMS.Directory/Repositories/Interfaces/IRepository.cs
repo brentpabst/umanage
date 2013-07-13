@@ -6,9 +6,9 @@ namespace _203.UMS.Directory.Repositories.Interfaces
     public interface IRepository<T> where T : class
     {
         IQueryable<T> GetAll();
-        T Get(string id);
+        T Get(Guid id);
         void Add(T entity);
         void Update(T entity);
-        void Delete(string id);
+        void Delete(Guid id);
     }
 }

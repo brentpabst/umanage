@@ -27,7 +27,7 @@ namespace _203.UMS.Directory
         #endregion
 
         public IRepository<Models.Directory.Principal> Directory { get { return new DirectoryRepository(Dir); } }
-        public IRepository<Models.Directory.User> Users { get { return new UserRepository(Dir); } }
+        public UserRepository Users { get { return new UserRepository(Dir); } }
 
         #region Disposal
         public void Dispose()

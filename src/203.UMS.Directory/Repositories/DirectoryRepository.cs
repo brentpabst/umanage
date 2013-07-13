@@ -20,7 +20,7 @@ namespace _203.UMS.Directory.Repositories
             throw new NotImplementedException();
         }
 
-        public Principal Get(string id)
+        public Principal Get(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +35,7 @@ namespace _203.UMS.Directory.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(string id)
+        public void Delete(Guid id)
         {
             throw new NotImplementedException();
         }

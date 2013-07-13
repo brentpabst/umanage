@@ -14,6 +14,11 @@ namespace _203.UMS.Directory.Extensions
             return HydrateFromPrincipal(user);
         }
 
+        public static UserPrincipal MergeUser(this UserPrincipal principal, User user)
+        {
+            return MergePrincipalWithUser(principal, user);
+        }
+
         public static IQueryable<User> AsUserQueryable(this IEnumerable<UserPrincipal> users)
         {
             return users.Select(HydrateFromPrincipal).AsQueryable();
@@ -64,6 +69,15 @@ namespace _203.UMS.Directory.Extensions
                            Pager = e.GetProperty("pager"),
                            Fax = e.GetProperty("facsimileTelephoneNumber"),
                        };
+        }
+
+        private static UserPrincipal MergePrincipalWithUser(UserPrincipal p, User u)
+        {
+            var e = p.GetUnderlyingObject() as DirectoryEntry;
+
+            // Build User Principal Assignments here
+
+            return p;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace _203.UMS.Directory.Repositories
 
         public IQueryable<User> GetAll()
         {
-            var u = new UserPrincipal(Ctx) { DisplayName = "*", Enabled = true };
+            var u = new UserPrincipal(Ctx) { DisplayName = "*" };
             using (var ps = new PrincipalSearcher(u))
             {
                 ps.QueryFilter = u;
@@ -28,9 +28,14 @@ namespace _203.UMS.Directory.Repositories
             }
         }
 
-        public User Get(string id)
+        public User Get(Guid id)
         {
-            return UserPrincipal.FindByIdentity(Ctx, id).AsUser();
+            return UserPrincipal.FindByIdentity(Ctx, id.ToString()).AsUser();
+        }
+
+        public User Get(string upn)
+        {
+            return UserPrincipal.FindByIdentity(Ctx, upn).AsUser();
         }
 
         public void Add(User entity)
@@ -40,12 +45,60 @@ namespace _203.UMS.Directory.Repositories
 
         public void Update(User entity)
         {
-            throw new NotImplementedException();
+            var p = UserPrincipal.FindByIdentity(Ctx, entity.UserId.ToString());
+            p.MergeUser(entity);
+            if (p != null) p.Save();
         }
 
-        public void Delete(string id)
+        public void Delete(Guid id)
         {
             throw new NotImplementedException();
+        }
+        
+        public bool Enable(Guid id)
+        {
+            var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
+            if (p == null) return false;
+            p.Enabled = true;
+            p.Save();
+            return true;
+        }
+        
+        public bool Disable(Guid id)
+        {
+            var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
+            if (p == null) return false;
+            p.Enabled = false;
+            p.Save();
+            return true;
+        }
+        
+        public bool Unlock(Guid id)
+        {
+            var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
+            if (p == null) return false;
+            p.UnlockAccount();
+            p.Save();
+            return true;
+        }
+
+        public bool ExpirePassword(Guid id)
+        {
+            var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
+            if (p == null) return false;
+            p.ExpirePasswordNow();
+            p.Save();
+            return true;
+        }
+        
+        public bool SetPassword(Guid id, string pass)
+        {
+            var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
+            if (p == null) return false;
+            // Requires Domain Admin rights
+            p.SetPassword(pass);
+            p.Save();
+            return true;
         }
     }
 }
