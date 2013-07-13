@@ -1,4 +1,4 @@
-﻿using _203.UMS.Data.Contracts;
+﻿using _203.UMS.Data.Interfaces;
 using _203.UMS.Models.Config;
 using System;
 using System.Configuration;
@@ -10,13 +10,13 @@ namespace _203.UMS.Web.Config
 {
     public class Connections
     {
-        private readonly IRepoUow _repo;
+        private readonly IDbUow _repo;
         private readonly Configuration _conf;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Config"/> class.
         /// </summary>
-        public Connections(IRepoUow uow)
+        public Connections(IDbUow uow)
         {
             _repo = uow;
             _conf = WebConfigurationManager.OpenWebConfiguration("~");
@@ -33,11 +33,11 @@ namespace _203.UMS.Web.Config
                 : WebConfigurationManager.OpenWebConfiguration(path);
         }
 
-        public DatabaseSetting GetDatabaseSettings()
+        public DatabaseSettings GetDatabaseSettings()
         {
             var conf = new SqlConnectionStringBuilder { ConnectionString = _conf.ConnectionStrings.ConnectionStrings["AppDb"].ConnectionString };
 
-            return new DatabaseSetting
+            return new DatabaseSettings
                          {
                              Server = conf.DataSource,
                              Catalog = conf.InitialCatalog,
@@ -47,7 +47,7 @@ namespace _203.UMS.Web.Config
                          };
         }
 
-        public bool SetDatabaseSettings(DatabaseSetting db)
+        public bool SetDatabaseSettings(DatabaseSettings db)
         {
             var conf = new SqlConnectionStringBuilder
                            {
@@ -75,15 +75,15 @@ namespace _203.UMS.Web.Config
             }
         }
 
-        public DirectorySetting GetDirectorySettings()
+        public DirectorySettings GetDirectorySettings()
         {
             return GetDirectorySettings(false);
         }
 
-        public DirectorySetting GetDirectorySettings(bool pass)
+        public DirectorySettings GetDirectorySettings(bool pass)
         {
             var s = new Settings(_repo);
-            return new DirectorySetting
+            return new DirectorySettings
                        {
                            Directory = s.Get<string>("LdapPath"),
                            Username = s.Get<string>("LdapUser"),
@@ -91,7 +91,7 @@ namespace _203.UMS.Web.Config
                        };
         }
 
-        public bool SetDirectorySettings(DirectorySetting dir)
+        public bool SetDirectorySettings(DirectorySettings dir)
         {
             var s = new Settings(_repo);
             s.Put("LdapUser", dir.Username);

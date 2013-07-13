@@ -276,6 +276,10 @@
       <Project>{7683E05F-F40C-4F52-A2CB-E7297E31848A}</Project>
       <Name>203.UMS.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\203.UMS\203.UMS.csproj">
+      <Project>{E29EFC85-E9FA-4B04-8881-AFA9ACE18331}</Project>
+      <Name>203.UMS</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

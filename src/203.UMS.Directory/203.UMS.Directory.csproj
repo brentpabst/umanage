@@ -41,15 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DirectoryContext.cs" />
     <Compile Include="DirectoryPolicy.cs" />
+    <Compile Include="DirectoryUow.cs" />
     <Compile Include="Enums\PasswordPolicy.cs" />
     <Compile Include="Extensions\DirectoryExtension.cs" />
     <Compile Include="Extensions\UserExtension.cs" />
-    <Compile Include="IRepository.cs" />
     <Compile Include="PasswordExpiration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserRepository.cs" />
+    <Compile Include="Repositories\DirectoryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\203.UMS.Models\203.UMS.Models.csproj">

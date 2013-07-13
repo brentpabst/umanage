@@ -1,9 +1,10 @@
-﻿using _203.UMS.Data.Contracts;
+﻿using _203.UMS.Data.Interfaces;
 using _203.UMS.Directory;
-using _203.UMS.Models.Config;
 using _203.UMS.Models.Directory;
 using AttributeRouting;
 using AttributeRouting.Web.Http;
+using System;
+using System.Linq;
 using System.Web;
 using System.Web.Http;
 
@@ -12,32 +13,35 @@ namespace _203.UMS.Web.UI.Controllers
     [RouteArea("api"), RoutePrefix("users")]
     public class UsersController : ApiController
     {
-        private readonly IRepoUow _repo;
-        private readonly DirectorySetting _settings;
+        private readonly IDbUow _dbRepo;
+        private readonly DirectoryUow _dirRepo;
 
-        public UsersController(IRepoUow uow)
+        public UsersController(IDbUow uow)
         {
-            _repo = uow;
-            var conf = new Config.Connections(_repo);
-            _settings = conf.GetDirectorySettings(true);
+            _dbRepo = uow;
+            var conf = new Config.Connections(_dbRepo);
+            var settings = conf.GetDirectorySettings(true);
+            _dirRepo = new DirectoryUow(settings);
         }
 
         // TODO: /users/ - Gets all users
+        [GET(""), HttpGet]
+        public IQueryable<User> GetUsers()
+        {
+            return _dirRepo.Users.GetAll();
+        }
 
         // /users/me - Gets or Updates the current user
         [GET("me"), HttpGet]
         public User GetCurrentUser()
         {
-            var u = new UserRepository(_settings);
-            return u.Find(HttpContext.Current.User.Identity.Name);
+            return _dirRepo.Users.Get(HttpContext.Current.User.Identity.Name);
         }
 
         [POST("me"), HttpPost]
         public User PostCurrentUser(User user)
         {
-            var u = new UserRepository(_settings);
-            u.InsertOrUpdate(user);
-            return u.Find(user.UserName);
+            throw new NotImplementedException();
         }
 
         // /users/{id} - Gets or updates the specified user
@@ -45,16 +49,13 @@ namespace _203.UMS.Web.UI.Controllers
         [GET("{id}"), HttpGet]
         public User GetUser(string id)
         {
-            var u = new UserRepository(_settings);
-            return u.Find(id);
+            return _dirRepo.Users.Get(id);
         }
 
         [POST("{id}"), HttpPost]
         public User PutUser(string id, [FromBody]User user)
         {
-            var u = new UserRepository(_settings);
-            u.InsertOrUpdate(user);
-            return u.Find(user.UserName);
+            throw new NotImplementedException();
         }
 
          // /users/{id}/account/enable - Enables a user account

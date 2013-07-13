@@ -53,8 +53,9 @@
     <Compile Include="App\Setting.cs" />
     <Compile Include="App\Employee.cs" />
     <Compile Include="App\WallPost.cs" />
-    <Compile Include="Config\DatabaseSetting.cs" />
-    <Compile Include="Config\DirectorySetting.cs" />
+    <Compile Include="Config\DatabaseSettings.cs" />
+    <Compile Include="Config\DirectorySettings.cs" />
+    <Compile Include="Directory\Principal.cs" />
     <Compile Include="Directory\PasswordReminderSetting.cs" />
     <Compile Include="Directory\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,4 @@
-﻿using _203.UMS.Data.Contracts;
+﻿using _203.UMS.Data.Interfaces;
 using _203.UMS.Models.App;
 using _203.UMS.Security;
 using System;
@@ -9,11 +9,11 @@ namespace _203.UMS.Web.Config
     public class Settings
     {
         #region Properties
-        private readonly IRepoUow _repo;
+        private readonly IDbUow _repo;
         #endregion
 
         #region Ctor
-        public Settings(IRepoUow uow)
+        public Settings(IDbUow uow)
         {
             _repo = uow;
         }

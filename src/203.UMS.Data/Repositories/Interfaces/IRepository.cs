@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace _203.UMS.Data.Contracts
+namespace _203.UMS.Data.Repositories.Interfaces
 {
     public interface IRepository<T> where T : class
     {

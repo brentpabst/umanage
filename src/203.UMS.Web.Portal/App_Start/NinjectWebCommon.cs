@@ -1,6 +1,8 @@
 using _203.UMS.Data;
-using _203.UMS.Data.Contracts;
-using _203.UMS.Data.Helpers;
+using _203.UMS.Data.Interfaces;
+using _203.UMS.Data.Repositories;
+using _203.UMS.Data.Repositories.Interfaces;
+using _203.UMS.Data.Repositories.Sql;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
@@ -57,9 +59,9 @@ namespace _203.UMS.Web.UI
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<RepositoryFactories>().To<RepositoryFactories>().InSingletonScope();
-            kernel.Bind<IRepositoryProvider>().To<RepositoryProvider>();
-            kernel.Bind<IRepoUow>().To<RepoUow>();
+            kernel.Bind<RepositoryFactory>().To<RepositoryFactory>().InSingletonScope();
+            kernel.Bind<IRepositoryProvider>().To<SqlRepositoryProvider>();
+            kernel.Bind<IDbUow>().To<DataUow>();
         }      
     }
 }

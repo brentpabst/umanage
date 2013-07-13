@@ -2,7 +2,7 @@
 
 namespace _203.UMS.Models.Config
 {
-    public class DirectorySetting
+    public class DirectorySettings
     {
         [Required(ErrorMessage = "You must specify the directory name")]
         [StringLength(50, ErrorMessage = "The name of the directory cannot be longer than {1} characters.")]

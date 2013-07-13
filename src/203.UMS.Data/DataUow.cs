@@ -1,22 +1,23 @@
-﻿using _203.UMS.Data.Contracts;
+﻿using _203.UMS.Data.Interfaces;
+using _203.UMS.Data.Repositories.Interfaces;
 using _203.UMS.Models.App;
 using System;
 
 namespace _203.UMS.Data
 {
-    public class RepoUow : IRepoUow, IDisposable
+    public class DataUow : IDbUow, IDisposable
     {
         private SystemDb Db { get; set; }
 
-        public RepoUow(IRepositoryProvider repositoryProvider)
+        public DataUow(IRepositoryProvider repositoryProvider)
         {
             Db = new SystemDb();
 
-            repositoryProvider.DbContext = Db;
+            repositoryProvider.Context = Db;
             RepositoryProvider = repositoryProvider;
         }
 
-        // TODO: Add new models here to access them in the UOW
+        // UNIT OF WORK CLASSES/TABLES
         public IRepository<Setting> Settings { get { return GetRepository<Setting>(); } }
 
         public void Commit()

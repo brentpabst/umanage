@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace _203.UMS.Models.Config
 {
-    public class DatabaseSetting
+    public class DatabaseSettings
     {
         [Required(ErrorMessage = "You must specify the server name")]
         [StringLength(75, ErrorMessage = "The name of the server cannot be longer than {1} characters.")]

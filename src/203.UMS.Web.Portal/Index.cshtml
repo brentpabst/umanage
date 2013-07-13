@@ -33,10 +33,16 @@
             <em>A <strong>203 Enterprises</strong> Project</em>
         </div>
     </div>
-    @User.Identity.Name - 
-    <em>@Dns.GetHostEntry("localhost").HostName.ToLower()</em>
     @Scripts.Render("~/scripts/vendor")
-    <script src="/App/durandal/amd/require.js"
-        data-main="App/main"></script>
+    <script src="/App/durandal/amd/require.js" data-main="App/main"></script>
+    <!-- 
+        *****
+        Server/User Information
+        *****
+        --------------------------------------------------------------
+        User:       @User.Identity.Name
+        Web Server: @Dns.GetHostEntry("localhost").HostName.ToLower()
+        --------------------------------------------------------------
+    -->
 </body>
 </html>

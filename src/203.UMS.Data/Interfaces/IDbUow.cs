@@ -1,8 +1,9 @@
-﻿using _203.UMS.Models.App;
+﻿using _203.UMS.Data.Repositories.Interfaces;
+using _203.UMS.Models.App;
 
-namespace _203.UMS.Data.Contracts
+namespace _203.UMS.Data.Interfaces
 {
-    public interface IRepoUow
+    public interface IDbUow
     {
         // Save pending changes to the data store.
         void Commit();
