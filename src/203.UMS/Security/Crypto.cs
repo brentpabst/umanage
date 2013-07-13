@@ -11,7 +11,7 @@ namespace _203.UMS.Security
         private static readonly byte[] Vector = Encoding.UTF8.GetBytes("@1B2c3D4e5F6g7H8");
         private static readonly byte[] Salt = Encoding.UTF8.GetBytes("uManage!sTh3Gre@t3st");
         private const int KeySize = 256;
-        private const int EncryptionIterations = 1000;
+        private const int EncryptionIterations = 2000;
 
         public static byte[] Ecrypt(string text)
         {
