@@ -24,5 +24,10 @@ namespace _203.UMS.Directory.Extensions
             var v = d.Properties[p].Value;
             return v != null ? v.ToString() : null;
         }
+
+        internal static void SetProperty(this DirectoryEntry d, string p, string v)
+        {
+            d.Properties[p].Value = String.IsNullOrWhiteSpace(v) ? null : v;
+        }
     }
 }

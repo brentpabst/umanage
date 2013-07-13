@@ -7,8 +7,8 @@ namespace _203.UMS.Directory.Repositories.Interfaces
     {
         IQueryable<T> GetAll();
         T Get(Guid id);
-        void Add(T entity);
-        void Update(T entity);
-        void Delete(Guid id);
+        bool Add(T entity);
+        bool Update(T entity);
+        bool Delete(Guid id);
     }
 }

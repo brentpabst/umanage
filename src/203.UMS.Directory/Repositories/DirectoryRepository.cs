@@ -25,17 +25,17 @@ namespace _203.UMS.Directory.Repositories
             throw new NotImplementedException();
         }
 
-        public void Add(Principal entity)
+        public bool Add(Principal entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Principal entity)
+        public bool Update(Principal entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Guid id)
+        public bool Delete(Guid id)
         {
             throw new NotImplementedException();
         }

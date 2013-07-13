@@ -38,21 +38,23 @@ namespace _203.UMS.Directory.Repositories
             return UserPrincipal.FindByIdentity(Ctx, upn).AsUser();
         }
 
-        public void Add(User entity)
+        public bool Add(User entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(User entity)
+        public bool Update(User entity)
         {
             var p = UserPrincipal.FindByIdentity(Ctx, entity.UserId.ToString());
+            if (p == null) return false;
             p.MergeUser(entity);
-            if (p != null) p.Save();
+            p.Save();
+            return true;
         }
 
-        public void Delete(Guid id)
+        public bool Delete(Guid id)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("This system will never delete user accounts, use disable instead.");
         }
         
         public bool Enable(Guid id)
@@ -95,7 +97,6 @@ namespace _203.UMS.Directory.Repositories
         {
             var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
             if (p == null) return false;
-            // Requires Domain Admin rights
             p.SetPassword(pass);
             p.Save();
             return true;

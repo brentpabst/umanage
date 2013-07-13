@@ -233,6 +233,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\ums.less" />
     <Content Include="Content\toastr.less" />
+    <Content Include="favicon.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.0.2.intellisense.js" />

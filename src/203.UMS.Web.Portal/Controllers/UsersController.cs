@@ -5,6 +5,7 @@ using AttributeRouting;
 using AttributeRouting.Web.Http;
 using System;
 using System.Linq;
+using System.Security;
 using System.Web;
 using System.Web.Http;
 
@@ -30,7 +31,6 @@ namespace _203.UMS.Web.UI.Controllers
             return _dirRepo.Users.GetAll();
         }
 
-        // /users/me - Gets or Updates the current user
         [GET("me"), HttpGet]
         public User GetCurrentUser()
         {
@@ -40,10 +40,13 @@ namespace _203.UMS.Web.UI.Controllers
         [POST("me"), HttpPost]
         public User PostCurrentUser(User user)
         {
-            throw new NotImplementedException();
-        }
+            var u = GetCurrentUser();
+            if (user.UserId != u.UserId)
+                throw new SecurityException("You are attempting to update a user record that is not your own.");
 
-        // /users/{id} - Gets or updates the specified user
+            _dirRepo.Users.Update(user);
+            return _dirRepo.Users.Get(user.UserId);
+        }
 
         [GET("{id}"), HttpGet]
         public User GetUser(Guid id)
@@ -52,26 +55,25 @@ namespace _203.UMS.Web.UI.Controllers
         }
 
         [POST("{id}"), HttpPost]
-        public User PutUser(string id, [FromBody]User user)
+        public User PostUser(User user)
         {
-            throw new NotImplementedException();
+            _dirRepo.Users.Update(user);
+            return _dirRepo.Users.Get(user.UserId);
         }
 
-        // /users/{id}/account/enable - Enables a user account
         [GET("{id}/account/enable"), HttpGet]
         public User Enable(Guid id)
         {
             if (!_dirRepo.Users.Enable(id))
-                throw new InvalidOperationException("Failed to enable the user.");
+                throw new Exception("Failed to enable the user.");
             return GetUser(id);
         }
         
-        // /users/{id}/account/disable - Disables a user account
         [GET("{id}/account/disable"), HttpGet]
         public User Disable(Guid id)
         {
             if (!_dirRepo.Users.Disable(id))
-                throw new InvalidOperationException("Failed to disable the user.");
+                throw new Exception("Failed to disable the user.");
             return GetUser(id);
         }
 

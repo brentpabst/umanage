@@ -76,6 +76,32 @@ namespace _203.UMS.Directory.Extensions
             var e = p.GetUnderlyingObject() as DirectoryEntry;
 
             // Build User Principal Assignments here
+            p.GivenName = u.FirstName;
+            p.MiddleName = u.MiddleName;
+            p.Surname = u.LastName;
+            p.EmailAddress = u.Email;
+            p.VoiceTelephoneNumber = u.OfficePhone;
+            p.DisplayName = u.DisplayName;
+
+            e.SetProperty("wWWHomePage", u.Website);
+            e.SetProperty("title", u.Title);
+            e.SetProperty("physicalDeliveryOfficeName", u.Office);
+            e.SetProperty("company", u.Organization);
+            e.SetProperty("department", u.Department);
+            e.SetProperty("employeeID", u.BadgeId);
+            e.SetProperty("employeeNumber", u.EmployeeId);
+            //e.SetProperty("manager", u.Manager != null ? u.Manager.DistinguishedName : null);
+            e.SetProperty("streetAddress", u.Address1);
+            e.SetProperty("postOfficeBox", u.Address2);
+            e.SetProperty("l", u.City);
+            e.SetProperty("postalCode", u.PostCode);
+            e.SetProperty("st", u.Province);
+            e.SetProperty("c", u.Country);
+            e.SetProperty("homephone", u.HomePhone);
+            e.SetProperty("pager", u.Pager);
+            e.SetProperty("mobile", u.MobilePhone);
+            e.SetProperty("facsimileTelephoneNumber", u.Fax);
+            e.SetProperty("ipPhone", u.SipPhone);
 
             return p;
         }
