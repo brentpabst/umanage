@@ -18,7 +18,12 @@ namespace _203.UMS.Data
         }
 
         // UNIT OF WORK CLASSES/TABLES
+        public IRepository<Department> Departments { get { return GetRepository<Department>(); } }
+        public IRepository<Location> Locations { get { return GetRepository<Location>(); } }
+        public IRepository<Office> Offices { get { return GetRepository<Office>(); } }
+        public IRepository<QuickLink> QuickLinks { get { return GetRepository<QuickLink>(); } }
         public IRepository<Setting> Settings { get { return GetRepository<Setting>(); } }
+        public IRepository<WallPost> WallPosts { get { return GetRepository<WallPost>(); } }
 
         public void Commit()
         {

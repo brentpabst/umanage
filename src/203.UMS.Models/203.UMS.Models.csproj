@@ -45,13 +45,9 @@
   <ItemGroup>
     <Compile Include="App\Department.cs" />
     <Compile Include="App\Location.cs" />
-    <Compile Include="App\Log.cs" />
     <Compile Include="App\Office.cs" />
-    <Compile Include="App\PasswordNotification.cs" />
     <Compile Include="App\QuickLink.cs" />
-    <Compile Include="App\Role.cs" />
     <Compile Include="App\Setting.cs" />
-    <Compile Include="App\Employee.cs" />
     <Compile Include="App\WallPost.cs" />
     <Compile Include="Config\DatabaseSettings.cs" />
     <Compile Include="Config\DirectorySettings.cs" />

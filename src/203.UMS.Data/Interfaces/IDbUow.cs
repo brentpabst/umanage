@@ -10,6 +10,11 @@ namespace _203.UMS.Data.Interfaces
 
         // Repositories
         // TODO: Add new repositories and models here
+        IRepository<Department> Departments { get; }
+        IRepository<Location> Locations { get; }
+        IRepository<Office> Offices { get; }
+        IRepository<QuickLink> QuickLinks { get; }
         IRepository<Setting> Settings { get; }
+        IRepository<WallPost> WallPosts { get; }
     }
 }

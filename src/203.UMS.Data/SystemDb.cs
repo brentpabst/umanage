@@ -15,7 +15,12 @@ namespace _203.UMS.Data
 
         // Model to Table Mapping
         // TODO: Add new table mapping/wireups here
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Office> Offices { get; set; }
+        public DbSet<QuickLink> QuickLinks { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<WallPost> WallPosts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

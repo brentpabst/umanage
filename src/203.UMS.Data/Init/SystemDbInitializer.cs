@@ -21,48 +21,16 @@ namespace _203.UMS.Data.Init
 
         protected override void Seed(SystemDb context)
         {
-            //Roles().ForEach(r => _db.Roles.Add(r));
             Settings().ForEach(s => _db.Settings.Add(s));
-            //QuickLinks().ForEach(l => _db.QuickLinks.Add(l));
-            //WallPosts().ForEach(p => _db.WallPosts.Add(p));
-            //Offices().ForEach(o => _db.Offices.Add(o));
-            //Departments().ForEach(d => _db.Departments.Add(d));
+            QuickLinks().ForEach(l => _db.QuickLinks.Add(l));
+            WallPosts().ForEach(p => _db.WallPosts.Add(p));
+            Offices().ForEach(o => _db.Offices.Add(o));
+            Departments().ForEach(d => _db.Departments.Add(d));
 
             _db.SaveChanges();
         }
-        
-        #region Seed Data
-        private List<Role> Roles()
-        {
-            return new List<Role>
-                       {
-                           new Role
-                               {
-                                   RoleId = Guid.NewGuid(),
-                                   Name = "Administer",
-                                   Description = "Allows generic access to administration forms"
-                               },
-                            new Role
-                                {
-                                    RoleId = Guid.NewGuid(),
-                                    Name = "System",
-                                    Description = "Allows access to system configuration settings"
-                                },
-                            new Role
-                                {
-                                    RoleId = Guid.NewGuid(),
-                                    Name = "Users",
-                                    Description = "Allows access to add and manage users"
-                                },
-                            new Role
-                                {
-                                    RoleId = Guid.NewGuid(),
-                                    Name = "Groups",
-                                    Description = "Allows access to add and manage groups"
-                                }
-                       };
-        }
 
+        #region Seed Data
         private List<Setting> Settings()
         {
             var debug = HttpContext.Current.IsDebuggingEnabled;
@@ -73,7 +41,7 @@ namespace _203.UMS.Data.Init
                                     SettingId = Guid.NewGuid(),
                                     IsEncrypted = false,
                                     Key = "LdapPath",
-                                    Value = "familynet.local"
+                                    Value = ""
                                },
                            new Setting
                                {
@@ -101,7 +69,7 @@ namespace _203.UMS.Data.Init
                                     SettingId=Guid.NewGuid(),
                                     IsEncrypted = false,
                                     Key = "OverrideWallPosts",
-                                    Value = "false"
+                                    Value = "true"
                                 },
                             new Setting
                                 {
@@ -186,8 +154,16 @@ namespace _203.UMS.Data.Init
                                    LinkId = Guid.NewGuid(),
                                    DisplayOrder = 1,
                                    NewWindow = false,
-                                   Text = "GitHub",
-                                   Url = "http://github.com/brentpabst/umanage"
+                                   Text = "uManage",
+                                   Url = "http://umanage.203ent.com"
+                           },
+                           new QuickLink
+                               {
+                                   LinkId = Guid.NewGuid(),
+                                   DisplayOrder = 2,
+                                   NewWindow=false,
+                                   Text="Fork us on GitHub",
+                                   Url = "http://github.com/203ent/umanage"
                                }
                        };
         }
@@ -269,7 +245,7 @@ namespace _203.UMS.Data.Init
                                new Department
                                {
                                    DepartmentId = Guid.NewGuid(),
-                                   Name = "Logistics",
+                                   Name = "Operations",
                                    AddedOn = DateTime.Parse("7/1/2012")
                                }
                        };
