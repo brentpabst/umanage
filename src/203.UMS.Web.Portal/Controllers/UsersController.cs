@@ -77,9 +77,22 @@ namespace _203.UMS.Web.UI.Controllers
             return GetUser(id);
         }
 
-        // /users/{id}/account/unlock - Unlocks a user account
+        [GET("{id}/account/unlock"), HttpGet]
+        public User Unlock(Guid id)
+        {
+            if (!_dirRepo.Users.Unlock(id))
+                throw new Exception("Failed to unlock the user.");
+            return GetUser(id);
+        }
 
-        // /users/{id}/password/expire - Forces a password to expire
+        [GET("{id}/password/expire"), HttpGet]
+        public User ExpirePassword(Guid id)
+        {
+            if (!_dirRepo.Users.ExpirePassword(id))
+                throw new Exception("Failed to expire the user's password.");
+            return GetUser(id);
+        }
+
         // /users/{id}/password/code - Generates a password reset code
         // /users/{id}/password/reset - Changes the user's password with a reset code
         // /users/{id}/password/change - Changes the user's password
