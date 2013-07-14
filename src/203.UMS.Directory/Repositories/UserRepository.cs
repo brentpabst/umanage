@@ -1,4 +1,5 @@
-﻿using _203.UMS.Directory.Extensions;
+﻿using System.DirectoryServices;
+using _203.UMS.Directory.Extensions;
 using _203.UMS.Directory.Repositories.Interfaces;
 using _203.UMS.Models.Directory;
 using System;
@@ -56,7 +57,7 @@ namespace _203.UMS.Directory.Repositories
         {
             throw new NotImplementedException("This system will never delete user accounts, use disable instead.");
         }
-        
+
         public bool Enable(Guid id)
         {
             var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
@@ -65,7 +66,7 @@ namespace _203.UMS.Directory.Repositories
             p.Save();
             return true;
         }
-        
+
         public bool Disable(Guid id)
         {
             var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
@@ -74,7 +75,7 @@ namespace _203.UMS.Directory.Repositories
             p.Save();
             return true;
         }
-        
+
         public bool Unlock(Guid id)
         {
             var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
@@ -92,13 +93,55 @@ namespace _203.UMS.Directory.Repositories
             p.Save();
             return true;
         }
-        
+
         public bool SetPassword(Guid id, string pass)
         {
             var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
             if (p == null) return false;
             p.SetPassword(pass);
             p.Save();
+            return true;
+        }
+
+        public bool ClearPhoto(Guid id)
+        {
+            var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
+            if (p == null) return false;
+
+            var e = p.GetUnderlyingObject() as DirectoryEntry;
+            if (e == null) return false;
+
+            e.SetProperty("jpegPhoto", "");
+            e.SetProperty("thumbnailPhoto", "");
+            p.Save();
+
+            return true;
+        }
+
+        public byte[] GetPhoto(Guid id)
+        {
+            var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
+            if (p == null) return null;
+
+            var e = p.GetUnderlyingObject() as DirectoryEntry;
+            if (e == null) return null;
+
+            return (byte[])e.Properties["jpegPhoto"].Value;
+        }
+
+        public bool UpdatePhoto(Guid id, byte[] photo)
+        {
+            var p = UserPrincipal.FindByIdentity(Ctx, id.ToString());
+            if (p == null) return false;
+
+            var e = p.GetUnderlyingObject() as DirectoryEntry;
+            if (e == null) return false;
+
+            // Not using the extension method here as it doesn't currently support byte arrays
+            e.Properties["jpegPhoto"].Value = photo;
+            e.Properties["thumbnailPhoto"].Value = photo;
+            p.Save();
+            
             return true;
         }
     }

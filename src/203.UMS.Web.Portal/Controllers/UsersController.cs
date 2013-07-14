@@ -5,6 +5,9 @@ using AttributeRouting;
 using AttributeRouting.Web.Http;
 using System;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security;
 using System.Web;
 using System.Web.Http;
@@ -68,7 +71,7 @@ namespace _203.UMS.Web.UI.Controllers
                 throw new Exception("Failed to enable the user.");
             return GetUser(id);
         }
-        
+
         [GET("{id}/account/disable"), HttpGet]
         public User Disable(Guid id)
         {
@@ -93,10 +96,50 @@ namespace _203.UMS.Web.UI.Controllers
             return GetUser(id);
         }
 
-        // /users/{id}/password/code - Generates a password reset code
-        // /users/{id}/password/reset - Changes the user's password with a reset code
-        // /users/{id}/password/change - Changes the user's password
+        // TODO: /users/{id}/password/code - Generates a password reset code
+        // TODO: /users/{id}/password/reset - Changes the user's password with a reset code
+        // TODO: /users/{id}/password/change - Changes the user's password
 
-        // /users/{id}/photo - Gets or Updates the specified user's photo
+        [GET("me/photo"), HttpGet]
+        public HttpResponseMessage GetCurrentUserPhoto()
+        {
+            var u = GetCurrentUser();
+            var img = _dirRepo.Users.GetPhoto(u.UserId);
+            if (img == null) return new HttpResponseMessage(HttpStatusCode.NotFound);
+
+            var r = new HttpResponseMessage
+            {
+                Content = new ByteArrayContent(img),
+            };
+            r.Content.Headers.ContentType = new MediaTypeHeaderValue("jpg");
+            return r;
+        }
+
+        [POST("me/photo"), HttpPost]
+        public bool UpdatePhoto([FromBody] byte[] photo)
+        {
+            var u = GetCurrentUser();
+            return _dirRepo.Users.UpdatePhoto(u.UserId, photo);
+        }
+
+        [GET("{id}/photo"), HttpGet]
+        public HttpResponseMessage GetPhoto(Guid id)
+        {
+            var img = _dirRepo.Users.GetPhoto(id);
+            if (img == null) return new HttpResponseMessage(HttpStatusCode.NotFound);
+
+            var r = new HttpResponseMessage
+                {
+                    Content = new ByteArrayContent(img),
+                };
+            r.Content.Headers.ContentType = new MediaTypeHeaderValue("jpg");
+            return r;
+        }
+
+        [POST("{id}/photo"), HttpPost]
+        public bool UpdatePhoto(Guid id, [FromBody] byte[] photo)
+        {
+            return _dirRepo.Users.UpdatePhoto(id, photo);
+        }
     }
 }
