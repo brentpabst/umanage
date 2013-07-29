@@ -1,0 +1,46 @@
+﻿@model IOrderedQueryable<UMS.Core.Data.Models.App.WallPost>
+@{
+    ViewBag.Title = "Wall Posts";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+    var grid = new WebGrid(Model);
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        Wall Posts
+    </div>
+    <p>
+        Wall Posts are uManage's version of a blog. It allows you to post messages, alerts
+        or really anything you want to tell users about. You can save posts for later and
+        even schedule posts to publish in the future as well.
+    </p>
+    @Html.ActionLink("Add Wall Post", "Details", "Posts", new { @class = "action next" })
+    @* ReSharper disable Html.PathError *@
+    @if (Model.Any())
+    {
+        @grid.GetHtml(tableStyle: "data", columns: grid.Columns(
+             grid.Column(style: "icon clear-fix", format: @<text><a class="delete" href="/Admin/Wall/Delete/@item.PostId">&nbsp;</a><a class="edit" href="/Admin/Wall/Details/@item.PostId">&nbsp;</a></text>),
+                 grid.Column("Title"),
+             grid.Column("PublishDate", "Publish Date", @<text>@item.PublishDate.ToShortDateString()</text>),
+                 grid.Column("IsDraft", "Draft?", @<text>@if (item.IsDraft)
+                                                         { <text>Yes</text> }
+                                                         else
+                                                         { <text>No</text> }</text>)
+                                   ))
+    }
+    else
+    {
+        <span class="empty">No wall posts exist.</span>
+    }
+    @* ReSharper restore Html.PathError *@
+</div>
+@section Script
+{
+    <script type="text/javascript">
+        $(function () {
+        });
+    </script>
+}

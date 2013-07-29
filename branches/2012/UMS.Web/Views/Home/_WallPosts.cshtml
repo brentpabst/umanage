@@ -1,0 +1,13 @@
+﻿@model IEnumerable<UMS.Core.Data.Models.App.WallPost>
+@foreach (var p in Model)
+{
+    <div class="box">
+        <div class="head">
+            <strong>@p.Title</strong>
+        </div>
+        <p>
+            <em>@p.PublishDate.ToLongDateString()</em>
+        </p>
+        @MvcHtmlString.Create(p.Body)
+    </div>    
+}

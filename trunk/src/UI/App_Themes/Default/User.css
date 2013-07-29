@@ -1,0 +1,408 @@
+﻿body.user
+{
+    background-color: #414b55;
+    font-size: .8em;
+    line-height: 1.25;
+}
+
+.user-page
+{
+    position: static;
+    width: 960px;
+    margin: 3% auto;
+}
+
+.user-head
+{
+    background-color: #e0e0d7;
+    line-height: 1.25;
+    color: Black;
+}
+
+.user-content
+{
+    background-color: White;
+    min-height: 475px;
+    padding: 10px;
+    color: #666;
+}
+
+.user-nav
+{
+    min-height: 65px;
+}
+
+.user-foot
+{
+    margin: 5px 10px 0 5px;
+}
+
+.user-head-title
+{
+    padding: 0 0 5px 10px;
+    font-size: xx-large;
+}
+
+.user-head-name
+{
+    padding: 5px 10px 5px 0;
+    font-size: .85em;
+    text-align: right;
+    line-height: 1.5;
+}
+
+.user-head-name a
+{
+    font-size: .80em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #666;
+    text-decoration: none;
+}
+
+.user-head-name a:hover
+{
+    color: #999;
+}
+
+.user-foot a
+{
+    color: White;
+    text-decoration: none;
+}
+
+.user-foot a:hover
+{
+    text-decoration: underline;
+}
+
+ul.user-menu
+{
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+}
+
+ul.user-menu li
+{
+    display: block;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 8px;
+}
+
+ul.user-menu li a
+{
+    color: #ccc;
+    font-size: 150%;
+    text-decoration: none;
+}
+
+ul.user-menu li a.selected, ul.user-menu li a.selected:hover
+{
+    color: #666;
+}
+
+ul.user-menu li a:hover
+{
+    color: #999;
+}
+
+ul.user-submenu
+{
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+ul.user-submenu li
+{
+    display: block;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 8px;
+}
+
+ul.user-submenu li a
+{
+    color: #999;
+    font-size: .9em;
+    text-decoration: none;
+}
+
+ul.user-submenu li a.selected, ul.user-submenu li a.selected:hover
+{
+    color: #666;
+    font-weight: bold;
+}
+
+ul.user-submenu li a:hover
+{
+    color: #ccc;
+}
+
+ul.config-menu
+{
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+ul.config-menu li
+{
+    margin-bottom: 5px;
+}
+
+ul.config-menu li a
+{
+    color: #666;
+    font-size: .7em;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+ul.config-menu li a.selected
+{
+    color: #666;
+    background: url(Images/Right-Arrow.png) no-repeat left center;
+}
+
+ul.config-menu li a:hover, ul.config-menu li a.selected:hover
+{
+    color: #ccc;
+}
+
+.user-content p
+{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.user-content a
+{
+    color: Black;
+    text-decoration: underline;
+}
+
+.user-info
+{
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: dashed 1px #ccc;
+}
+
+
+
+
+.form
+{
+    margin: 5px 0 5px 0;
+}
+
+.form td
+{
+    padding-bottom: 8px;
+    vertical-align: middle;
+}
+
+.form th
+{
+    text-align: right;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    font-size: .9em;
+    min-width: 120px;
+    vertical-align: middle;
+}
+
+th.top, td.top
+{
+    vertical-align: top;
+}
+
+.form input.text
+{
+    width: 250px;
+    padding: 2px 5px;
+    border: solid 1px #ccc;
+}
+
+.form input.text:hover
+{
+    border: solid 1px #666;
+}
+
+.form input.text:focus
+{
+    border: solid 1px #999;
+}
+
+.form select
+{
+    width: 260px;
+    padding: 0 0 0 5px;
+    border: solid 1px #ccc;
+}
+
+.form select:hover
+{
+    border: solid 1px #666;
+}
+
+.form select:focus
+{
+    border: solid 1px #999;
+}
+
+.form input.text-req
+{
+    width: 250px;
+    padding: 2px 5px;
+    border: solid 1px #FF91A4;
+}
+
+.form input.text-req:hover
+{
+    border: solid 1px red;
+}
+
+.form input.text-req:focus
+{
+    border: solid 1px pink;
+}
+
+.form input.text-invalid
+{
+    border: solid 1px red !important;
+    background-color: pink;
+}
+
+.form input.submit
+{
+    padding: 5px;
+    border: solid 1px #ccc;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.form input.submit:hover
+{
+    border: solid 1px #666;
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+.grid
+{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.grid th
+{
+    text-align: left;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    text-transform: uppercase;
+    font-size: 80%;
+}
+
+.grid td
+{
+    border-right: solid 1px #666;
+    padding: 3px 8px 3px 8px;
+    vertical-align: middle;
+}
+
+.grid td a
+{
+    color: #666;
+    text-decoration: underline;
+}
+
+.grid tbody tr:hover td
+{
+    background-color: #e7e8e8;
+}
+
+.grid tr.selected td
+{
+    background-color: #fffedf;
+}
+
+.grid tr.footer td, .grid tr.footer:hover td
+{
+    text-transform: uppercase;
+    font-weight: bold;
+    border-top: solid 1px #666;
+    background-color: #e0e0d7;
+}
+
+.box
+{
+    border: solid 1px #999;
+}
+
+.box .content, .box table.form, .box p
+{
+    margin: 5px;
+}
+
+.box .head
+{
+    padding: 2px 5px;
+    background-color: #e0e0d7;
+    color: Black;
+    text-transform: uppercase;
+}
+
+.config-left
+{
+    width: 20%;
+}
+
+.config-right
+{
+    width: 77%;
+    padding-left: 2%;
+    border-left: solid 1px #ccc;
+    min-height: 300px;
+}
+
+h3
+{
+    font-size: 130%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+input.clock
+{
+    padding: 10px;
+    border: solid 1px #ccc;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2em;
+    color: White;
+}
+
+input.clock:hover
+{
+    border: solid 1px #666;
+    cursor: pointer;
+    color: Black;
+}
+
+input.in
+{
+    background-color: Green;
+    }
+
+input.out
+{
+    background-color: Red;
+    }

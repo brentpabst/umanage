@@ -1,0 +1,33 @@
+﻿@model UMS.Core.Data.Models.App.QuickLink
+@{
+    var edit = Model != null;
+
+    ViewBag.Title = edit ? "Edit Quick Link" : "Add Quick Link";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        @if (edit)
+        {<text>Edit Quick Link</text>}
+        else
+        {<text>Add A Quick Link</text>}
+    </div>
+    @using (Html.BeginForm("Details", "Links", FormMethod.Post, new { id = "AddLink" }))
+    {
+        @Html.EditorForModel()
+        <input type="submit" value="Save Changes" />
+        <text>&nbsp;&nbsp;</text>@Html.ActionLink("Cancel", "Index", "Links", new { @class = "action prev" })
+    }
+</div>
+@section Script
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#AddLink").makeValidationInline();
+        });
+    </script>
+}

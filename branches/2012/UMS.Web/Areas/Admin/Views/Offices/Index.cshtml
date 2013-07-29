@@ -1,0 +1,70 @@
+﻿@model IQueryable<UMS.Core.Data.Models.App.Office>
+@{
+    ViewBag.Title = "Office Locations";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+    var e = ViewData["Enable"] is bool && (bool)ViewData["Enable"];
+    var grid = new WebGrid(Model, defaultSort: "Name");
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        Office Locations
+    </div>
+    <p>
+        Office Locations allows you to specify a list of values to allow users to select
+        from when making changes to their information or others. You can either enable or
+        disable the pre-defined list of locations as well as edit the pre-defined list of
+        locations from this page.
+    </p>
+    <h3>
+        Enable/Disable List
+    </h3>
+    @using (Html.BeginForm("Enable", "Offices", FormMethod.Post))
+    {
+        <div>
+            Enable List?
+        </div>
+        @Html.CheckBox("Enabled", e)
+        <br />
+        <input type="submit" value="Save Changes" />
+    }
+    <hr />
+    <h3>
+        Add New Office Location
+    </h3>
+    @using (Html.BeginForm("Add", "Offices", FormMethod.Post, new { id = "AddOffice" }))
+    {
+        <div>
+            Office Name
+        </div>
+        <input data-val="true" data-val-length="The name of the office cannot be longer than 50 characters."
+            data-val-length-max="50" data-val-required="You must specify a name for the office."
+            id="Name" name="Name" type="text" value="" />
+        <br />
+        <input type="submit" value="Add Office" />
+        
+    }
+    <hr />
+    <h3>
+        Available Office Locations
+    </h3>
+    @* ReSharper disable Html.PathError *@
+    @grid.GetHtml(tableStyle: "data", columns: grid.Columns(
+        grid.Column(style: "icon clear-fix", format: @<text><a class="delete" href="/Admin/Offices/Delete/@item.OfficeId">&nbsp;</a></text>),
+        grid.Column("Name"),
+        grid.Column("AddedOn", "Date Added (UTC)", @<text><abbr class="timeago" title="@String.Format("{0:s}", item.AddedOn)"></abbr></text>)
+    ))
+    @* ReSharper restore Html.PathError *@
+</div>
+@section Script
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#AddOffice").makeValidationInline();
+            $("abbr.timeago").timeago();
+        });
+    </script>
+}

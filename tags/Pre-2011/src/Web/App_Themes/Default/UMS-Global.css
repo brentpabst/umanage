@@ -1,0 +1,118 @@
+﻿.adminstyles
+{
+}
+
+/*************************************************************
+ * uManage Styles
+ * Theme: Default
+ * Global Style Sheet
+ * Copyright © Pabst Productions, Inc. 2010
+ * 
+ * Styles all forms and pages in uManage
+ * Controls look, feel and content.
+ ************************************************************/
+
+
+/* CONTACT CARD STYLES */
+.contactcard
+{
+	border: solid 1px #2e54b1;
+}
+
+.contactcard-head
+{
+	background-color: #c7dfee;
+	border-bottom: solid 1px #2e54b1;
+	font-weight: bold;
+	padding: 2px 5px;
+}
+
+.contactcard table
+{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 0.9em;
+}
+
+.contactcard table td.image
+{
+	width: 48px;
+	padding-right: 5px;
+}
+
+.contactcard-foot
+{
+	text-align: right;
+	font-size: 0.8em;
+	padding-right: 5px;
+}
+
+
+
+/* Lymphoma Modal */
+#modalpage
+{
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+.modalbackground
+{
+	filter: Alpha(Opacity =   75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	width: 100%;
+	height: 100%;
+	background-color: #999999;
+	position: absolute;
+	z-index: 500;
+	top: 0px;
+	left: 0px;
+}
+
+.modalcontainer
+{
+	position: absolute;
+	width: 400px;
+	left: 50%;
+	top: 50%;
+	z-index: 750;
+}
+
+.modal
+{
+	background-color: white;
+	border: solid 5px #a0b8e2;
+	position: relative;
+	top: -200px;
+	left: -200px;
+	z-index: 1000;
+	width: 400px;
+	padding: 0px;
+}
+
+.modaltop
+{
+	background-color: #a0b8e2;
+	padding: 5px;
+	color: Black;
+	font-weight: bold;
+}
+
+.modalbody
+{
+	padding: 5px;
+	color: Black;
+}
+
+.modalfoot
+{
+	background-color: #deedf7;
+	padding: 5px;
+	text-align: right;
+}

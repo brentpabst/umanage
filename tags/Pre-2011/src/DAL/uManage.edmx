@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="uManage.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="uManageStoreContainer">
+    <EntitySet Name="Messages" EntityType="uManage.Store.Messages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OfficeLocations" EntityType="uManage.Store.OfficeLocations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Applications" EntityType="uManage.Store.Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="uManage.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="uManage.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRole" EntityType="uManage.Store.UserRole" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ApplicationRole" Association="uManage.Store.ApplicationRole">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="ApplicationUser" Association="uManage.Store.ApplicationUser">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="uManage.Store.FK_UserRole_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="uManage.Store.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsSysMsg" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfficeLocations">
+    <Key>
+      <PropertyRef Name="Location" />
+    </Key>
+    <Property Name="Location" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+    <Property Name="Application_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Application_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="User_Id" />
+      <PropertyRef Name="Roles_Id" />
+    </Key>
+    <Property Name="User_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Roles_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="ApplicationRole">
+    <End Role="Application" Type="uManage.Store.Applications" Multiplicity="1" />
+    <End Role="Role" Type="uManage.Store.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="Application_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ApplicationUser">
+    <End Role="Application" Type="uManage.Store.Applications" Multiplicity="1" />
+    <End Role="User" Type="uManage.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Application_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="User" Type="uManage.Store.Users" Multiplicity="1" />
+    <End Role="UserRole" Type="uManage.Store.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="UserRole" Type="uManage.Store.UserRole" Multiplicity="*" />
+    <End Role="Role" Type="uManage.Store.Roles" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="Roles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="uManage" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="uManageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TimelineMessages" EntityType="uManage.TimelineMessage" />
+          <EntitySet Name="OfficeLocations" EntityType="uManage.OfficeLocation" />
+          <EntitySet Name="Applications" EntityType="uManage.Application" />
+          <EntitySet Name="Users" EntityType="uManage.User" />
+          <EntitySet Name="Roles" EntityType="uManage.Role" />
+          <AssociationSet Name="ApplicationRole" Association="uManage.ApplicationRole">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationUser" Association="uManage.ApplicationUser">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole" Association="uManage.UserRole">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TimelineMessage">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Type="Guid" Name="MessageID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsSysMsg" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OfficeLocation">
+          <Key>
+            <PropertyRef Name="Location" />
+          </Key>
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Description" Nullable="false" FixedLength="false" Unicode="true" MaxLength="255" />
+          <NavigationProperty Name="Roles" Relationship="uManage.ApplicationRole" FromRole="Application" ToRole="Role" />
+          <NavigationProperty Name="Users" Relationship="uManage.ApplicationUser" FromRole="Application" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" Unicode="true" />
+          <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="100" Unicode="true" />
+          <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="uManage.ApplicationUser" FromRole="User" ToRole="Application" />
+          <NavigationProperty Name="Roles" Relationship="uManage.UserRole" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="50" />
+          <NavigationProperty Name="Application" Relationship="uManage.ApplicationRole" FromRole="Role" ToRole="Application" />
+          <NavigationProperty Name="Users" Relationship="uManage.UserRole" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <Association Name="ApplicationRole">
+          <End Type="uManage.Application" Role="Application" Multiplicity="1" />
+          <End Type="uManage.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <Association Name="ApplicationUser">
+          <End Type="uManage.Application" Role="Application" Multiplicity="1" />
+          <End Type="uManage.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="UserRole">
+          <End Type="uManage.User" Role="User" Multiplicity="*" />
+          <End Type="uManage.Role" Role="Role" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="uManageStoreContainer" CdmEntityContainer="uManageEntities">
+    <EntitySetMapping Name="TimelineMessages">
+      <EntityTypeMapping TypeName="IsTypeOf(uManage.TimelineMessage)">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="IsSysMsg" ColumnName="IsSysMsg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfficeLocations">
+      <EntityTypeMapping TypeName="IsTypeOf(uManage.OfficeLocation)">
+        <MappingFragment StoreEntitySet="OfficeLocations">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="IsTypeOf(uManage.Application)">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(uManage.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(uManage.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ApplicationRole" TypeName="uManage.ApplicationRole" StoreEntitySet="Roles">
+      <EndProperty Name="Application">
+        <ScalarProperty Name="Id" ColumnName="Application_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ApplicationUser" TypeName="uManage.ApplicationUser" StoreEntitySet="Users">
+      <EndProperty Name="Application">
+        <ScalarProperty Name="Id" ColumnName="Application_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserRole" TypeName="uManage.UserRole" StoreEntitySet="UserRole">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Roles_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="uManage" >
+        <EntityTypeShape EntityType="uManage.TimelineMessage" Width="1.5" PointX="0.75" PointY="5.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="uManage.OfficeLocation" Width="1.5" PointX="2.75" PointY="5.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="uManage.Application" Width="1.5" PointX="0.75" PointY="2.375" Height="1.9802864583333331" />
+        <EntityTypeShape EntityType="uManage.User" Width="1.5" PointX="6.125" PointY="2.625" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="uManage.Role" Width="1.5" PointX="3.5" PointY="2.5" Height="1.7879850260416657" />
+        <AssociationConnector Association="uManage.ApplicationRole">
+          <ConnectorPoint PointX="2.25" PointY="3.3939925130208328" />
+          <ConnectorPoint PointX="3.5" PointY="3.3939925130208328" />
+        </AssociationConnector>
+        <AssociationConnector Association="uManage.ApplicationUser">
+          <ConnectorPoint PointX="2.2499999999999996" PointY="4.3552864583333335" />
+          <ConnectorPoint PointX="2.625" PointY="4.7302864583333335" />
+          <ConnectorPoint PointX="2.625" PointY="5.172587890625" />
+          <ConnectorPoint PointX="5.75" PointY="5.172587890625" />
+          <ConnectorPoint PointX="6.125" PointY="4.797587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="uManage.UserRole">
+          <ConnectorPoint PointX="6.125" PointY="3.4564925130208328" />
+          <ConnectorPoint PointX="5" PointY="3.4564925130208328" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Groups to Ignore";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+<div class="box">
+    <div class="head">
+        Groups to Ignore
+    </div>
+    <p>
+        Add groups here that you do not want to allow to be managed via uManage. <em>(List as
+            comma separated)</em>
+    </p>
+    @using (Html.BeginForm())
+    {
+        <table class="input">
+            <tr>
+                <th class="top">
+                    Groups:
+                </th>
+                <td>
+                    <textarea id="Groups" name="Groups" style="width: 500px; height: 300px;" cols="20"
+                        rows="20">@ViewData["Groups"]</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value="Save Changes" />
+                    <br />
+                    @ViewData["Result"]
+                </td>
+            </tr>
+        </table>
+    }
+</div>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>uManage - Offline</title>
+    <link rel="SHORTCUT ICON" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/png" href="/Images/UMS.png" />
+    <style type="text/css">
+        html, body
+        {
+            padding: 0;
+            margin: 0;
+            background-color: #deedf7;
+            color: #666666;
+            font-family: Tahoma, Verdana, Arial, Sans-Serif;
+            font-size: .9em;
+            line-height: 1.5;
+            background-repeat: repeat-x;
+        }
+        .user-page
+        {
+            /* Creates the small window all user pages use */
+            width: 578px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
+        }
+        .user-offline
+        {
+            padding: 15px;
+            background-color: White;
+            border: 3px solid silver;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-page">
+        <div class="user-offline">
+            <p>
+                <strong>Application Offline</strong>
+                <br />
+                The application is currently offline. This could be caused by a server problem or
+                more likely the administrator has simply taken the application down for maintenance
+                or other reasons. Please contact an administrator for more information or simply
+                check back later!
+            </p>
+			<p>
+				Sorry!
+			</p>
+        </div>
+    </div>
+</body>
+</html>

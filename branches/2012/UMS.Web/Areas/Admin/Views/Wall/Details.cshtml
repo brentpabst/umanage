@@ -1,0 +1,75 @@
+﻿@model UMS.Core.Data.Models.App.WallPost
+@{
+    var edit = Model != null;
+    ViewBag.Title = edit ? "Edit Wall Post" : "Add Wall Post";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        @if (edit)
+        {<text>Edit Wall Post</text>}
+        else
+        {<text>Add Wall Post</text>}
+    </div>
+    @using (Html.BeginForm("Details", "Wall", FormMethod.Post, new { id = "AddPost" }))
+    {
+        @Html.EditorFor(w => w.PostId)
+        <div>
+            @Html.LabelFor(w => w.IsDraft)
+        </div>
+        <div>
+            @Html.EditorFor(w => w.IsDraft)
+            @Html.ValidationMessageFor(w => w.IsDraft)
+        </div>
+        <div>
+            @Html.LabelFor(w => w.PublishDate)
+        </div>
+        <div>
+            @Html.EditorFor(w => w.PublishDate)
+            @Html.ValidationMessageFor(w => w.PublishDate)
+        </div>
+        <div>
+            @Html.LabelFor(w => w.Title)
+        </div>
+        <div>
+            @Html.EditorFor(w => w.Title)
+            @Html.ValidationMessageFor(w => w.Title)
+        </div>
+        <div>
+            @Html.LabelFor(w => w.Body)
+        </div>
+        <div>
+            @Html.TextAreaFor(w => w.Body)
+            @Html.ValidationMessageFor(w => w.Body)
+        </div>
+        <br />
+        <input type="submit" value="Save Changes" />
+        <text>&nbsp;&nbsp;</text>@Html.ActionLink("Cancel", "Index", "Wall", new { @class = "action prev" })
+    }
+</div>
+@section Script
+{
+    @Scripts.Render("~/bundles/tinymce")
+    <script type="text/javascript">
+        $(function () {
+            $("#AddPost").makeValidationInline();
+
+            $("#PublishDate").datepicker();
+            if ($("#PublishDate").val()=="") {
+                $("#PublishDate").val("@DateTime.Now.ToShortDateString()");
+            }
+            
+            $('#Body').tinymce({
+                script_url: "@Url.Content("~/Scripts/tinymce/tiny_mce.js")",
+                theme: "simple",
+                height: "200",
+                width: "500",
+                verify_html: false
+            });
+        });
+    </script>
+}

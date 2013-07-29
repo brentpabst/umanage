@@ -1,0 +1,192 @@
+﻿/* Styles for global HTML elements */
+
+body
+{
+    font-family: "Segoe UI" , Tahoma, "Trebuchet MS" , sans-serif;
+    font-size: .9em;
+    color: #666;
+    line-height: 1.25;
+    background: #dcdcdc;
+    cursor: default;
+}
+
+h2
+{
+    font-family: "Segoe UI Light" , Tahoma, "Trebuchet MS" , sans-serif;
+    font-size: 1.7em;
+    margin: 0 5px 5px 5px;
+}
+
+h3
+{
+    font-family: "Segoe UI SemiBold" , Tahoma, "Trebuchet MS" , sans-serif;
+    margin: 0 5px;
+    text-transform: uppercase;
+}
+
+strong, b
+{
+    font-weight: bold;
+}
+
+em, i
+{
+    font-style: italic;
+}
+
+p
+{
+    margin: 0 5px 10px 5px;
+}
+
+hr
+{
+    margin: 15px 0;
+    border: none;
+    border-bottom: dashed 1px silver;
+}
+
+ol
+{
+    margin: 0 5px 10px 35px;
+    list-style: decimal outside;
+}
+
+fieldset
+{
+    margin: 10px;
+    border: solid 1px silver;
+    padding: 10px;
+}
+
+legend
+{
+    padding: 5px 10px;
+    color: white;
+    background-color: #8E90EC;
+    text-transform: uppercase;
+}
+
+form
+{
+    margin: 5px 10px;
+}
+
+form .editor-label
+{
+    padding-bottom: 3px;
+}
+
+form input[type=text], form input[type=password], form textarea, form input[type=checkbox], form input[type=number], form input[type=email], form input[type=url], form input[type=datetime]
+{
+    margin-bottom: 10px;
+}
+
+form input[type=text], input[type=password], textarea, form input[type=number], form input[type=email], form input[type=url], form input[type=datetime]
+{
+    font-family: "Segoe UI" , Tahoma, "Trebuchet MS" , sans-serif;
+    color: #666;
+    min-width: 200px;
+    padding: 2px 5px;
+    border: solid 1px #91ceeb;
+}
+
+form input[type=text]:hover, input[type=password]:hover, textarea:hover, form input[type=number]:hover, form input[type=email]:hover, form input[type=url]:hover, form input[type=datetime]:hover
+{
+    border: solid 1px #57a0d3;
+}
+
+form input[type=text]:focus, input[type=password]:focus, textarea:focus, form input[type=number]:focus, form input[type=email]:focus, form input[type=url]:focus, form input[type=datetime]:focus
+{
+    border: solid 1px #57a0d3;
+}
+
+input[type=submit]
+{
+    background-color: #91ceeb;
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type=submit]:hover
+{
+    background-color: #57a0d3;
+}
+
+form input[type=text].input-validation-error, input[type=password].input-validation-error, textarea.input-validation-error, form input[type=number].input-validation-error, form input[type=url].input-validation-error, form input[type=datetime].input-validation-error
+{
+    border: solid 1px #ff0000 !important;
+    background-color: #ffc0cb;
+}
+
+span.failure
+{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+}
+
+span.ok
+{
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+}
+
+a.action
+{
+    padding: 3px 0;
+    font-family: "Segoe UI SemiBold" , "Helvetica" , Garuda, Arial, sans-serif !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    color: #999 !important;
+    text-decoration: none !important;
+    margin: 0 10px;
+}
+
+a.action:hover
+{
+    color: #57a0d3 !important;
+}
+
+a.next
+{
+    padding: 3px 30px 3px 0 !important;
+    background: url(Images/Action-Link-Next.png) no-repeat right center;
+}
+
+a.next:hover
+{
+    background-image: url(Images/Action-Link-Next-Hover.png);
+}
+
+a.prev
+{
+    padding: 3px 0 3px 30px;
+    background: url(Images/Action-Link-Prev.png) no-repeat left center;
+}
+
+a.prev:hover
+{
+    background-image: url(Images/Action-Link-Prev-Hover.png);
+}
+
+span.empty
+{
+    font-size: 22px;
+    font-style: italic;
+    display: block;
+    margin: 20px 10px;
+}
+
+.timeago
+{
+    /* Dummy Class for Time Conversion */
+}

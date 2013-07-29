@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true">
+  <siteMapNode roles="*">
+    <siteMapNode url="~/Forms/Admin/Admin-Dash.aspx" title="$resources:Admin,Menu_Admin_Dash_Title_Short"  description="$resources:Admin,Menu_Admin_Dash_Description" />
+    <siteMapNode url="~/Forms/Admin/Admin-UserList.aspx#" title="$resources:Admin,Menu_Admin_UserList_Title_Short"  description="$resources:Admin,Menu_Admin_UserList_Description">
+      <siteMapNode url="~/Forms/Admin/Admin-UserList.aspx" title="$resources:Admin,Menu_Admin_UserList_Title"  description="$resources:Admin,Menu_Admin_UserList_Description" />
+      <siteMapNode url="~/Forms/Admin/Admin-UserManage.aspx" title="$resources:Admin,Menu_Admin_UserManage_Title"  description="$resources:Admin,Menu_Admin_UserManage_Description" />
+      <siteMapNode url="~/Forms/Admin/Admin-AddUser.aspx" title="$resources:Admin,Menu_Admin_AddUser_Title"  description="$resources:Admin,Menu_Admin_AddUser_Description" />      
+    </siteMapNode>
+    <siteMapNode url="~/Forms/Admin/Config/Conf-Dash.aspx#" title="$resources:Admin,Menu_Config_Dash_Title_Short" description="$resources:Admin,Menu_Config_Dash_Description">
+      <siteMapNode url="~/Forms/Admin/Config/Conf-Dash.aspx" title="$resources:Admin,Menu_Config_Dash_Title" description="$resources:Admin,Menu_Config_Dash_Description" />
+      <siteMapNode url="~/Forms/Admin/Config/Conf-FullTimeline.aspx" title="$resources:Admin,Menu_Config_Timeline_Title" description="$resources:Admin,Menu_Config_Timeline_Description" />
+      <siteMapNode url="~/Forms/Admin/Config/Conf-NewUser.aspx" title="$resources:Admin,Menu_Config_NewUser_Title"  description="$resources:Admin,Menu_Config_NewUser_Description" />
+      <siteMapNode url="~/Forms/Admin/Config/Conf-Users.aspx" title="$resources:Admin,Menu_Config_Users_Title"  description="$resources:Admin,Menu_Config_Users_Description" />
+      <siteMapNode url="~/Forms/Admin/Config/Conf-Domain.aspx" title="$resources:Admin,Menu_Config_Domain_Title"  description="$resources:Admin,Menu_Config_Domain_Description" />
+      <siteMapNode url="~/Forms/Admin/Config/Conf-Database.aspx" title="$resources:Admin,Menu_Config_Database_Title" description="$resources:Admin,Menu_Config_Database_Description" />
+      <siteMapNode url="~/Forms/Admin/Config/Conf-SMTP.aspx" title="$resources:Admin,Menu_Config_SMTP_Title" description="$resources:Admin,Menu_Config_SMTP_Description" />
+      <siteMapNode url="~/Forms/Admin/Config/Conf-Portal.aspx" title="$resources:Admin,Menu_Config_Portal_Title" description="$resources:Admin,Menu_Config_Portal_Description" />
+      <siteMapNode url="~/Forms/Admin/Config/Conf-OfficeLoc.aspx" title="$resources:Admin,Menu_Config_OfficeLoc_Title" description="$resources:Admin,Menu_Config_OfficeLoc_Description" />
+      <!--<siteMapNode url="~/Forms/Admin/Config/Conf-MsftTag.aspx" title="$resources:Admin,Menu_Config_Tag_Title" description="$resources:Admin,Menu_Config_Tag_Description" />-->
+      <siteMapNode url="~/Forms/Admin/Config/Conf-Reset.aspx" title="$resources:Admin,Menu_Config_AppReset_Title" description="$resources:Admin,Menu_Config_AppReset_Description" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

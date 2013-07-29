@@ -1,0 +1,37 @@
+﻿@model UMS.Core.Data.Models.App.Location
+@{
+    var edit = Model != null;
+
+    ViewBag.Title = edit ? "Edit Location" : "Add Location";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        @if (edit)
+        {<text>Edit Location</text>}
+        else
+        {<text>Add A Location</text>}
+    </div>
+    @using (Html.BeginForm("Details", "Locations", FormMethod.Post, new { id = "AddLocation" }))
+    {
+        @Html.EditorForModel()
+        <input type="submit" value="Save Changes" />
+        <text>&nbsp;&nbsp;</text>@Html.ActionLink("Cancel", "Index", "Locations", new { @class = "action prev" })
+    }
+</div>
+@section Script
+{
+    <script type="text/javascript">
+        $(function() {
+            var edit = @edit.ToString().ToLower();
+            if (!edit) {
+                $("#IsEnabled").attr("disabled", "disabled").attr("checked", "checked");
+            }
+            $("#AddLocation").makeValidationInline();
+        });
+    </script>
+}

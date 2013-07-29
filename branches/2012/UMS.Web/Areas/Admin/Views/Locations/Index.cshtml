@@ -1,0 +1,36 @@
+﻿@model IQueryable<UMS.Core.Data.Models.App.Location>
+@{
+    ViewBag.Title = "Locations";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+@{
+    var grid = new WebGrid(Model, canPage: false);
+}
+<div class="box">
+    <div class="head">
+        Active Directory Locations
+    </div>
+    <p>
+        These settings control the different locations your organization has as well as
+        the active directory links for each location. Each location can have its own directory
+        and new user configuration settings however they can be identical to other locations.
+    </p>
+    @Html.ActionLink("Add Location", "Details", "Locations", new { @class = "action next" })
+    @* ReSharper disable Html.PathError *@
+    @if (Model.Any())
+    {
+        @grid.GetHtml(tableStyle: "data", columns: grid.Columns(
+            grid.Column(columnName: "Name", header: "Location Name", style: "link", format: @<text><a href="/Admin/Locations/Details/@item.LocationId">@item.Name</a></text>),
+            grid.Column(columnName: "OrgName", header: "Organization"),
+            grid.Column(columnName: "Directory", header: "Directory"),
+            grid.Column("IsEnabled", "Active", @<text>@if (item.IsEnabled)
+                                                      { <text>Yes</text> }
+                                                      else
+                                                      { <text>No</text> }</text>)))
+    }
+    else
+    {
+        <span class="empty">No locations are currently configured!</span>
+    }
+    @* ReSharper restore Html.PathError *@
+</div>

@@ -1,0 +1,92 @@
+﻿@model UMS.Web.ViewModels.HomeSettings
+@{
+    ViewBag.Title = "Home Page Settings";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        Home Page Settings
+    </div>
+    <p>
+        These settings control the functionality seen on the home page of the system for
+        the users. You may still need to configure additional settings for each functional
+        area as well based on the settings chosen here.
+    </p>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Wall Posts</legend>
+            <p>
+                You can override the built-in wall post functionality and instead display any RSS
+                feed on the home page. This is great for linking to Twitter or most Blog providers.
+            </p>
+            @Html.EditorFor(m => m.WallPostSetting)
+        </fieldset>
+        <fieldset>
+            <legend>Weather</legend>
+            <p>
+                You can enable or disable the weather display on the home page. By default the system
+                will attempt to locate the user using HTML5 location APIs but will fall back to
+                the default location for the user.
+            </p>
+            <p>
+                The weather feature is powered by WeatherBug and provides international weather
+                services based on the latitude and longitude coordinates of the user or the location
+                they belong to. The weather service is free for up to 5,000 calls per day after
+                that it is only $0.25 per 1,000 calls. It is also by far the cheapest service we
+                have been able to find.
+            </p>
+            <p>
+                If you would like to use the service you must sign up for an <a href="http://developer.weatherbug.com/member/register"
+                    target="_blank">API key here</a>. Simply enable the service below and save your
+                API key and the system will do the rest. You should also make sure you have configured
+                coordinates for each location in the event the user's browser does not support location
+                lookups.
+            </p>
+            @Html.EditorFor(m => m.WeatherSetting)
+        </fieldset>
+        <input type="submit" value="Save Changes" />
+        <br />
+        @ViewData["Result"]
+    }
+</div>
+@section Script
+{
+    <script type="text/javascript">
+        function WallEnabled(checked) {
+            if (checked)
+                $("#WallPostSetting_RssOverrideUrl").removeAttr("disabled");
+            else
+                $("#WallPostSetting_RssOverrideUrl").attr("disabled", true);
+        }
+        
+        function WeatherEnabled(checked) {
+            if (checked)
+                $("#WeatherSetting_ApiKey").removeAttr("disabled");
+            else
+                $("#WeatherSetting_ApiKey").attr("disabled", true);
+        }
+
+        $(function () {
+            // Load Handlers
+            WallEnabled(@(Model != null ? Model.WallPostSetting.IsOverrideEnabled.ToString().ToLower() : "false"));
+            WeatherEnabled(@(Model != null ? Model.WeatherSetting.IsEnabled.ToString().ToLower() : "false"));
+
+            // Click Handlers
+            $("#WallPostSetting_IsOverrideEnabled").click(function () {
+                WallEnabled($(this).attr("checked"));
+            });
+            
+            $("#WeatherSetting_IsEnabled").click(function () {
+                WeatherEnabled($(this).attr("checked"));
+            });
+            
+            // Validation
+            $("form").makeValidationInline();
+        });
+    </script>
+}

@@ -1,0 +1,147 @@
+﻿/* All Table Styles */
+
+/* Input/Form Table Style */
+table.input
+{
+    margin: 5px 0;
+}
+
+table.input th
+{
+    text-align: right;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    font-size: .9em;
+    min-width: 120px;
+    vertical-align: middle;
+}
+
+table.input td
+{
+    padding-bottom: 8px;
+    vertical-align: middle;
+}
+
+table.input th.top, table.input td.top
+{
+    vertical-align: top;
+}
+
+/* Grid Style */
+table.data
+{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 10px 0;
+}
+
+table.data thead th
+{
+    text-align: left;
+    border-right: solid 1px silver;
+    border-bottom: solid 3px silver;
+}
+
+table.data thead th a, table.data thead th p
+{
+    display: block;
+    padding: 5px 5px 5px 10px;
+    margin: 0;
+    font-family: "Segoe UI SemiBold" , "Helvetica" , Garuda, Arial, sans-serif;
+    font-size: 11px;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #444 !important;
+    text-decoration: none;
+}
+
+table.data thead a:hover
+{
+    background-color: #e9e9e9;
+    cursor: pointer;
+}
+
+table.data thead th:last-of-type
+{
+    border-right: none;
+}
+
+table.data tbody td
+{
+    padding: 10px 5px 10px 10px;
+    font-size: 11px;
+    line-height: normal;
+    border-bottom: solid 1px white;
+}
+
+table.data tbody:first-of-type tr:first-child td
+{
+    border-top: solid 10px white;
+}
+
+table.data tbody tr:hover > td
+{
+    background-color: #dfefff;
+}
+
+table.data tbody td.icon
+{
+    padding: 0;
+    width: 75px;
+}
+
+table.data tbody td.icon a
+{
+    display: block;
+    padding: 3px 15px;
+    margin-right: 10px;
+    float: left;
+}
+
+table.data tbody td.icon a:last-of-type
+{
+    padding-right: 0;
+    margin-right: 0;
+}
+
+table.data tbody td.icon a.delete
+{
+    background: url(Images/Delete.png) no-repeat center center;
+}
+
+table.data tbody td.icon a.edit
+{
+    background: url(Images/Edit.png) no-repeat center center;
+}
+
+table.data tbody td.link
+{
+    padding: 0;
+}
+
+table.data tbody td.link a
+{
+    display: block;
+    padding: 10px 5px 10px 10px;
+    background-color: #dfefff;
+    cursor: pointer;
+    font-family: "Segoe UI SemiBold" , "Helvetica" , Garuda, Arial, sans-serif;
+}
+
+table.data tbody tr:hover td.link a
+{
+    background: #c6e2ff url(Images/Table-Data-Link.png) no-repeat 98% center;
+}
+
+table.data tbody tr:hover td.link a:hover
+{
+    background-color: #96c9ff;
+}
+
+table.data tbody td a
+{
+    color: #444;
+    text-decoration: none;
+}

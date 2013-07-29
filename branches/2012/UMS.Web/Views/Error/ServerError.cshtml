@@ -1,0 +1,36 @@
+﻿@model Exception
+@{
+    ViewBag.Title = "500 Internal Server Error";
+}
+<section class="error">
+    <div class="clear-fix">
+        <h1>
+            500
+        </h1>
+        <h2>
+            Server Error
+        </h2>
+    </div>
+    <hr />
+    <h3>
+        There was a problem with your request.
+    </h3>
+    @if (Model == null)
+    {
+        <p>
+            Unfortunately we don't have any additional information about the error. It has been
+            logged and we will review it as soon as possible.
+        </p>
+    }
+    else
+    {
+        <p>
+            @Model.Message
+        </p>
+    }
+    <div class="clear-fix">
+        <a class="left back" title="Try To Go Back" href="@Request.QueryString["aspxerrorpath"]">
+            Try Again</a>
+        @Html.ActionLink("Go Home", "Index", "Home", null, new { @class = "left next", @title = "Reload the Home Page" })
+    </div>
+</section>

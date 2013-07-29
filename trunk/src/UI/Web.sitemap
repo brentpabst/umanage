@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true">
+  <siteMapNode roles="*">
+    <siteMapNode description="user" roles="*">
+      <siteMapNode routeName="user-info" url="~/my/info" title="My Information"  description="" />
+      <siteMapNode routeName="user-password" url="~/my/password" title="My Password"  description="" />
+      <siteMapNode routeName="user-account" url="~/my/account" title="My Account"  description="" />
+      <siteMapNode routeName="user-dir" url="~/user/search" title="Find Person" description="" />
+    </siteMapNode>
+    <siteMapNode description="admin" roles="*">
+      <siteMapNode routeName="admin-dash" url="~/admin/dash" title="Dashboard"  description="" />
+      <siteMapNode routeName="admin-user-list" url="~/admin/user/list#user" title="Users"  description="">
+        <siteMapNode routeName="admin-user-list" url="~/admin/user/list#sub" title="View Users"  description="">
+          <siteMapNode routeName="admin-user-list" url="~/admin/user/list" title="View Users"  description=""/>
+        </siteMapNode>
+        <siteMapNode routeName="admin-user-add" url="~/admin/user/add#sub" title="Add Users"  description="">
+          <siteMapNode routeName="admin-user-add" url="~/admin/user/add" title="Add Users"  description=""/>
+        </siteMapNode>
+        <siteMapNode routeName="admin-user-audit" url="~/admin/user/audit#sub" title="Audit Users"  description="">
+          <siteMapNode routeName="admin-user-audit" url="~/admin/user/audit" title="Audit Users"  description=""/>
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode routeName="admin-group-list" url="~/admin/group/list#user" title="Groups" description="">
+        <siteMapNode routeName="admin-group-list" url="~/admin/group/list#sub" title="View Groups" description="">
+          <siteMapNode routeName="admin-group-list" url="~/admin/group/list" title="View Groups" description="" />
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode routeName="admin-conf-settings" url="~/admin/conf/settings#conf" title="Configuration"  description="">
+        <siteMapNode routeName="admin-conf-settings" url="~/admin/conf/settings#app" title="Portal"  description="">
+          <siteMapNode routeName="admin-conf-settings" url="~/admin/conf/settings" title="Settings"  description="" />
+          <siteMapNode routeName="admin-conf-location" url="~/admin/conf/location" title="Organization Locations"  description="" />
+          <siteMapNode routeName="admin-conf-office" url="~/admin/conf/office" title="Office Locations"  description="" />
+          <siteMapNode routeName="admin-conf-department" url="~/admin/conf/department" title="Departments"  description="" />
+          <siteMapNode routeName="admin-conf-templ" url="~/admin/conf/templates" title="Email Templates"  description="" />
+          <siteMapNode routeName="admin-conf-users" url="~/admin/conf/users" title="Manage Users"  description="" />
+        </siteMapNode>
+        <siteMapNode routeName="admin-home-conf" url="~/admin/home/conf#home" title="Home Page"  description="">
+          <siteMapNode routeName="admin-home-conf" url="~/admin/home/conf" title="Home Page"  description="" />
+          <siteMapNode routeName="admin-home-links" url="~/admin/home/links" title="Quick Links"  description="" />
+          <siteMapNode routeName="admin-home-posts" url="~/admin/home/posts" title="Wall Posts"  description="" />
+        </siteMapNode>
+        <siteMapNode routeName="admin-conf-summary" url="~/admin/conf/summary#sys" title="System"  description="">
+          <siteMapNode routeName="admin-conf-summary" url="~/admin/conf/summary" title="Summary"  description="" />
+          <siteMapNode routeName="admin-conf-directory" url="~/admin/conf/directory" title="Active Directory"  description="" />
+          <siteMapNode routeName="admin-conf-database" url="~/admin/conf/database" title="Database"  description="" />
+          <siteMapNode routeName="admin-conf-smtp" url="~/admin/conf/smtp" title="Mail Settings"  description="" />
+          <siteMapNode routeName="admin-conf-groups" url="~/admin/conf/groups" title="Group Settings"  description="" />
+          <siteMapNode routeName="admin-conf-auto" url="~/admin/conf/auto" title="Auto Utility"  description="" />
+          <siteMapNode routeName="admin-conf-offline" url="~/admin/conf/offline" title="Take Offline"  description="" />
+          <siteMapNode routeName="admin-conf-reset" url="~/admin/conf/reset" title="Reset"  description="" />
+        </siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

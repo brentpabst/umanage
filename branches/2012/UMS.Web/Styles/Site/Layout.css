@@ -1,0 +1,122 @@
+﻿/* Contains Layout and Positioning Styles Only */
+
+/* Body Layout */
+body
+{
+    margin: 20px 5px;
+}
+
+/* Column Blocks */
+div.columns:before, div.columns:after
+{
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+div.columns:after
+{
+    clear: both;
+}
+
+div.columns div.left
+{
+    float: left;
+}
+
+div.columns div.right
+{
+    float: right;
+}
+
+div.sidebar-right div.right
+{
+    width: 220px;
+}
+div.sidebar-right div.left
+{
+    width: 720px;
+}
+
+div.sidebar-left div.right
+{
+    width: 720px;
+}
+div.sidebar-left div.left
+{
+    width: 220px;
+}
+
+/* Primary Page Blocks */
+div#page
+{
+    width: 960px;
+    margin: 0 auto;
+}
+
+div#header
+{
+}
+
+div#nav
+{
+    margin: 10px 0;
+}
+
+div#nav ul li
+{
+    display: inline;
+    margin-right: 15px;
+}
+
+div#content
+{
+}
+
+div#footer
+{
+}
+
+
+/* User Block */
+div.user-info
+{
+    margin: 5px 10px 5px 0;
+}
+div.user-image
+{
+}
+
+/* Smart Browsers & Big Screens Stuff */
+/* CSS Media Queries */
+@media screen and (min-width: 1024px)
+{
+    body
+    {
+        background: #dcdcdc url(Images/Background.png) no-repeat fixed left bottom;
+    }
+    
+    div#page
+    {
+        width: 1160px;
+    }
+
+    div.sidebar-right div.right
+    {
+        width: 220px;
+    }
+    div.sidebar-right div.left
+    {
+        width: 920px;
+    }
+
+    div.sidebar-left div.right
+    {
+        width: 920px;
+    }
+    div.sidebar-left div.left
+    {
+        width: 220px;
+    }
+}

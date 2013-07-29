@@ -1,0 +1,66 @@
+﻿@model UMS.Web.ViewModels.AuthorizeUser
+@{
+    ViewBag.Title = "Authorized Users";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+    var roles = ViewData["Roles"] as IQueryable<UMS.Core.Data.Models.App.Role>;
+    var data = ViewData["CurrentUsers"] as IQueryable<UMS.Core.Data.Models.App.User>;
+    var grid = new WebGrid(data, defaultSort: "UserName");
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        Authorized Users
+    </div>
+    <h3>
+        Authorize a User
+    </h3>
+    @* TODO: Replace this simple textbox with a search user control to find the user *@
+    @using (Html.BeginForm("Add", "Users", FormMethod.Post, new { id = "AddUser" }))
+    {
+        @Html.EditorForModel()
+        foreach (var r in roles)
+        {
+        @Html.CheckBox(r.Name)
+        <text>
+        @r.Name - @r.Description
+        <br />
+        </text>
+        }
+        <input type="submit" value="Add Authorization" />
+    }
+    <hr />
+    <h3>
+        Currently Authorized
+    </h3>
+    @if (data.Any())
+    {
+        @grid.GetHtml("data", columns: grid.Columns(
+            grid.Column("UserName"),
+            grid.Column("Roles", format: @<text>
+        @{
+            var ret = "";
+            foreach (var r in item.Roles)
+            {
+                ret += r.Name + ", ";
+            }
+            MvcHtmlString.Create(ret);
+        }
+        </text>)
+                                        ))
+    }
+    else
+    {
+        <span class="empty">No users have been authorized!</span>
+    }
+</div>
+@section Script
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#AddUser").makeValidationInline();
+        });
+    </script>
+}

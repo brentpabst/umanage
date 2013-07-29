@@ -1,0 +1,71 @@
+﻿@model UMS.Core.Data.Models.Config.DirectorySetting
+@{
+    ViewBag.Title = "Active Directory";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        Active Directory Connection
+    </div>
+    <p>
+        You can change the user account used to interface with the directory here. You cannot
+        change the directory name once the application is configured.
+    </p>
+    <p>
+        <strong>Note:</strong> If your organization utilizes multiple directories (i.e. a
+        forest with multiple trusted child domains) this account should have been granted
+        the proper delegation rights to all directories you intend to manage with this application.
+    </p>
+    @using (Html.BeginForm())
+    {
+        <table class="input">
+            <tr>
+                <th>
+                    @Html.LabelFor(m => m.Directory)
+                </th>
+                <td>
+                    @Html.HiddenFor(m => m.Directory)
+                    @*TODO: Change the field below to disabled so people cannot edit this field*@
+                    @Html.TextBoxFor(m => m.Directory)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(m => m.Username)
+                </th>
+                <td>
+                    @Html.EditorFor(m => m.Username)
+                    @Html.ValidationMessageFor(m => m.Username)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(m => m.Password)
+                </th>
+                <td>
+                    @Html.EditorFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value="Save Changes" />
+                    <br />
+                    @ViewData["Result"]
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@section Script
+{
+    <script type="text/javascript">
+        $(function () { $("form").makeValidationInline(); });
+    </script>
+}

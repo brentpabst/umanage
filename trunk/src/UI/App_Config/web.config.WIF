@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+  <configSections>
+    <sectionGroup name="elmah">
+      <section name="security" requirePermission="false" type="Elmah.SecuritySectionHandler, Elmah" />
+      <section name="errorLog" requirePermission="false" type="Elmah.ErrorLogSectionHandler, Elmah" />
+      <section name="errorMail" requirePermission="false" type="Elmah.ErrorMailSectionHandler, Elmah" />
+      <section name="errorFilter" requirePermission="false" type="Elmah.ErrorFilterSectionHandler, Elmah" />
+    </sectionGroup>
+    <section name="microsoft.identityModel" type="Microsoft.IdentityModel.Configuration.MicrosoftIdentityModelSection, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+  </configSections>
+  <elmah>
+    <errorLog type="Elmah.XmlFileErrorLog, Elmah" logPath="~/App_Data/Logs" />
+  </elmah>
+  <connectionStrings>
+    <add name="AppEntities" connectionString="metadata=res://*/App.csdl|res://*/App.ssdl|res://*/App.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=;Initial Catalog=;Integrated Security=True;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+  <appSettings>
+    <add key="RunInstaller" value="True" />
+    <add key="AllowUserPasswordChanges" value="True" />
+    <add key="AllowUserAttibChanges" value="True" />
+    <add key="AllowUserNameChanges" value="True" />
+    <add key="AllowUserEmailChanges" value="True" />
+    <add key="AllowUserLocationChanges" value="True" />
+    <add key="AllowUserPhoneChanges" value="True" />
+    <add key="AllowUserPhotoChanges" value="True" />
+    <add key="DisplayUserLocationSection" value="True" />
+    <add key="DisplayUserPhoneSection" value="True" />
+    <add key="DisplayUserOrganizationSection" value="True" />
+    <add key="DisplayUserPhotoSection" value="True" />
+    <add key="EnableOfficeList" value="False" />
+    <add key="EnableDepartmentList" value="False" />
+    <add key="ServiceConfigFile" value="C:\Program Files (x86)\Tarheel Solutions\uManage Utility Service\uManage Auto Utility.exe" />
+    <add key="FederationMetadataLocation" value="https://[YOUR FEDERATION SERVER]/FederationMetadata/2007-06/FederationMetadata.xml" />
+  </appSettings>
+  <location path="FederationMetadata">
+    <system.web>
+      <authorization>
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+  <system.web>
+    <authorization>
+      <deny users="?" />
+    </authorization>
+    <authentication mode="None" />
+    <globalization culture="auto" uiCulture="auto" />
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <add assembly="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      </assemblies>
+    </compilation>
+    <machineKey validationKey="AD7CBC30584A0E09E95A31366C2C2A5489EB134A3407A94B1F9E1B5BF96A8A349FC7264092CCFA0F866F318CE1E4D31731355EBC4B336F8287207A944168268C" decryptionKey="D803A63760659562BB18D7D257647B4AE9257A5B360F7EEF53F1566F2036BE96" validation="SHA1" decryption="AES" />
+    <!--Commented out by FedUtil-->
+    <!--<authentication mode="Windows" />-->
+    <pages theme="Default">
+      <controls>
+        <add tagPrefix="ums" tagName="OutputMessage" src="~/Controls/Helpers/OutputMessage.ascx" />
+        <add tagPrefix="ums" tagName="UserBadge" src="~/Controls/Helpers/UserBadge.ascx" />
+        <add tagPrefix="ums" tagName="UserInfo" src="~/Controls/UserInfo.ascx" />
+        <add tagPrefix="ajax" namespace="AjaxControlToolkit" assembly="AjaxControlToolkit" />
+        <add tagPrefix="ajax" namespace="AjaxControlToolkit.HTMLEditor" assembly="AjaxControlToolkit" />
+      </controls>
+    </pages>
+    <customErrors mode="Off" redirectMode="ResponseRewrite" defaultRedirect="~/error" />
+    <roleManager defaultProvider="RoleProvider" enabled="true" cacheRolesInCookie="true" cookieName=".uManageRoles" cookieTimeout="15" cookiePath="/" cookieSlidingExpiration="true" cookieProtection="All">
+      <providers>
+        <clear />
+        <add connectionStringName="AppEntities" applicationName="uManage" name="RoleProvider" type="THS.UMS.AO.Providers.Roles" />
+      </providers>
+    </roleManager>
+    <siteMap defaultProvider="SitemapProvider">
+      <providers>
+        <add name="SitemapProvider" type="THS.UMS.AO.Providers.XmlSiteMapProvider" siteMapFile="~/Web.sitemap" securityTrimmingEnabled="true" />
+      </providers>
+    </siteMap>
+    <httpModules>
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" />
+      <add name="WSFederationAuthenticationModule" type="Microsoft.IdentityModel.Web.WSFederationAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      <add name="SessionAuthenticationModule" type="Microsoft.IdentityModel.Web.SessionAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    </httpModules>
+    <httpHandlers>
+      <add verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" />
+    </httpHandlers>
+    <httpRuntime requestValidationType="THS.UMS.UI.UmsRequestValidator"/>
+  </system.web>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true">
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" preCondition="managedHandler" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" preCondition="managedHandler" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" preCondition="managedHandler" />
+      <add name="WSFederationAuthenticationModule" type="Microsoft.IdentityModel.Web.WSFederationAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" preCondition="managedHandler" />
+      <add name="SessionAuthenticationModule" type="Microsoft.IdentityModel.Web.SessionAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" preCondition="managedHandler" />
+    </modules>
+    <validation validateIntegratedModeConfiguration="false" />
+    <handlers>
+      <add name="Elmah" path="elmah.axd" verb="POST,GET,HEAD" type="Elmah.ErrorLogPageFactory, Elmah" preCondition="integratedMode" />
+    </handlers>
+  </system.webServer>
+  <microsoft.identityModel>
+    <service>
+      <audienceUris>
+        <add value="https://[YOUR APPLICATION]/" />
+      </audienceUris>
+      <federatedAuthentication>
+        <wsFederation passiveRedirectEnabled="true" issuer="https://[YOUR FEDERATION SERVER]/adfs/ls/" realm="https://[YOUR APPLICATION]" requireHttps="true" />
+        <cookieHandler requireSsl="true" />
+      </federatedAuthentication>
+      <applicationService>
+        <claimTypeRequired>
+          <!--Following are the claims offered by STS 'http://[YOUR FEDERATION SERVER]/adfs/services/trust'. Add or uncomment claims that you require by your application and then update the federation metadata of this application.-->
+          <claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" optional="true" />
+          <claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" optional="true" />
+          <!--<claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/claims/CommonName" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/claims/EmailAddress" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/claims/Group" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/claims/UPN" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" optional="true" />-->
+          <!--<claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant" optional="true" />-->
+          <!--<claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod" optional="true" />-->
+          <!--<claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid" optional="true" />-->
+          <!--<claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid" optional="true" />-->
+          <!--<claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid" optional="true" />-->
+          <!--<claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" optional="true" />-->
+          <!--<claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid" optional="true" />-->
+          <!--<claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid" optional="true" />-->
+          <!--<claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" optional="true" />-->
+        </claimTypeRequired>
+      </applicationService>
+      <issuerNameRegistry type="Microsoft.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+        <trustedIssuers>
+          <add thumbprint="D251BEF3F34A4B08E8D2ACAB3A13B4DEF18F3C73" name="http://[YOUR FEDERATION SERVER]/adfs/services/trust" />
+        </trustedIssuers>
+      </issuerNameRegistry>
+      <certificateValidation certificateValidationMode="None" />
+    </service>
+  </microsoft.identityModel>
+</configuration>

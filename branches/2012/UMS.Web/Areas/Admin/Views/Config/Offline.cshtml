@@ -1,0 +1,66 @@
+﻿@model UMS.Core.Data.Models.Config.OfflineSetting
+@{
+    ViewBag.Title = "Take Offline";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        Take Application Offline
+    </div>
+    <p>
+        You can take the application offline for various reasons like system upgrades, planned
+        outages, etc. Once offline the application can only be restored by deleting the
+        "App_Offline.htm" file in the root of the virtual directory.
+    </p>
+    @using (Html.BeginForm())
+    {
+        <table class="input">
+            <tr>
+                <th>
+                    @Html.LabelFor(m => m.TakeOffline)
+                </th>
+                <td>
+                    @Html.EditorFor(m => m.TakeOffline)
+                    @Html.ValidationMessageFor(m => m.TakeOffline)
+                </td>
+            </tr>
+            <tr>
+                <th class="top">
+                    @Html.LabelFor(m => m.Message)
+                </th>
+                <td>
+                    @Html.TextAreaFor(m => m.Message)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value="Save Changes" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@section Script
+{
+    @Scripts.Render("~/bundles/tinymce")
+    <script type="text/javascript">
+        $(function () {
+            $.validator.unobtrusive.adapters.addBool("mandatory", "required");
+            $("form").makeValidationInline();
+
+            $('#Message').tinymce({
+                script_url: "@Url.Content("~/Scripts/tinymce/tiny_mce.js")",
+                theme: "simple",
+                height: "200",
+                width: "500",
+                verify_html: false
+            });
+        });
+    </script>
+}

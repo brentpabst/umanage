@@ -1,0 +1,8 @@
+﻿<html>
+<body>
+<strong>uManage SMTP Configured!</strong>
+<p>
+If you have received this e-mail you have properly setup and configured uManage to send e-mail.
+</p>
+</body>
+</html>

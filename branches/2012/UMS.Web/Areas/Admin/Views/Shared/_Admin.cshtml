@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @RenderSection("Head", false)
+}
+@section Nav{
+    <ul>
+        <li><a>Dashboard</a></li>
+        <li><a>Users</a></li>
+        <li><a>Groups</a></li>
+        <li>@Html.ActionLink("Configuration", "Index", "Config")</li>
+    </ul>
+}
+@RenderBody()
+@section Script
+{
+    @RenderSection("Script", false)
+}

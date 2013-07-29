@@ -1,0 +1,123 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="THS.UMS.UI.App_Master.User" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="SHORTCUT ICON" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/png" href="/Images/UMS.png" />
+    <meta name="application-name" content="uManage" />
+    <meta name="msapplication-tooltip" content="uManage - User Self-Service Portal" />
+    <meta name="msapplication-window" content="width=1024;height=955" />
+    <meta name="msapplication-navbutton-color" content="#414B55" />
+    <meta name="msapplication-task" content="name=My Information;action-uri=/my/info;icon-uri=/Images/UMS.ico;" />
+    <meta name="msapplication-task" content="name=Reset Password;action-uri=/my/password;icon-uri=;" />
+    <%--    
+    <meta name="msapplication-task" content="name=;action-uri=/;icon-uri=;" />
+    <meta name="msapplication-task" content="name=;action-uri=/;icon-uri=;" />
+    <meta name="msapplication-task" content="name=;action-uri=/;icon-uri=;" />
+    --%>
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="user">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="True"
+        EnableCdn="True" EnableHistory="True">
+    </asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div class="user-page">
+                <div class="user-head">
+                    <div class="left user-head-title">
+                        <asp:Label ID="lblTitle" runat="server"></asp:Label>
+                    </div>
+                    <div class="right user-head-name">
+                        <asp:Label ID="lblName" runat="server" Font-Bold="true"></asp:Label>
+                        <asp:Label ID="lblOrg" runat="server"></asp:Label>
+                        <br />
+                        <asp:Literal ID="lHomePage" runat="server"></asp:Literal><asp:HyperLink ID="hlPortalMode" runat="server"></asp:HyperLink>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="user-content">
+                    <div class="user-nav">
+                        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
+                            <HeaderTemplate>
+                                <ul class="user-menu">
+                            </HeaderTemplate>
+                            <FooterTemplate>
+                                </ul>
+                            </FooterTemplate>
+                            <ItemTemplate>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass='<%# IsRoot((string)Eval("url")) %>'
+                                        NavigateUrl='<%# Eval("url") %>' Text='<%# Eval("title") %>'></asp:HyperLink>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <br />
+                        <br />
+                        <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
+                            <HeaderTemplate>
+                                <ul class="user-submenu">
+                            </HeaderTemplate>
+                            <FooterTemplate>
+                                </ul>
+                            </FooterTemplate>
+                            <ItemTemplate>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass='<%# IsParent((string)Eval("url")) %>'
+                                        NavigateUrl='<%# Eval("url") %>' Text='<%# Eval("title") %>'></asp:HyperLink>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False"
+                        StartingNodeOffset="1" />
+                    <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" ShowStartingNode="false"
+                        StartFromCurrentNode="True" StartingNodeOffset="-2" />
+                    <asp:ContentPlaceHolder ID="Content" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="user-foot">
+                    &copy; 2010 -
+                    <%= DateTime.Today.Year %>
+                    Tarheel Solutions, Inc. | <a href="http://umanage.codeplex.com" target="_blank">uManage</a>
+                    - Version
+                    <asp:Label ID="lblVersion" runat="server"></asp:Label>
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+        <ProgressTemplate>
+            <div class="progress">
+                <div class="progress-border">
+                    <div class="progress-win">
+                        <div class="progress-head">
+                            Loading
+                        </div>
+                        <div class="progress-cont">
+                            <div class="left" style="padding: 4px 15px 0 5px;">
+                                <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Loading.gif" />
+                            </div>
+                            <div class="left">
+                                Please Wait... Loading!
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <div class="progress-foot">
+                            <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick="cancelPostback()">Cancel</asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+    </form>
+</body>
+</html>

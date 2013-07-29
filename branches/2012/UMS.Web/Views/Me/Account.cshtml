@@ -1,0 +1,93 @@
+﻿@model UMS.Core.Data.Models.Directory.User
+@{
+    Layout = "_Me.cshtml";
+    ViewBag.Title = "My Account";
+}
+<div class="box">
+    <div class="head">
+        My Account
+    </div>
+    <table class="data">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <p>
+                        User Name
+                    </p>
+                </th>
+                <th scope="col">
+                    <p>
+                        Account Locked
+                    </p>
+                </th>
+                <th scope="col">
+                    <p>
+                        Account Expires
+                    </p>
+                </th>
+                <th scope="col">
+                    <p>
+                        Password Expires
+                    </p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Model.UserName
+                </td>
+                <td>
+                    @if (Model.IsLocked)
+                    {
+                        <text>Yes</text>
+                    }
+                    else
+                    {
+                        <text>No</text>
+                    }
+                </td>
+                <td>
+                    @if (Model.ExpiresOn != default(DateTime))
+                    {
+                        @Model.ExpiresOn
+                    }
+                    else
+                    {
+                        if (Model.IsExpired)
+                        {
+                        <text>Expired</text>
+                        }
+                        else
+                        {
+                        <text>Never</text>
+                        }
+                    }
+                </td>
+                <td>
+                    @if (Model.PasswordExpiresOn == DateTime.MaxValue)
+                    {
+                        <text>Never</text>
+                    }
+                    else if (Model.PasswordExpiresOn <= DateTime.Now)
+                    {
+                        <text>Expired</text>
+                    }
+                    else
+                    {
+                        @Model.PasswordExpiresOn
+                    }
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <h3>
+        Detailed:
+    </h3>
+    <p>
+        @Model.DistinguishedName - @DateTime.UtcNow UTC
+        <br />
+        GUID: @Model.UserId
+    </p>
+</div>

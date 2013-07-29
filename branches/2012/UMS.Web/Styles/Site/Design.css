@@ -1,0 +1,159 @@
+﻿/* Contains Design Styles, Colors, Text, etc. */
+
+/* Main Navigation */
+div#nav ul li a
+{
+    color: #666;
+    font-size: 1.3em;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+div#nav ul li a:hover
+{
+    color: #333;
+}
+
+div#nav ul li a.selected
+{
+    color: black;
+}
+
+/* Footer */
+div#footer
+{
+    font-size: .8em;
+}
+
+div#footer a
+{
+    text-decoration: none;
+    color: #666;
+}
+
+div#footer a:hover
+{
+    color: black;
+    text-decoration: underline;
+}
+
+/* User Block */
+.user-info {
+    text-align: right;
+    font-size: .9em;
+}
+.user-info a
+{
+    color: #666;
+    text-decoration: none;
+}
+
+.user-info a:hover
+{
+    color: #000;
+    text-decoration: underline;
+}
+
+.user-info a.name
+{
+    font-size: 1.5em;
+    color: #666;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+.user-info a.name:hover
+{
+    color: black;
+}
+
+.user-image img
+{
+    border: solid 1px #666;    
+    border-radius: 10px;
+}
+
+/* Content Blocks */
+div#content a
+{
+    color: #57a0d3;
+}
+
+div#content .box
+{
+    font-size: .9em;
+    background-color: white;
+    box-shadow: 0 0 10px #888;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: auto;
+    margin: 10px 0;
+}
+
+div#content .error-box {
+    background-color: #ffdbea;
+    border: solid 1px red;
+}
+
+div#content .warning-box {
+    background-color: #f8dc97;
+    border: solid 1px goldenrod;
+}
+
+div#content .ok-box {
+    background-color: #B3FFB3;
+    border: solid 1px green;
+}
+
+div#content .box .head
+{
+    background-color: #57a0d3;
+    color: white;
+    padding: 2px 5px;
+    margin-bottom: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+div#content .error-box .head {
+    text-transform: uppercase;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+}
+
+div#content .warning-box .head {
+    text-transform: uppercase;
+    color: white;
+    background-color: goldenrod;
+    font-weight: bold;
+}
+
+div#content .ok-box .head {
+    text-transform: uppercase;
+    color: white;
+    background-color: green;
+    font-weight: bold;
+}
+
+div#content .box ul
+{
+    margin: 3px 0;
+}
+
+div#content .box ul li
+{
+    margin-bottom: 2px;
+}
+
+div#content .box ul li a
+{
+    text-decoration: none;
+    padding-left: 10px;
+    background: url(Images/Right-Arrow.png) no-repeat left center;
+}
+
+div#content .box ul li a:hover
+{
+    text-decoration: underline;
+}

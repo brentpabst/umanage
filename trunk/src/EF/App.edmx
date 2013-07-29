@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="App.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="AppStoreContainer">
+    <EntitySet Name="Locations" EntityType="App.Store.Locations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Offices" EntityType="App.Store.Offices" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Emails" EntityType="App.Store.Emails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Notices" EntityType="App.Store.Notices" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmailTemplates" EntityType="App.Store.EmailTemplates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AppSettings" EntityType="App.Store.AppSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="App.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="App.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuditLogs" EntityType="App.Store.AuditLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments" EntityType="App.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SiteMenus" EntityType="App.Store.SiteMenus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="QuickLinks" EntityType="App.Store.QuickLinks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Posts" EntityType="App.Store.Posts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRole" EntityType="App.Store.UserRole" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_UserRole_User" Association="App.Store.FK_UserRole_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="App.Store.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LocationName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="OrganizationName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Province" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="PostalCode" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="Country" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="DistinguishedPath" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="NewUsernameFormat" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UmsDirectoryGroup" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="Directory" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="DirectoryNt" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Offices">
+    <Key>
+      <PropertyRef Name="OfficeId" />
+    </Key>
+    <Property Name="OfficeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="75" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Emails">
+    <Key>
+      <PropertyRef Name="EmailId" />
+    </Key>
+    <Property Name="EmailId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Subject" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SubmittedOn" Type="datetime" Nullable="false" />
+    <Property Name="StartedOn" Type="datetime" Nullable="true" />
+    <Property Name="CompletedOn" Type="datetime" Nullable="true" />
+    <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
+    <Property Name="Attempts" Type="int" Nullable="true" />
+    <Property Name="IsComplete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notices">
+    <Key>
+      <PropertyRef Name="NoticeId" />
+    </Key>
+    <Property Name="NoticeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="UsernameUpn" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="DisplayName" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="NoticeDate" Type="datetime" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="EmailTemplates">
+    <Key>
+      <PropertyRef Name="TemplateId" />
+    </Key>
+    <Property Name="TemplateId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="true" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppSettings">
+    <Key>
+      <PropertyRef Name="SettingId" />
+    </Key>
+    <Property Name="SettingId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Key" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Value" Type="nvarchar" Nullable="true" MaxLength="2048" />
+    <Property Name="IsEncrypted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UpnUsername" Type="nvarchar" Nullable="false" MaxLength="75" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="AuditLogs">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LogDate" Type="datetime" Nullable="false" />
+    <Property Name="LogDateUtc" Type="datetime" Nullable="false" />
+    <Property Name="SubmittedBy" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="FirstName_Old" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="MiddleName_Old" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="LastName_Old" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Email_Old" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Website_Old" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="JobTitle_Old" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Office_Old" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Company_Old" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Department_Old" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="EmployeeId_Old" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="Manager_Old" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="Address1_Old" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Address2_Old" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="City_Old" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="PostalCode_Old" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Province_Old" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Country_Old" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="HomePhone_Old" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="OfficePhone_Old" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Pager_Old" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="MobilePhone_Old" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Fax_Old" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="SipPhone_Old" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="UpnUsername" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="MiddleName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="LastName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Website" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="JobTitle" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Office" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Company" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Department" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="EmployeeId" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="Manager" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="Address1" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Address2" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="PostalCode" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Province" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Country" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="HomePhone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="OfficePhone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Pager" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="MobilePhone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Fax" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="SipPhone" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="75" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteMenus">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="URL" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Roles" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Parent" Type="int" Nullable="true" />
+    <Property Name="routeName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Enabled" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="QuickLinks">
+    <Key>
+      <PropertyRef Name="LinkId" />
+    </Key>
+    <Property Name="LinkId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="1024" />
+    <Property Name="DisplayText" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" DefaultValue="5" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" Nullable="false" MaxLength="140" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostedBy" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="PostedOn" Type="datetime" Nullable="false" />
+    <Property Name="VisibleFrom" Type="datetime" Nullable="false" />
+    <Property Name="VisibileTo" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="User_UserId" />
+      <PropertyRef Name="Roles_RoleId" />
+    </Key>
+    <Property Name="User_UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Roles_RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_UserRole_User">
+    <End Role="User" Type="App.Store.Users" Multiplicity="1" />
+    <End Role="UserRole" Type="App.Store.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="User_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="UserRole" Type="App.Store.UserRole" Multiplicity="*" />
+    <End Role="Role" Type="App.Store.Roles" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="Roles_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="App" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="AppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Locations" EntityType="App.Location" />
+          <EntitySet Name="Offices" EntityType="App.Office" />
+          <EntitySet Name="Emails" EntityType="App.Email" />
+          <EntitySet Name="Notices" EntityType="App.Notice" />
+          <EntitySet Name="EmailTemplates" EntityType="App.EmailTemplate" />
+          <EntitySet Name="AppSettings" EntityType="App.AppSetting" />
+          <EntitySet Name="Users" EntityType="App.User" />
+          <EntitySet Name="Roles" EntityType="App.Role" />
+          <AssociationSet Name="UserRole" Association="App.UserRole">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <EntitySet Name="AuditLogs" EntityType="App.AuditLog" />
+          <EntitySet Name="Departments" EntityType="App.Department" />
+          <EntitySet Name="SiteMenus" EntityType="App.SiteMenu" />
+          <EntitySet Name="QuickLinks" EntityType="App.QuickLink" />
+          <EntitySet Name="Posts" EntityType="App.Post" />
+          </EntityContainer>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Type="Guid" Name="LocationId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="LocationName" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="OrganizationName" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="Address" MaxLength="100" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="50" Unicode="true" />
+          <Property Type="String" Name="Province" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="PostalCode" Unicode="true" MaxLength="15" />
+          <Property Type="String" Name="Country" Unicode="true" MaxLength="30" />
+          <Property Type="String" Name="Phone" Unicode="true" MaxLength="20" />
+          <Property Type="String" Name="DistinguishedPath" Unicode="true" MaxLength="200" Nullable="false" />
+          <Property Type="String" Name="NewUsernameFormat" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="UmsDirectoryGroup" Nullable="false" Unicode="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="Directory" Nullable="false" Unicode="true" MaxLength="100" />
+          <Property Type="String" Name="DirectoryNt" Nullable="false" MaxLength="50" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="OfficeId" />
+          </Key>
+          <Property Type="Guid" Name="OfficeId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="30" />
+          <Property Type="String" Name="Description" MaxLength="75" Unicode="true" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Type="Guid" Name="EmailId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Address" Nullable="false" Unicode="true" MaxLength="200" />
+          <Property Type="String" Name="Subject" Nullable="false" Unicode="true" MaxLength="100" />
+          <Property Type="String" Name="Body" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="SubmittedOn" Nullable="false" />
+          <Property Type="DateTime" Name="StartedOn" Nullable="true" />
+          <Property Type="DateTime" Name="CompletedOn" Nullable="true" />
+          <Property Type="DateTime" Name="EffectiveDate" Nullable="false" />
+          <Property Type="Int32" Name="Attempts" Nullable="true" />
+          <Property Type="Boolean" Name="IsComplete" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="NoticeId" />
+          </Key>
+          <Property Type="Guid" Name="NoticeId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="25" Unicode="true" />
+          <Property Type="String" Name="UsernameUpn" Nullable="false" MaxLength="45" Unicode="true" />
+          <Property Type="String" Name="DisplayName" Nullable="false" Unicode="true" MaxLength="35" />
+          <Property Type="String" Name="Type" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="false" />
+          <Property Type="DateTime" Name="NoticeDate" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" Unicode="true" MaxLength="30" />
+          <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="200" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EmailTemplate">
+          <Key>
+            <PropertyRef Name="TemplateId" />
+          </Key>
+          <Property Type="Guid" Name="TemplateId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Title" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="Body" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" Unicode="true" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppSetting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Type="Guid" Name="SettingId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Key" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="Value" Nullable="true" Unicode="true" MaxLength="2048" />
+          <Property Type="Boolean" Name="IsEncrypted" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Username" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="UpnUsername" Nullable="false" Unicode="true" MaxLength="75" />
+          <NavigationProperty Name="Roles" Relationship="App.UserRole" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Type="Guid" Name="RoleId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="40" />
+          <Property Type="String" Name="Description" Nullable="false" Unicode="true" MaxLength="150" />
+          <NavigationProperty Name="User" Relationship="App.UserRole" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <Association Name="UserRole">
+          <End Type="App.User" Role="User" Multiplicity="*" />
+          <End Type="App.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="AuditLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Type="Guid" Name="LogId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="DateTime" Name="LogDate" Nullable="false" />
+          <Property Type="DateTime" Name="LogDateUtc" Nullable="false" />
+          <Property Type="String" Name="SubmittedBy" Nullable="false" Unicode="true" MaxLength="150" />
+          <Property Type="String" Name="FirstName_Old" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="MiddleName_Old" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="LastName_Old" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="Email_Old" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="Website_Old" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="JobTitle_Old" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="Office_Old" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="Company_Old" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="Department_Old" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="EmployeeId_Old" Unicode="true" MaxLength="15" Nullable="true" />
+          <Property Type="String" Name="Manager_Old" Unicode="true" MaxLength="60" Nullable="true" />
+          <Property Type="String" Name="Address1_Old" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="Address2_Old" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="City_Old" Unicode="true" MaxLength="40" Nullable="true" />
+          <Property Type="String" Name="PostalCode_Old" Unicode="true" MaxLength="20" Nullable="true" />
+          <Property Type="String" Name="Province_Old" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="Country_Old" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="HomePhone_Old" Unicode="true" MaxLength="20" Nullable="true" />
+          <Property Type="String" Name="OfficePhone_Old" Unicode="true" MaxLength="20" Nullable="true" />
+          <Property Type="String" Name="Pager_Old" Unicode="true" MaxLength="20" Nullable="true" />
+          <Property Type="String" Name="MobilePhone_Old" Unicode="true" MaxLength="20" Nullable="true" />
+          <Property Type="String" Name="Fax_Old" Unicode="true" MaxLength="20" Nullable="true" />
+          <Property Type="String" Name="SipPhone_Old" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="UpnUsername" Nullable="false" Unicode="true" MaxLength="150" />
+          <Property Type="String" Name="FirstName" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="MiddleName" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="LastName" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="Email" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="Website" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="JobTitle" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="Office" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="Company" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="Department" Unicode="true" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="EmployeeId" Unicode="true" MaxLength="15" Nullable="true" />
+          <Property Type="String" Name="Manager" Unicode="true" MaxLength="60" Nullable="true" />
+          <Property Type="String" Name="Address1" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="Address2" Unicode="true" MaxLength="30" Nullable="true" />
+          <Property Type="String" Name="City" Nullable="true" Unicode="true" MaxLength="40" />
+          <Property Type="String" Name="PostalCode" Nullable="true" Unicode="true" MaxLength="20" />
+          <Property Type="String" Name="Province" Nullable="true" Unicode="true" MaxLength="30" />
+          <Property Type="String" Name="Country" Nullable="true" Unicode="true" MaxLength="30" />
+          <Property Type="String" Name="HomePhone" Nullable="true" Unicode="true" MaxLength="20" />
+          <Property Type="String" Name="OfficePhone" Nullable="true" Unicode="true" MaxLength="20" />
+          <Property Type="String" Name="Pager" Nullable="true" Unicode="true" MaxLength="20" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" Unicode="true" MaxLength="20" />
+          <Property Type="String" Name="Fax" Nullable="true" Unicode="true" MaxLength="20" />
+          <Property Type="String" Name="SipPhone" Nullable="true" Unicode="true" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Type="Guid" Name="DepartmentId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="30" />
+          <Property Type="String" Name="Description" MaxLength="75" Unicode="true" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiteMenu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Type="Int32" Name="MenuID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="URL" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Roles" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Parent" />
+          <Property Type="String" Name="routeName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Enabled" />
+        </EntityType>
+        <EntityType Name="QuickLink">
+          <Key>
+            <PropertyRef Name="LinkId" />
+          </Key>
+          <Property Type="Guid" Name="LinkId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Url" Nullable="false" Unicode="true" MaxLength="1024" />
+          <Property Type="String" Name="DisplayText" Nullable="false" Unicode="true" MaxLength="150" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="false" DefaultValue="5" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Type="Guid" Name="PostId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Subject" Nullable="false" MaxLength="140" Unicode="true" />
+          <Property Type="String" Name="Message" Nullable="false" />
+          <Property Type="String" Name="PostedBy" Nullable="false" Unicode="true" MaxLength="200" />
+          <Property Type="DateTime" Name="PostedOn" Nullable="false" />
+          <Property Type="DateTime" Name="VisibleFrom" Nullable="false" />
+          <Property Type="DateTime" Name="VisibileTo" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AppStoreContainer" CdmEntityContainer="AppEntities">
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="IsTypeOf(App.Location)">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DistinguishedPath" ColumnName="DistinguishedPath" />
+          <ScalarProperty Name="NewUsernameFormat" ColumnName="NewUsernameFormat" />
+          <ScalarProperty Name="UmsDirectoryGroup" ColumnName="UmsDirectoryGroup" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Directory" ColumnName="Directory" />
+          <ScalarProperty Name="DirectoryNt" ColumnName="DirectoryNt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offices">
+      <EntityTypeMapping TypeName="IsTypeOf(App.Office)">
+        <MappingFragment StoreEntitySet="Offices">
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emails">
+      <EntityTypeMapping TypeName="IsTypeOf(App.Email)">
+        <MappingFragment StoreEntitySet="Emails">
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="SubmittedOn" ColumnName="SubmittedOn" />
+          <ScalarProperty Name="StartedOn" ColumnName="StartedOn" />
+          <ScalarProperty Name="CompletedOn" ColumnName="CompletedOn" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="Attempts" ColumnName="Attempts" />
+          <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notices">
+      <EntityTypeMapping TypeName="IsTypeOf(App.Notice)">
+        <MappingFragment StoreEntitySet="Notices">
+          <ScalarProperty Name="NoticeId" ColumnName="NoticeId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UsernameUpn" ColumnName="UsernameUpn" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="NoticeDate" ColumnName="NoticeDate" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailTemplates">
+      <EntityTypeMapping TypeName="IsTypeOf(App.EmailTemplate)">
+        <MappingFragment StoreEntitySet="EmailTemplates">
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppSettings">
+      <EntityTypeMapping TypeName="IsTypeOf(App.AppSetting)">
+        <MappingFragment StoreEntitySet="AppSettings">
+          <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IsEncrypted" ColumnName="IsEncrypted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(App.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UpnUsername" ColumnName="UpnUsername" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(App.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditLogs">
+      <EntityTypeMapping TypeName="IsTypeOf(App.AuditLog)">
+        <MappingFragment StoreEntitySet="AuditLogs">
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="LogDateUtc" ColumnName="LogDateUtc" />
+          <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+          <ScalarProperty Name="FirstName_Old" ColumnName="FirstName_Old" />
+          <ScalarProperty Name="MiddleName_Old" ColumnName="MiddleName_Old" />
+          <ScalarProperty Name="LastName_Old" ColumnName="LastName_Old" />
+          <ScalarProperty Name="Email_Old" ColumnName="Email_Old" />
+          <ScalarProperty Name="Website_Old" ColumnName="Website_Old" />
+          <ScalarProperty Name="JobTitle_Old" ColumnName="JobTitle_Old" />
+          <ScalarProperty Name="Office_Old" ColumnName="Office_Old" />
+          <ScalarProperty Name="Company_Old" ColumnName="Company_Old" />
+          <ScalarProperty Name="Department_Old" ColumnName="Department_Old" />
+          <ScalarProperty Name="EmployeeId_Old" ColumnName="EmployeeId_Old" />
+          <ScalarProperty Name="Manager_Old" ColumnName="Manager_Old" />
+          <ScalarProperty Name="Address1_Old" ColumnName="Address1_Old" />
+          <ScalarProperty Name="Address2_Old" ColumnName="Address2_Old" />
+          <ScalarProperty Name="City_Old" ColumnName="City_Old" />
+          <ScalarProperty Name="PostalCode_Old" ColumnName="PostalCode_Old" />
+          <ScalarProperty Name="Province_Old" ColumnName="Province_Old" />
+          <ScalarProperty Name="Country_Old" ColumnName="Country_Old" />
+          <ScalarProperty Name="HomePhone_Old" ColumnName="HomePhone_Old" />
+          <ScalarProperty Name="OfficePhone_Old" ColumnName="OfficePhone_Old" />
+          <ScalarProperty Name="Pager_Old" ColumnName="Pager_Old" />
+          <ScalarProperty Name="MobilePhone_Old" ColumnName="MobilePhone_Old" />
+          <ScalarProperty Name="Fax_Old" ColumnName="Fax_Old" />
+          <ScalarProperty Name="SipPhone_Old" ColumnName="SipPhone_Old" />
+          <ScalarProperty Name="UpnUsername" ColumnName="UpnUsername" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="Office" ColumnName="Office" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+          <ScalarProperty Name="Pager" ColumnName="Pager" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="SipPhone" ColumnName="SipPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(App.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteMenus">
+      <EntityTypeMapping TypeName="IsTypeOf(App.SiteMenu)">
+        <MappingFragment StoreEntitySet="SiteMenus">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Roles" ColumnName="Roles" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="routeName" ColumnName="routeName" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuickLinks">
+      <EntityTypeMapping TypeName="IsTypeOf(App.QuickLink)">
+        <MappingFragment StoreEntitySet="QuickLinks">
+          <ScalarProperty Name="LinkId" ColumnName="LinkId" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="IsTypeOf(App.Post)">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="PostedBy" ColumnName="PostedBy" />
+          <ScalarProperty Name="PostedOn" ColumnName="PostedOn" />
+          <ScalarProperty Name="VisibleFrom" ColumnName="VisibleFrom" />
+          <ScalarProperty Name="VisibileTo" ColumnName="VisibileTo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserRole" TypeName="App.UserRole" StoreEntitySet="UserRole">
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserId" ColumnName="User_UserId" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="RoleId" ColumnName="Roles_RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Ums" >
+        <EntityTypeShape EntityType="App.Location" Width="2.375" PointX="0.75" PointY="6.75" Height="3.9033007812499996" />
+        <EntityTypeShape EntityType="App.Office" Width="1.5" PointX="8.75" PointY="3.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="App.Email" Width="1.5" PointX="3.75" PointY="8.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="App.Notice" Width="1.5" PointX="5.75" PointY="8.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="App.EmailTemplate" Width="1.5" PointX="8.75" PointY="6.75" Height="2.5571907552083326" />
+        <EntityTypeShape EntityType="App.AppSetting" Width="1.5" PointX="10.75" PointY="3.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="App.User" Width="1.5" PointX="8.75" PointY="0.875" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="App.Role" Width="1.5" PointX="11" PointY="0.875" Height="1.7879850260416674" />
+        <AssociationConnector Association="App.UserRole">
+          <ConnectorPoint PointX="10.25" PointY="1.7689925130208337" />
+          <ConnectorPoint PointX="11" PointY="1.7689925130208337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="App.AuditLog" Width="1.5" PointX="10.75" PointY="6.75" Height="10.826152343750003" />
+        <EntityTypeShape EntityType="App.Department" Width="1.5" PointX="7.75" PointY="10.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="App.SiteMenu" Width="1.5" PointX="5.375" PointY="12.875" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="App.QuickLink" Width="1.5" PointX="3" PointY="1.125" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="App.Post" Width="1.5" PointX="4.25" PointY="4" Height="2.3648893229166656" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

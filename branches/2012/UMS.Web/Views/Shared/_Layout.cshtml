@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>uManage - @ViewBag.Title</title>
+    <link rel="SHORTCUT ICON" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/png" href="/Images/UMS.png" />
+    @Styles.Render("~/bundles/css/reset", "~/bundles/css")
+    @RenderSection("Head", false)
+</head>
+<body>
+    <div id="page">
+        <div id="header">
+            <div class="columns">
+                <div class="left">
+                    <a href="/">
+                        <img src="@Url.Content("~/Images/Logo.png")" alt="Logo"/>
+                    </a>
+                </div>
+                <div class="right">
+                    <div class="columns">
+                        <div class="left user-info">
+                            <a href="/Me" class="name">Brent Pabst</a>
+                            <br />
+                            @Html.ActionLink("Administration", "Index", "Config", new { area = "Admin" }, new { })
+                        </div>
+                        <div class="right user-image">
+                            <a href="/Me/Photo" title="Change My Photo">
+                                <img src="@Url.Content("~/Images/No-Photo.png")" alt="User Photo" width="52px" height="52px"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="nav">
+            @RenderSection("Nav", false)
+        </div>
+        <div id="content">
+            @RenderBody()
+        </div>
+        <div id="footer">
+            A <strong>203 Enterprises</strong> Project
+            <br />
+            <em>@Dns.GetHostEntry("localhost").HostName.ToLower()</em>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/modernizr", "~/bundles/jquery", "~/bundles/ums")
+    @RenderSection("Script", false)
+</body>
+</html>

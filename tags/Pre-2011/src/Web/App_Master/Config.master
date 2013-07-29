@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/App_Master/Admin.Master" AutoEventWireup="true"
+    CodeBehind="Config.master.cs" Inherits="PPI.UMS.Web.App_Master.Config" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="TaskBar" runat="server">
+    <div class="taskbar-header">
+        System Configuration
+    </div>
+    <div class="taskbar-cont">
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
+            <HeaderTemplate>
+                <ul class="menu-config">
+            </HeaderTemplate>
+            <FooterTemplate>
+                </ul>
+            </FooterTemplate>
+            <ItemTemplate>
+                <li>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Url") %>' Text='<%# Eval("Title") %>'
+                        ToolTip='<%# Eval("Description") %>'></asp:HyperLink>
+                </li>
+            </ItemTemplate>
+        </asp:Repeater>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False"
+            SiteMapProvider="AdminSitemapProvider" StartFromCurrentNode="True" StartingNodeOffset="-1" />
+    </div>
+</asp:Content>

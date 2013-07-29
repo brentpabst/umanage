@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Info_Address1_Header" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="Info_Address2_Header" xml:space="preserve">
+    <value>PO Box, Apt, Ste:</value>
+  </data>
+  <data name="Info_Change_Alert_Code" xml:space="preserve">
+    <value>return confirm('Some programs that rely on information from your profile may malfunction or stop working once your information is updated.  You may need to restart some programs after making any changes. \r\n\r\nAre you sure you want to update your information?');</value>
+  </data>
+  <data name="Info_Change_Failure_Message" xml:space="preserve">
+    <value>Your information could not be updated.  Please try again or contact a systems administrator for more information.  The details were:&lt;p&gt;&lt;span class="errortext"&gt;{0}&lt;/span&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Info_Change_Failure_Title" xml:space="preserve">
+    <value>Failed to Update Information!</value>
+  </data>
+  <data name="Info_Change_Invalid_Email" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;The email address entered is not in the correct format. (you@yourcompany.com)</value>
+  </data>
+  <data name="Info_Change_Invalid_FieldsMissing" xml:space="preserve">
+    <value>You must enter valid entries for all of the fields in order to update your information.</value>
+  </data>
+  <data name="Info_Change_Invalid_Name" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;The name entered either does not exist or is invalid.  You must specify a name.</value>
+  </data>
+  <data name="Info_Change_Invalid_Title" xml:space="preserve">
+    <value>Required Fields Missing!</value>
+  </data>
+  <data name="Info_Change_Invalid_URL" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;The website URL entered is not in the correct format. (http://www.yourcompany.com)</value>
+  </data>
+  <data name="Info_Change_Photo_Failure_Message" xml:space="preserve">
+    <value>uManage was unable to upload your photo and save it to the directory.  There could have been a problem with your photo or with the system.  Try uploading a different photo, if it still fails there is probably something wrong with the application or the network.</value>
+  </data>
+  <data name="Info_Change_Photo_Failure_Title" xml:space="preserve">
+    <value>Failed to Upload Photo</value>
+  </data>
+  <data name="Info_Change_Photo_Invalid_Ext" xml:space="preserve">
+    <value>Only JPEG, BMP, GIF and PNG files are supported image formats to upload.  Please select a different file and try again.</value>
+  </data>
+  <data name="Info_Change_Submit" xml:space="preserve">
+    <value>Update Information</value>
+  </data>
+  <data name="Info_Change_Success_Message" xml:space="preserve">
+    <value>Your information was updated successfully.  All changes take effect almost immediately, however any open application may need to be restarted to get your new information.</value>
+  </data>
+  <data name="Info_Change_Success_Title" xml:space="preserve">
+    <value>Information Updated!</value>
+  </data>
+  <data name="Info_City_Header" xml:space="preserve">
+    <value>City:</value>
+  </data>
+  <data name="Info_Company_Header" xml:space="preserve">
+    <value>Company:</value>
+  </data>
+  <data name="Info_Country_Header" xml:space="preserve">
+    <value>Country:</value>
+  </data>
+  <data name="Info_Department_Header" xml:space="preserve">
+    <value>Department:</value>
+  </data>
+  <data name="Info_Disabled_Message" xml:space="preserve">
+    <value>Sorry, your systems administrator has chosen to not allow any changes to your information.  You are more than welcome to review your information but an administrator will have to make any changes for you.</value>
+  </data>
+  <data name="Info_Disabled_Title" xml:space="preserve">
+    <value>Modifications Disabled!</value>
+  </data>
+  <data name="Info_Email_Header" xml:space="preserve">
+    <value>E-Mail Address:</value>
+  </data>
+  <data name="Info_EmployeeId_Header" xml:space="preserve">
+    <value>Employee ID:</value>
+  </data>
+  <data name="Info_FaxPhone_Header" xml:space="preserve">
+    <value>Fax:</value>
+  </data>
+  <data name="Info_FirstName_Header" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+  <data name="Info_HomePhone_Header" xml:space="preserve">
+    <value>Home Phone:</value>
+  </data>
+  <data name="Info_IPPhone_Header" xml:space="preserve">
+    <value>SIP/Skype:</value>
+  </data>
+  <data name="Info_LastName_Header" xml:space="preserve">
+    <value>Last Name:</value>
+  </data>
+  <data name="Info_Manager_Header" xml:space="preserve">
+    <value>Manager:</value>
+  </data>
+  <data name="Info_MiddleName_Header" xml:space="preserve">
+    <value>Middle Name:</value>
+  </data>
+  <data name="Info_MobilePhone_Header" xml:space="preserve">
+    <value>Mobile Phone:</value>
+  </data>
+  <data name="Info_MyInfo_Title" xml:space="preserve">
+    <value>My Information</value>
+  </data>
+  <data name="Info_MyLoc_Title" xml:space="preserve">
+    <value>My Location</value>
+  </data>
+  <data name="Info_MyOrg_Title" xml:space="preserve">
+    <value>My Organization</value>
+  </data>
+  <data name="Info_MyPhone_Title" xml:space="preserve">
+    <value>My Phone Numbers</value>
+  </data>
+  <data name="Info_OfficePhone_Header" xml:space="preserve">
+    <value>Office Phone:</value>
+  </data>
+  <data name="Info_Office_Header" xml:space="preserve">
+    <value>Office:</value>
+  </data>
+  <data name="Info_Org_Info_Message" xml:space="preserve">
+    <value>Organization information can never be modified.  If you find something you beleive is incorrect please contact an administrator.</value>
+  </data>
+  <data name="Info_Org_Info_Title" xml:space="preserve">
+    <value>Organization Information Cannot Be Modified!</value>
+  </data>
+  <data name="Info_PagerPhone_Header" xml:space="preserve">
+    <value>Pager/SMS:</value>
+  </data>
+  <data name="Info_Photo_Clear_Header" xml:space="preserve">
+    <value>Clear My Photo</value>
+  </data>
+  <data name="Info_Photo_Clear_Text" xml:space="preserve">
+    <value>(Removes the Current Photo)</value>
+  </data>
+  <data name="Info_Photo_Current_Header" xml:space="preserve">
+    <value>Current Photo:</value>
+  </data>
+  <data name="Info_Photo_New_Extensions" xml:space="preserve">
+    <value>Valid Formats: JPEG, BMP, PNG, GIF</value>
+  </data>
+  <data name="Info_Photo_New_Header" xml:space="preserve">
+    <value>Select New Photo:</value>
+  </data>
+  <data name="Info_Photo_Title" xml:space="preserve">
+    <value>My Picture</value>
+  </data>
+  <data name="Info_Position_Header" xml:space="preserve">
+    <value>Position:</value>
+  </data>
+  <data name="Info_State_Header" xml:space="preserve">
+    <value>State:</value>
+  </data>
+  <data name="Info_SubTitle_Text" xml:space="preserve">
+    <value>Welcome back {0}!</value>
+  </data>
+  <data name="Info_Website_Header" xml:space="preserve">
+    <value>Website:</value>
+  </data>
+  <data name="Info_ZipCode_Header" xml:space="preserve">
+    <value>Zip Code:</value>
+  </data>
+  <data name="Mast_UserName" xml:space="preserve">
+    <value>Welcome &lt;strong&gt;{0}&lt;/strong&gt;</value>
+  </data>
+  <data name="Mast_ViewAdminPortal" xml:space="preserve">
+    <value>Switch to Admin Portal</value>
+  </data>
+  <data name="Menu_AboutMe_Title" xml:space="preserve">
+    <value>About Me</value>
+  </data>
+  <data name="Menu_MyAccount_Title" xml:space="preserve">
+    <value>My Account</value>
+  </data>
+  <data name="Menu_MyPassword_Title" xml:space="preserve">
+    <value>My Password</value>
+  </data>
+  <data name="MyAccount_AccountExp_Header" xml:space="preserve">
+    <value>Account Expiration Date:</value>
+  </data>
+  <data name="MyAccount_AccountLocked_Header" xml:space="preserve">
+    <value>Account Locked:</value>
+  </data>
+  <data name="MyAccount_Notes_Header" xml:space="preserve">
+    <value>Notes/Comments:</value>
+  </data>
+  <data name="MyAccount_PasswordExp_Header" xml:space="preserve">
+    <value>Password Expiration Date:</value>
+  </data>
+  <data name="MyAccount_SubTitle_Text" xml:space="preserve">
+    <value>{0}, here are the details of your account:</value>
+  </data>
+  <data name="MyAccount_Username_Header" xml:space="preserve">
+    <value>Full Username:</value>
+  </data>
+  <data name="Password_Change_Alert_Code" xml:space="preserve">
+    <value>confirm('While your password is being changed other applications could stop functioning or working properly.  You may have to restart some programs.\r\n\r\nAre you sure you want to change your password?');</value>
+  </data>
+  <data name="Password_Change_Disabled_Message" xml:space="preserve">
+    <value>Sorry, it appears a system administrator has chosen to not let you change your password using uManage.  Please contact your administrator for more assistance in changing your password.</value>
+  </data>
+  <data name="Password_Change_Disabled_Title" xml:space="preserve">
+    <value>Password Change Disabled!</value>
+  </data>
+  <data name="Password_Change_Error_Message" xml:space="preserve">
+    <value>Your password could not be updated.  Please try again or contact a systems administrator for more information.</value>
+  </data>
+  <data name="Password_Change_Error_Title" xml:space="preserve">
+    <value>Password Change Failure!</value>
+  </data>
+  <data name="Password_Change_Invalid_Confirm" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;The new password and the confirmation password do not match, please try again.</value>
+  </data>
+  <data name="Password_Change_Invalid_Password" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;The field is either empty or invalid, you must specify a password.</value>
+  </data>
+  <data name="Password_Change_Submit_Text" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Password_Change_Success_Message" xml:space="preserve">
+    <value>Your password was updated successfully.  It takes effect almost immediately, you may have to log-out and log-in for some applications to continue working.</value>
+  </data>
+  <data name="Password_Change_Success_Title" xml:space="preserve">
+    <value>Password Change Success!</value>
+  </data>
+  <data name="Password_ConfPass_Title" xml:space="preserve">
+    <value>Confirm Password:</value>
+  </data>
+  <data name="Password_NewPass_Title" xml:space="preserve">
+    <value>New Password:</value>
+  </data>
+  <data name="Password_OldPass_Title" xml:space="preserve">
+    <value>Old Password:</value>
+  </data>
+</root>

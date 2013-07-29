@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Config_AppReset_Body" xml:space="preserve">
+    <value>&lt;p&gt;
+            &lt;span style="font-weight: bold; color: red;"&gt;STOP! READ THIS FIRST!&lt;/span&gt;
+            &lt;br /&gt;
+            Ensure you understand the specifics below before using the Application Reset functionality.
+            It could cause potential loss of information and settings.
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;strong&gt;What Should I Know?&lt;/strong&gt;
+            &lt;br /&gt;
+            The application reset function was designed primarily for developers and system
+            administrators that need to reset the system to it's out of the box, factory default,
+            fresh smelling state. This function primarily un-does everything the setup wizard
+            sets up behind the scenes. It even re-enables the setup wizard once complete. For
+            those who require more detail here is what get's modified:
+        &lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Setup Wizard Re-Enabled&lt;/li&gt;
+            &lt;li&gt;Database Connection String is Removed (Data is not affected)&lt;/li&gt;
+            &lt;li&gt;Active Directory Connection is severed&lt;/li&gt;
+            &lt;li&gt;The Web.Config file is decrypted&lt;/li&gt;
+            &lt;li&gt;All App Settings are reset&lt;/li&gt;
+            &lt;li&gt;For security reasons the application is taken offline (Protection from evil-doers)&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;
+            Only do this if you want to re-configure the application!
+        &lt;/p&gt;</value>
+  </data>
+  <data name="Config_AppReset_Conf" xml:space="preserve">
+    <value>return confirm('Last chance to say no! This action also decrypts the membership section after it is cleared.\r\n\r\nAre you sure you want to reset the application?');</value>
+  </data>
+  <data name="Config_AppReset_SubmitText" xml:space="preserve">
+    <value>Reset Application</value>
+  </data>
+  <data name="Config_Domain_FQDNNoEdit" xml:space="preserve">
+    <value>You cannot edit the domain name once the system is up and running.  Use the application reset instead.</value>
+  </data>
+  <data name="Config_Domain_Notice" xml:space="preserve">
+    <value>When you click save the system will first attempt to validate the credentials supplied before saving them.</value>
+  </data>
+  <data name="Config_Domain_SubmitText" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Config_Domain_Success_Message" xml:space="preserve">
+    <value>The domain settings were tested and applied successfully.  uManage verified the credentials supplied using &lt;strong&gt;{0}&lt;/strong&gt;</value>
+  </data>
+  <data name="Config_Domain_Success_Title" xml:space="preserve">
+    <value>Domain Changes Applied Successfully</value>
+  </data>
+  <data name="Config_SMTP_Auth_Title" xml:space="preserve">
+    <value>Authentication Mode:</value>
+  </data>
+  <data name="Config_SMTP_Body" xml:space="preserve">
+    <value>&lt;p&gt;
+            &lt;strong&gt;Why Use SMTP?&lt;/strong&gt;
+            &lt;br /&gt;
+            Simple actually; many of the features of uManage for communication between users,
+            administrators and even help desk technicians utilize the SMTP server to send notifications
+            or alerts to the user. While they are not vital to the system to run it is usually
+            easier to allow users to get an e-mail and then check the website thanks to the
+            links in the e-mail instead of periodically checking the website every few hours
+            or minutes.
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;strong&gt;Is it Secure?&lt;/strong&gt;
+            &lt;br /&gt;
+            It's never totally secure, however uManage will encrypt the settings in the application
+            configuration file for safe keeping. It is always up to the SMTP Server and Mail
+            Administrator to ensure proper anti-virus and spam protection is in place. We can't
+            do that for you. Please note that regardless of your use of Exchange you still need
+            to specify an SMTP address to your Exchange Internal Relay Server in order for uManage
+            to send e-mail. This makes it a little safer too, since you can then rely on Exchange
+            to thwart any attacks.
+        &lt;/p&gt;
+        &lt;strong&gt;The Magic!&lt;/strong&gt;</value>
+  </data>
+  <data name="Config_SMTP_ConfPass_NoCompare" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;The password verification did not match the original password.  Please ensure both password's match.</value>
+  </data>
+  <data name="Config_SMTP_ConfPass_Required" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter a password.</value>
+  </data>
+  <data name="Config_SMTP_ConfPass_Title" xml:space="preserve">
+    <value>Verify Password:</value>
+  </data>
+  <data name="Config_SMTP_Failure_Description" xml:space="preserve">
+    <value>uManage was either unable to test or save the settings.  Please check your selections and try again.</value>
+  </data>
+  <data name="Config_SMTP_Failure_Title" xml:space="preserve">
+    <value>Failed to Configure Settings</value>
+  </data>
+  <data name="Config_SMTP_From_InValid" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter a valid e-mail address.</value>
+  </data>
+  <data name="Config_SMTP_From_Required" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter an e-mail address for the SMTP service to use.</value>
+  </data>
+  <data name="Config_SMTP_From_Title" xml:space="preserve">
+    <value>From Address:</value>
+  </data>
+  <data name="Config_SMTP_Notice" xml:space="preserve">
+    <value>&lt;p&gt;
+            When you click save uManage will attempt to send a test e-mail message to the address
+            below before saving the settings.
+        &lt;/p&gt;</value>
+  </data>
+  <data name="Config_SMTP_Pass_Required" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter a password.</value>
+  </data>
+  <data name="Config_SMTP_Pass_Title" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="Config_SMTP_Port_Invalid" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter a valid TCP/IP Port to use.</value>
+  </data>
+  <data name="Config_SMTP_Port_Required" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter a TCP/IP Port to use.</value>
+  </data>
+  <data name="Config_SMTP_Port_Title" xml:space="preserve">
+    <value>Port:</value>
+  </data>
+  <data name="Config_SMTP_Server_Required" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter a server URL to connect to.</value>
+  </data>
+  <data name="Config_SMTP_Server_Title" xml:space="preserve">
+    <value>Server Address:</value>
+  </data>
+  <data name="Config_SMTP_SSL_Title" xml:space="preserve">
+    <value>Use SSL?</value>
+  </data>
+  <data name="Config_SMTP_SubmitText" xml:space="preserve">
+    <value>Save Configuration</value>
+  </data>
+  <data name="Config_SMTP_Success_Description" xml:space="preserve">
+    <value>The SMTP settings were validated and properly saved to the configuration file.  uManage will now send e-mail notifications using the updated settings.  Please check the test account for a confirmation message.</value>
+  </data>
+  <data name="Config_SMTP_Success_Title" xml:space="preserve">
+    <value>SMTP Settings Saved!</value>
+  </data>
+  <data name="Config_SMTP_Test_InValid" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter a valid e-mail address.</value>
+  </data>
+  <data name="Config_SMTP_Test_Required" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter an e-mail address to use for testing.</value>
+  </data>
+  <data name="Config_SMTP_Test_Title" xml:space="preserve">
+    <value>Test E-Mail:</value>
+  </data>
+  <data name="Config_SMTP_User_Required" xml:space="preserve">
+    <value>&lt;strong&gt;Invalid Entry!&lt;/strong&gt;&lt;br /&gt;You must enter a username for the SMTP service to use.</value>
+  </data>
+  <data name="Config_SMTP_User_Title" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="Mast_Username" xml:space="preserve">
+    <value>Welcome &lt;strong&gt;{0}&lt;/strong&gt;</value>
+  </data>
+  <data name="Mast_ViewUserPortal" xml:space="preserve">
+    <value>Switch to User Portal</value>
+  </data>
+  <data name="Menu_Config_AppReset_Description" xml:space="preserve">
+    <value>Reset the application to the defaults</value>
+  </data>
+  <data name="Menu_Config_AppReset_Title" xml:space="preserve">
+    <value>Application Reset</value>
+  </data>
+  <data name="Menu_Config_Domain_Description" xml:space="preserve">
+    <value>View and modify the current domain connection and configuration</value>
+  </data>
+  <data name="Menu_Config_Domain_Title" xml:space="preserve">
+    <value>Domain Configuration</value>
+  </data>
+  <data name="Menu_Config_SMTP_Description" xml:space="preserve">
+    <value>View and modify the current SMTP Server configuration</value>
+  </data>
+  <data name="Menu_Config_SMTP_Title" xml:space="preserve">
+    <value>SMTP Configuration</value>
+  </data>
+  <data name="Menu_Config_Database_Description" xml:space="preserve">
+    <value>View and modify the current database configuration</value>
+  </data>
+  <data name="Menu_Config_Database_Title" xml:space="preserve">
+    <value>Database Configuration</value>
+  </data>
+  <data name="Config_Database_Body" xml:space="preserve">
+    <value>&lt;p&gt;
+            Due to the possibility of the application failing to run when SQL changes are made
+            the current configuration can only be viewed, it cannot be modified from within
+            the application. To make changes to the configuration use either IIS' Management
+            Snap-In or Reset the application to re-create the database.
+        &lt;/p&gt;</value>
+  </data>
+  <data name="Config_Database_Catalog" xml:space="preserve">
+    <value>Database / Catalog:</value>
+  </data>
+  <data name="Config_Database_Server" xml:space="preserve">
+    <value>Database Server:</value>
+  </data>
+  <data name="Config_Database_Username" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="Menu_Config_Tag_Description" xml:space="preserve">
+    <value>Enable and configure Microsoft Tag</value>
+  </data>
+  <data name="Menu_Config_Tag_Title" xml:space="preserve">
+    <value>Microsoft Tag Configuration</value>
+  </data>
+  <data name="Config_Domain_Submit_Conf" xml:space="preserve">
+    <value>return confirm('Changing the user credentials used to connect to the domain could cause problems or fail in future requests causing users and administrators unable to access the application.  In addition updating the configuration will cause the application to recycle which could cause in session users to experience a time-out or loose their work.\r\n\r\nAre you sure you want to continue?');</value>
+  </data>
+  <data name="Config_SMTP_Submit_Conf" xml:space="preserve">
+    <value>return confirm('You are about to make changes to the current SMTP server settings.  If the settings provided are not accurate it could cause notifications to fail to send.  In addition updating the configuration will cause the application to recycle which could cause in session users to experience a time-out or loose their work.\r\n\r\nAre you sure you want to continue?');</value>
+  </data>
+  <data name="Config_Dash_Links_DB" xml:space="preserve">
+    <value>View Database Configuration</value>
+  </data>
+  <data name="Config_Dash_Links_Reset" xml:space="preserve">
+    <value>Reset uManage</value>
+  </data>
+  <data name="Config_Dash_Links_SMTP" xml:space="preserve">
+    <value>Update SMTP Settings</value>
+  </data>
+  <data name="Config_Dash_Links_Title" xml:space="preserve">
+    <value>Quick Links</value>
+  </data>
+  <data name="Config_Dash_SQL_ConnCount" xml:space="preserve">
+    <value>Connection Count:</value>
+  </data>
+  <data name="Config_Dash_SQL_CPUPercent" xml:space="preserve">
+    <value>Percent CPU Time:</value>
+  </data>
+  <data name="Config_Dash_SQL_IOPercent" xml:space="preserve">
+    <value>Percent IO Time:</value>
+  </data>
+  <data name="Config_Dash_SQL_IORead" xml:space="preserve">
+    <value>IO Reads/Sec:</value>
+  </data>
+  <data name="Config_Dash_SQL_IOWrite" xml:space="preserve">
+    <value>IO Writes/Sec:</value>
+  </data>
+  <data name="Config_Dash_SQL_NotFound" xml:space="preserve">
+    <value>Statistics Could Not Be Found!</value>
+  </data>
+  <data name="Config_Dash_SQL_PacketErr" xml:space="preserve">
+    <value>Packet Errors:</value>
+  </data>
+  <data name="Config_Dash_SQL_PacketRec" xml:space="preserve">
+    <value>Packets Received:</value>
+  </data>
+  <data name="Config_Dash_SQL_PacketSent" xml:space="preserve">
+    <value>Packets Sent:</value>
+  </data>
+  <data name="Config_Dash_SQL_Title" xml:space="preserve">
+    <value>SQLServer Statistics</value>
+  </data>
+  <data name="Config_Dash_Suggestions_Body" xml:space="preserve">
+    <value>We need your help to better define what would be useful in this dashboard. Please
+                            submit comments and feedback at CodePlex using either the Discussion board or the
+                            Issue Tracking tools.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                            &lt;a href="http://umanage.codeplex.com" target="_blank"&gt;http://umanage.codeplex.com&lt;/a&gt;</value>
+  </data>
+  <data name="Config_Dash_Suggestions_Title" xml:space="preserve">
+    <value>Make Suggestions!</value>
+  </data>
+  <data name="Menu_Config_Dash_Description" xml:space="preserve">
+    <value>View an overview of current configuration tasks</value>
+  </data>
+  <data name="Menu_Config_Dash_Title" xml:space="preserve">
+    <value>Configuration Timeline</value>
+  </data>
+  <data name="Menu_Config_Portal_Description" xml:space="preserve">
+    <value>View and modify user portal configuration</value>
+  </data>
+  <data name="Menu_Config_Portal_Title" xml:space="preserve">
+    <value>User Portal Configuration</value>
+  </data>
+  <data name="Config_Portal_Body" xml:space="preserve">
+    <value>&lt;p&gt;
+            Use the settings below to configure how the user portal displays to the users.
+        &lt;/p&gt;</value>
+  </data>
+  <data name="Config_Portal_SubmitText" xml:space="preserve">
+    <value>Save Configuration</value>
+  </data>
+  <data name="Config_Portal_Submit_Conf" xml:space="preserve">
+    <value>return confirm('You are about to make changes to how the User Portal allows users to interact with the system.  It also may allow unwanted changes to your Active Directory database.  In addition updating the configuration will cause the application to recycle which could cause in session users to experience a time-out or loose their work.\r\n\r\nAre you sure you want to continue?');</value>
+  </data>
+  <data name="Config_Portal_Failure_Description" xml:space="preserve">
+    <value>uManage was unable to save your configuration changes.  Please go back and try again.</value>
+  </data>
+  <data name="Config_Portal_Failure_Title" xml:space="preserve">
+    <value>Failed to Save Settings!</value>
+  </data>
+  <data name="Config_Portal_Success_Description" xml:space="preserve">
+    <value>Your changes were successfully saved to the configuration file and are now in effect.</value>
+  </data>
+  <data name="Config_Portal_Success_Title" xml:space="preserve">
+    <value>Changes Saved!</value>
+  </data>
+  <data name="Menu_Config_Dash_Title_Short" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Foot_Lymphoma" xml:space="preserve">
+    <value>Support Lymphoma Awareness</value>
+  </data>
+  <data name="Foot_MakeSuggestion" xml:space="preserve">
+    <value>Make A Suggestion</value>
+  </data>
+  <data name="Foot_Version" xml:space="preserve">
+    <value>uManage Version &lt;strong&gt;{0}&lt;/strong&gt;</value>
+  </data>
+  <data name="Menu_Config_Users_Description" xml:space="preserve">
+    <value>View and Modify the users that are allowed to access the Admin Portal of uManage</value>
+  </data>
+  <data name="Menu_Config_Users_Title" xml:space="preserve">
+    <value>Manage Admin Users</value>
+  </data>
+  <data name="Config_Users_Add" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="Config_Users_AssignRoles" xml:space="preserve">
+    <value>Assign Roles:</value>
+  </data>
+  <data name="Config_Users_Body" xml:space="preserve">
+    <value>The list of users below has been granted access to the Administrative Portal of
+        uManage. From here you can add and remove users from the list below. In addition
+        you can also change user's group memberships from this panel as well.
+        &lt;p&gt;
+            &lt;strong&gt;Role Definitions&lt;/strong&gt;
+            &lt;br /&gt;
+            Admin - This is the primary role intended for users to manage the domain and the
+            users within it.
+            &lt;br /&gt;
+            System - This is the system administrator role intended for making configuration
+            changes to uManage, including this tool.
+        &lt;/p&gt;</value>
+  </data>
+  <data name="Config_Users_CurrentUsers" xml:space="preserve">
+    <value>Current Users</value>
+  </data>
+  <data name="Config_Users_EnterUsername" xml:space="preserve">
+    <value>Enter Username:</value>
+  </data>
+  <data name="Config_Users_NewUsers" xml:space="preserve">
+    <value>New Users</value>
+  </data>
+  <data name="Config_Users_SelectUser" xml:space="preserve">
+    <value>Select a User...</value>
+  </data>
+  <data name="Config_Users_SelectUsername" xml:space="preserve">
+    <value>Select User:</value>
+  </data>
+  <data name="Config_Users_Update" xml:space="preserve">
+    <value>Update Roles</value>
+  </data>
+  <data name="Config_Users_UserRoles" xml:space="preserve">
+    <value>User Roles:</value>
+  </data>
+  <data name="Menu_Config_OfficeLoc_Description" xml:space="preserve">
+    <value>Manage the Office Locations for the User Portal</value>
+  </data>
+  <data name="Menu_Config_OfficeLoc_Title" xml:space="preserve">
+    <value>Office Location Configuration</value>
+  </data>
+  <data name="Config_OfficeLoc_Add" xml:space="preserve">
+    <value>Add Location</value>
+  </data>
+  <data name="Config_OfficeLoc_AddLoc" xml:space="preserve">
+    <value>Add a Location</value>
+  </data>
+  <data name="Config_OfficeLoc_Body" xml:space="preserve">
+    <value>&lt;p&gt;
+            Organizations have the option of enabling a drop down list for the Office location
+            field in Active Directory. By enabling this option you will force users to select
+            a predefined location when selecting their office. When disabled users can enter
+            their location into a free-form textbox.
+        &lt;/p&gt;</value>
+  </data>
+  <data name="Config_OfficeLoc_DefaultDropDownText" xml:space="preserve">
+    <value>Select a location to edit...</value>
+  </data>
+  <data name="Config_OfficeLoc_EditLocs" xml:space="preserve">
+    <value>Remove Locations</value>
+  </data>
+  <data name="Config_OfficeLoc_Enable" xml:space="preserve">
+    <value>Enable Office Location List?</value>
+  </data>
+  <data name="Config_OfficeLoc_Failure_Message" xml:space="preserve">
+    <value>Failed to update the location because: </value>
+  </data>
+  <data name="Config_OfficeLoc_Failure_Title" xml:space="preserve">
+    <value>Failed to Save the Location!</value>
+  </data>
+  <data name="Config_OfficeLoc_Name" xml:space="preserve">
+    <value>Location Name:</value>
+  </data>
+  <data name="Config_OfficeLoc_Save" xml:space="preserve">
+    <value>Remove Location</value>
+  </data>
+  <data name="Config_OfficeLoc_SelectLoc" xml:space="preserve">
+    <value>Select A Location:</value>
+  </data>
+  <data name="Config_OfficeLoc_Success_Message" xml:space="preserve">
+    <value>Saved the location changes to the system.</value>
+  </data>
+  <data name="Config_OfficeLoc_Success_Title" xml:space="preserve">
+    <value>Saved Location!</value>
+  </data>
+  <data name="Config_AppReset_RemoveDatabase" xml:space="preserve">
+    <value>Remove Database?</value>
+  </data>
+  <data name="Config_Dash_Dialog_Message" xml:space="preserve">
+    <value>This timeline only shows configuration and system-wide changes.  It does not reflect any administrative or user changes, however it does work the same way as the main system timeline.</value>
+  </data>
+  <data name="Config_Dash_Dialog_Title" xml:space="preserve">
+    <value>Current Configuration Timeline</value>
+  </data>
+  <data name="Config_Dash_Empty_Message" xml:space="preserve">
+    <value>You're timeline is currently empty.  Don't worry nothing is really wrong, the system just has not logged any messages worth showing yet.  Remember this timeline is only for System Messages, all other messages will show up in the main Administration timeline.</value>
+  </data>
+  <data name="Config_Dash_Empty_Title" xml:space="preserve">
+    <value>No Timeline Exists!</value>
+  </data>
+  <data name="Menu_Config_Timeline_Description" xml:space="preserve">
+    <value>View the complete system timeline</value>
+  </data>
+  <data name="Menu_Config_Timeline_Title" xml:space="preserve">
+    <value>Configuration Timeline (Full)</value>
+  </data>
+  <data name="Menu_Admin_Dash_Description" xml:space="preserve">
+    <value>View an overview of the current users and system history</value>
+  </data>
+  <data name="Menu_Admin_Dash_Title" xml:space="preserve">
+    <value>Administration Dashboard</value>
+  </data>
+  <data name="Menu_Admin_Dash_Title_Short" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Menu_Sidebar_FullTimeline" xml:space="preserve">
+    <value>View Full Timeline</value>
+  </data>
+  <data name="Menu_Sidebar_TimelineTasks" xml:space="preserve">
+    <value>Timeline Tasks</value>
+  </data>
+  <data name="Menu_Admin_UserList_Description" xml:space="preserve">
+    <value>View and manage employees</value>
+  </data>
+  <data name="Menu_Admin_UserList_Title" xml:space="preserve">
+    <value>Full Employee List</value>
+  </data>
+  <data name="Menu_Admin_UserList_Title_Short" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="Menu_Admin_UserManage_Description" xml:space="preserve">
+    <value>View and manage the details and settings for an employee</value>
+  </data>
+  <data name="Menu_Admin_UserManage_Title" xml:space="preserve">
+    <value>Manage Employee Information</value>
+  </data>
+  <data name="Menu_Admin_UserManage_Title_Short" xml:space="preserve">
+    <value>Manage Employee</value>
+  </data>
+  <data name="Emp_Details_Info" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
+  <data name="Emp_Details_Location" xml:space="preserve">
+    <value>Location Information</value>
+  </data>
+  <data name="Emp_Details_NoManager" xml:space="preserve">
+    <value>No Manager</value>
+  </data>
+  <data name="Emp_Details_Org" xml:space="preserve">
+    <value>Organization Information</value>
+  </data>
+  <data name="Emp_Details_Phone" xml:space="preserve">
+    <value>Phone Information</value>
+  </data>
+  <data name="Emp_Details_Photo" xml:space="preserve">
+    <value>Photo Settings</value>
+  </data>
+  <data name="Emp_List_Details" xml:space="preserve">
+    <value>View Details</value>
+  </data>
+  <data name="Emp_List_Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Emp_List_ID" xml:space="preserve">
+    <value>Employee ID</value>
+  </data>
+  <data name="Emp_List_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Emp_List_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Emp_List_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Emp_Details_Photo_Fail_Msg" xml:space="preserve">
+    <value>For some reason the system was not able to change the photo submitted or clear the existing photo.  Try again or contact an administrator for more assistance.  Here is the exact reason: {0}.</value>
+  </data>
+  <data name="Emp_Details_Photo_Fail_Title" xml:space="preserve">
+    <value>Failed to Update Photo!</value>
+  </data>
+  <data name="Emp_Details_Save_Fail_Msg" xml:space="preserve">
+    <value>The system was unable to to save the information.  Here is the exact reason: {0}.</value>
+  </data>
+  <data name="Emp_Details_Save_Fail_Title" xml:space="preserve">
+    <value>Failed to Update Information!</value>
+  </data>
+  <data name="Emp_Details_Save_Success_Msg" xml:space="preserve">
+    <value>The information for the employee has been saved.  It should take effect immediately, however some applications may need to be restarted to get the new changes.</value>
+  </data>
+  <data name="Emp_Details_Save_Success_Title" xml:space="preserve">
+    <value>Information Updated!</value>
+  </data>
+  <data name="Menu_Config_NewUser_Description" xml:space="preserve">
+    <value>Manage the default settings for new users that are added through uManage</value>
+  </data>
+  <data name="Menu_Config_NewUser_Title" xml:space="preserve">
+    <value>New User Defaults</value>
+  </data>
+  <data name="Config_NewUser_Address" xml:space="preserve">
+    <value>Company Address:</value>
+  </data>
+  <data name="Config_NewUser_Body" xml:space="preserve">
+    <value>You must enable user creation before you can modify any settings. If you leave user
+        creation turned off uManage will not allow Admin users to create new user accounts,
+        they will all need to be created manually.</value>
+  </data>
+  <data name="Config_NewUser_City" xml:space="preserve">
+    <value>Company City:</value>
+  </data>
+  <data name="Config_NewUser_Company" xml:space="preserve">
+    <value>Company Defaults</value>
+  </data>
+  <data name="Config_NewUser_Country" xml:space="preserve">
+    <value>Company Country:</value>
+  </data>
+  <data name="Config_NewUser_Enable" xml:space="preserve">
+    <value>Enable User Creation?</value>
+  </data>
+  <data name="Config_NewUser_Format" xml:space="preserve">
+    <value>Username Format</value>
+  </data>
+  <data name="Config_NewUser_FormatStrings" xml:space="preserve">
+    <value>$fi$ - First Initial
+                    &lt;br /&gt;
+                    $fname$ - First Name
+                    &lt;br /&gt;
+                    $mi$ - Middle Initial
+                    &lt;br /&gt;
+                    $mname$ - Middle Name
+                    &lt;br /&gt;
+                    $li$ - Last Initial
+                    &lt;br /&gt;
+                    $lname$ - Last Name</value>
+  </data>
+  <data name="Config_NewUser_FormatTest" xml:space="preserve">
+    <value>Username Format String:</value>
+  </data>
+  <data name="Config_NewUser_FormatTest_Button" xml:space="preserve">
+    <value>Test (John Michael Smith)</value>
+  </data>
+  <data name="Config_NewUser_FormatTest_Missing" xml:space="preserve">
+    <value>&lt;strong&gt;Required Field Missing!&lt;/strong&gt;&lt;br /&gt;You must supply a default username format.</value>
+  </data>
+  <data name="Config_NewUser_FormatTitle" xml:space="preserve">
+    <value>Format Characters:</value>
+  </data>
+  <data name="Config_NewUser_Name" xml:space="preserve">
+    <value>Company Name:</value>
+  </data>
+  <data name="Config_NewUser_Phone" xml:space="preserve">
+    <value>Company Phone:</value>
+  </data>
+  <data name="Config_NewUser_Postal" xml:space="preserve">
+    <value>Company Postal Code:</value>
+  </data>
+  <data name="Config_NewUser_Save" xml:space="preserve">
+    <value>Save Defaults</value>
+  </data>
+  <data name="Config_NewUser_Save_Fail_Msg" xml:space="preserve">
+    <value>The settings could not be saved because of this error: {0}</value>
+  </data>
+  <data name="Config_NewUser_Save_Fail_Title" xml:space="preserve">
+    <value>Failed to Save Settings!</value>
+  </data>
+  <data name="Config_NewUser_Save_Success_Msg" xml:space="preserve">
+    <value>The defaults have been saved and will be used for all future user accounts.</value>
+  </data>
+  <data name="Config_NewUser_Save_Success_Title" xml:space="preserve">
+    <value>Saved Defaults!</value>
+  </data>
+  <data name="Config_NewUser_State" xml:space="preserve">
+    <value>Company State:</value>
+  </data>
+  <data name="Menu_Admin_AddUser_Description" xml:space="preserve">
+    <value>Add a new employee to your organization</value>
+  </data>
+  <data name="Menu_Admin_AddUser_Title" xml:space="preserve">
+    <value>Add New Employee</value>
+  </data>
+  <data name="Menu_Admin_AddUser_Title_Short" xml:space="preserve">
+    <value>Add Employee</value>
+  </data>
+  <data name="Config_NewUser_Container" xml:space="preserve">
+    <value>Default Container</value>
+  </data>
+  <data name="Config_NewUser_DN" xml:space="preserve">
+    <value>Distinguished Name:</value>
+  </data>
+  <data name="Config_NewUser_DN_Instructions" xml:space="preserve">
+    <value>Example: OU=MyUsers,DC=MyDomain,DC=com</value>
+  </data>
+  <data name="Emp_Add_Disabled_Message" xml:space="preserve">
+    <value>An administrator has either disabled adding employees using this system or has not yet configured the system to add new employees.  Please contact your administrator for more information.</value>
+  </data>
+  <data name="Emp_Add_Disabled_Title" xml:space="preserve">
+    <value>Add Employee Disabled!</value>
+  </data>
+  <data name="Emp_Add_Submit" xml:space="preserve">
+    <value>Add Employee</value>
+  </data>
+  <data name="Emp_Add_Submit_Fail_Msg" xml:space="preserve">
+    <value>The employee could not be added to the system because: {0}</value>
+  </data>
+  <data name="Emp_Add_Submit_Fail_Title" xml:space="preserve">
+    <value>Failed to add Employee!</value>
+  </data>
+  <data name="Emp_Add_Submit_Success_Msg" xml:space="preserve">
+    <value>The employee was added to the system.  The system will send you an e-mail in a few minutes with instructions and login information for the new employee, please deliver it to the new employee.</value>
+  </data>
+  <data name="Emp_Add_Submit_Success_Title" xml:space="preserve">
+    <value>Employee Added!</value>
+  </data>
+</root>

@@ -1,0 +1,118 @@
+﻿html, body
+{
+    font-family: "Segoe UI" , "Helvetica Neue" , "Lucida Grande" , Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: White;
+}
+
+.left
+{
+    float: left;
+}
+
+.right
+{
+    float: right;
+}
+
+.clear
+{
+    clear: both;
+}
+
+/* Fix for validator displays */
+.ajax__validatorcallout_callout_arrow_cell_topleftpos
+{
+    padding: 1px 0 0 15px !important;
+}
+
+.ajax__validatorcallout_error_message_cell
+{
+    padding: 5px 4px !important;
+}
+
+.output
+{
+    margin-left: 20px;
+    padding: 3px 5px 3px 5px;
+}
+
+.output_nomargin
+{
+    margin: 0;
+    padding: 3px 5px 3px 5px;
+}
+
+.success
+{
+    background-color: Green;
+    color: White;
+    font-weight: bold;
+}
+
+.failure
+{
+    background-color: Red;
+    color: White;
+    font-weight: bold;
+}
+
+ul.list
+{
+    list-style-type: disc;
+    margin: 2px 0 10px 15px;
+}
+
+.progress
+{
+    position: absolute;
+    top: 25%;
+    left: 0;
+    right: 0;
+}
+
+.progress-border
+{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    background-color: #888888;
+    background-color: rgba(136,136,136,.8);
+    padding: 10px;
+    max-width: 300px;
+}
+
+.progress-win
+{
+    background-color: White;
+    background-color: rgba(255,255,255,1);
+    color: Black;
+}
+
+.progress-head
+{
+    background: #e0e0d7;
+    border: 1px solid #CCCCCC;
+    color: black;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.progress-cont
+{
+    border-bottom: 1px solid #CCCCCC;
+    padding: 10px;
+}
+
+.progress-foot
+{
+    background: #F2F2F2;
+    padding: 8px;
+    text-align: right;
+}
+
+.progress a
+{
+    color: Black;
+}

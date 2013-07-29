@@ -1,0 +1,10 @@
+﻿@model IEnumerable<UMS.Core.Data.Models.App.QuickLink>
+<ul>
+    @foreach (var item in Model.OrderBy(q => q.DisplayOrder))
+    {
+        <li><a href="@item.Url" title="@item.Text" @if (item.NewWindow)
+                                                   {<text>target="_blank"</text>;
+                                                   }>@item.Text</a></li>
+    
+    }
+</ul>

@@ -1,0 +1,47 @@
+﻿@model UMS.Core.Data.Models.Config.DatabaseSetting
+@{
+    ViewBag.Title = "Database";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+}
+<div class="box">
+    <div class="head">
+        System Database
+    </div>
+    <p>
+        Changes to the database configuration are not supported from the application after
+        the application has been configured.
+    </p>
+    <table class="input">
+        <tr>
+            <th>
+                Database Server:
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Server, new { @disabled = "disabled" })
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Catalog / Database:
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Catalog, new { @disabled = "disabled" })
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Database Username:
+            </th>
+            <td>
+                @if (Model.IntegratedSecurity)
+                {
+                    <input type="text" value="Integrated Security" disabled="disabled" />
+                }
+                else
+                {
+                    @Html.TextBoxFor(m => m.Username, new { @disabled = "disabled" })
+                }
+            </td>
+        </tr>
+    </table>
+</div>

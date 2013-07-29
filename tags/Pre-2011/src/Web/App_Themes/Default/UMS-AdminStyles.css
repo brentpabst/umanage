@@ -1,0 +1,642 @@
+﻿.adminstyles
+{
+}
+
+/*************************************************************
+ * uManage Styles
+ * Theme: Default
+ * Admin Style Sheet
+ * Copyright © Pabst Productions, Inc. 2010
+ * 
+ * Styles all forms and pages when logged in as a admin.
+ * Controls look, feel and content.
+ ************************************************************/
+
+/* PAGE/FORM ELEMENTS */
+html.admin, body.admin
+{
+	color: #666666;
+	padding: 0;
+	margin: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: .9em;
+	line-height: 1.5;
+	background-color: #efefef;
+}
+
+/* ADMIN LAYOUT STYLES */
+.margin-wrapper
+{
+	/* Adds a slight marging to the sides of the app */
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+.admin-head
+{
+	/* Defines the entire head of the app */
+	background: #51564F url(Images/Admin-Head-BG.png) repeat-x top left;
+	border-bottom: solid 8px #ff5754;
+}
+
+.admin-mast
+{
+	/* Defines the top portion of the head */
+	clear: both;
+	font-size: 12px;
+	color: #999999;
+	margin-bottom: 20px;
+}
+
+.admin-mast-left
+{
+	/* Defines the left side of the mast */
+	float: left;
+}
+
+
+.admin-mast-right
+{
+	/* Defines the right side of the mast */
+	float: right;
+	padding-top: 10px;
+	text-align: right;
+}
+
+admin-nav
+{
+	/* Defines the lower half of the head */
+	width: 100%;
+}
+
+.admin-nav-left
+{
+	/* Defines the left side of the nav bar */
+	float: left;
+	padding-bottom: 10px;
+	color: White;
+	font-weight: bold;
+	font-size: 1.4em;
+}
+
+.admin-nav-right
+{
+	/* Defines the right side of the nav bar */
+	float: right;
+}
+
+
+.admin-cont
+{
+	/* Defines the content region */
+	margin-top: 15px;
+}
+
+.admin-cont-left
+{
+	/* Defines the left content region */
+	float: left;
+	width: 100%;
+}
+
+.admin-cont-right
+{
+	/* Defines the right content region */
+	float: left;
+	margin-left: -300px;
+	width: 300px;
+	font-size: .8em;
+	padding-top: 10px;
+}
+
+.admin-foot
+{
+	/* Defines the footer region */
+	margin-top: 15px;
+	margin-right: 300px;
+	font-size: .75em;
+	color: #999999;
+}
+
+
+
+
+/* MISC MAST STYLES */
+.admin-mast-left table
+{
+	/* Defines a table to hold the logo and text */
+	padding: 0;
+	margin: 0;
+	border-collapse: collapse;
+	border: none;
+}
+
+.admin-mast-right .username
+{
+	/* Styles for the username */
+	color: White;
+}
+
+
+
+
+/* SIDEBAR/TASKBAR STYLES */
+.taskbar-header
+{
+	text-transform: uppercase;
+	font-weight: bold;
+	border-bottom: solid 1px #cccccc;
+	padding-left: 10px;
+}
+
+.taskbar-cont
+{
+	padding: 10px 0px 10px 10px;
+}
+
+
+
+
+/* CONTENT STYLES */
+.content
+{
+	margin-right: 300px;
+	border: solid 1px #cccccc;
+	background-color: White;
+}
+
+.content-head
+{
+	background-color: #fffedf;
+	border-bottom: solid 1px #dddddd;
+	padding: 10px 10px 10px 10px;
+	font-weight: bold;
+}
+
+.content-main
+{
+	padding: 15px 10px 15px 10px;
+}
+
+
+
+
+/* FOOTER STYLES */
+.admin-foot hr
+{
+	border: solid .5px #cccccc;
+}
+
+
+
+
+/* NAVIGATION/MENU STYLES */
+/* Styles used to create and skin the user menu */
+/* 
+NOTICE:
+UMS now uses the .NET 4.0 CSS based menu control. For more
+information visit the following link:
+http://msdn.microsoft.com/en-us/library/ms366731(VS.100).aspx
+*/
+.admin-nav
+{
+	margin-top: 10px;
+}
+.admin-nav ul.level1
+{
+	width: 100%;
+	float: right;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.admin-nav li
+{
+	display: inline;
+	background-color: #444444;
+}
+
+.admin-nav li a
+{
+	display: block;
+	float: left;
+	padding: 5px 15px 6px 15px;
+	margin-right: 3px;
+	color: White;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: .9em;
+}
+
+.admin-nav li a:hover, .admin-nav ul li:hover a
+{
+	background: url(Images/Admin-Nav-BG-Hover.png) top center repeat-x;
+}
+.admin-nav a.selected, .admin-nav a.selected:hover
+{
+	background: url(Images/Admin-Nav-BG-Selected.png) top center repeat-x;
+}
+
+
+
+/* FORM ELEMENT STYLES */
+/* Styles for buttons, textboxes, etc. */
+.admin .textbox
+{
+	display: inline-block;
+	width: 250px;
+}
+
+.admin input.textbox
+{
+	/* Login Input Styles */
+	width: 250px;
+	padding: 5px;
+	font-size: 20px;
+}
+
+.admin textarea
+{
+	/* Login Input Styles */
+	width: 250px;
+	padding: 5px;
+}
+
+.admin input.textbox-invalid
+{
+	/* Login Input Styles */
+	width: 250px;
+	padding: 5px;
+	font-size: 20px;
+	border: solid 1px #FFA8A8;
+	background-color: #FFE8E8;
+}
+
+.admin input.textbox-required
+{
+	/* Required field styles */
+	width: 250px;
+	padding: 5px;
+	font-size: 20px;
+	border: solid 1px #FFA8A8;
+}
+
+.admin input.submit
+{
+	/* Login Input Styles */
+	height: 32px;
+	cursor: pointer;
+	border: solid 1px #6c85b2;
+	padding: 0 12px 0 12px;
+	font-size: 12px;
+	font-weight: bold;
+	background: url(Images/LoginButton.png) #ffffff repeat-x left center;
+}
+
+.admin input.submit:hover
+{
+	/* Login Input Styles */
+	border: solid 1px #a35800;
+	background: url(Images/LoginButton-Hover.png) #ffffff repeat-x left center;
+}
+
+.admin select.dropdown
+{
+	/* Login Input Styles */
+	width: 263px;
+	padding: 5px;
+	font-size: 20px;
+}
+
+
+
+
+/* FORM TABLE STYLES */
+.admin table.form
+{
+	/* Defines table styles for form content */
+	padding: 0;
+	margin: 0;
+	border-collapse: collapse;
+}
+
+.admin table.form tr
+{
+	/* Table row styles */
+	margin: 0;
+	padding: 0;
+}
+
+.admin table.form tr.required
+{
+	/* Required Row styles */
+	background-color: #ffcccc;
+}
+
+.admin table.form td
+{
+	/* Login Table Styles */
+	padding: 5px 5px 5px 10px;
+}
+
+.admin table.form td.header
+{
+	/* Login Table Styles */
+	min-width: 150px;
+	text-align: right;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.admin table.form td.group
+{
+	/* Login Table Styles */
+	border-bottom: solid 3px #efefef;
+	color: #345793;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: left;
+}
+
+.admin table.form td.vtop
+{
+	/* Vertical top align data cells */
+	vertical-align: top;
+}
+
+
+
+
+/* DASHBOARD WIDGETS */
+/* These are temp styles */
+.admin .dash
+{
+	border: solid 1px #acbede;
+}
+.admin .dash-head
+{
+	background-color: #acbede;
+	padding: 3px;
+	font-weight: bold;
+}
+.admin .dash-mid
+{
+	padding: 5px;
+}
+
+
+
+
+/* CONFIGURATION MENU STYLES */
+ul.menu-config
+{
+	/* Styles for the menu */
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.menu-config li
+{
+	/* Styles for the list items */
+}
+
+ul.menu-config li a:link, ul.menu-config li a:visited
+{
+	/* Controls the overall appearance */
+	display: block;
+	width: 100%;
+	line-height: 2em;
+	padding: 5px 0 5px 5px;
+	margin-left: 0;
+	color: #666666;
+	text-decoration: none;
+}
+ul.menu-config li a:hover
+{
+	/* Hover styles */
+	background-color: #ff5754;
+	color: white;
+	text-decoration: underline;
+}
+
+
+
+
+/* LINK STYLES */
+.admin-mast a:link, .admin-mast a:visited
+{
+	/* Styles to control the links in the mast */
+	color: #999999;
+	text-decoration: none;
+}
+
+.admin-mast a:hover
+{
+	/* Styles to control the links in the mast */
+	color: White;
+	text-decoration: underline;
+}
+
+.admin-foot a:link, .admin-foot a:visited
+{
+	/* Styles the links inside of the copyright container */
+	color: #999999;
+	text-decoration: none;
+}
+
+.admin-foot a:hover
+{
+	/* Styles the links inside of the copyright container */
+	color: #999999;
+	text-decoration: underline;
+}
+
+.admin .content a:link, .admin .content a:visited
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: #6699cc;
+}
+
+.admin .content a:hover
+{
+	text-decoration: underline;
+	font-weight: bold;
+	color: Gray;
+}
+
+.admin a.aspNetDisabled, .admin a.aspNetDisabled:link, .admin a.aspNetDisabled:visited
+{
+	text-decoration: none;
+	font-weight: normal;
+	color: #efefef;
+	}
+	
+	.admin a.aspNetDisabled:hover
+{
+	text-decoration: none;
+	font-weight: normal;
+	color: #efefef;
+	}
+
+
+
+
+/* TEXT STYLES */
+.admin p
+{
+	margin-top: 0;
+}
+
+
+
+/* TIMELINE STYLES */
+tr.timeline-group td
+{
+	border-bottom: solid 3px #efefef;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #6699cc;
+}
+
+td.timeline-group-spacer
+{
+	border: none;
+	height: 8px;
+}
+
+.timeline-full-row td
+{
+	padding-top: 3px;
+	font-size: 0.8em;
+}
+
+td.timeline-full-spacer
+{
+	border-bottom: solid 1px #efefef;
+	color: #efefef;
+	padding-top: 3px;
+}
+
+.timeline-row0 td
+{
+	padding: 8px 5px;
+	font-size: 0.8em;
+}
+
+.timeline-row1 td
+{
+	padding: 8px 5px;
+	font-size: 0.8em;
+	background-color: #efefef;
+}
+
+.timeline-title
+{
+	padding: 2px;
+	background-color: #fffedf;
+}
+
+
+/* Timeline Category Styles */
+.timeline-category
+{
+	padding: 3px;
+	font-weight: bold;
+	background-color: #6699cc;
+	color: White;
+}
+
+.timeline-full-category
+{
+	padding: 0 5px 0 2px;
+	margin-right: 5px;
+	color: White;
+	font-size: 0.95em;
+}
+
+.cat-SMTP
+{
+	background-color: Red;
+}
+
+.cat-Setup
+{
+	background-color: Blue;
+}
+
+.cat-Domain
+{
+	background-color: #ff6600;
+}
+
+.cat-Users
+{
+	background-color: #3399cc;
+}
+
+.cat-Settings
+{
+	background-color: #669933;
+}
+
+.cat-Photo
+{
+	background-color: Red;
+}
+
+.cat-Information
+{
+	background-color: #669933;
+}
+
+/* GRID STYLES */
+table.auth-grid
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.auth-grid-head th
+{
+	border-bottom: solid 3px #efefef;
+	color: #6699cc;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: left;
+}
+
+.auth-grid-row td
+{
+	padding: 8px 5px;
+	font-size: 0.85em;
+	text-align: left;
+}
+
+.auth-grid-row-alt td
+{
+	padding: 8px 5px;
+	font-size: 0.85em;
+	background-color: #efefef;
+	text-align: left;
+}
+
+.auth-grid-row:hover td, .auth-grid-row-alt:hover td
+{
+	background-color: #ff9999;
+	color: white;
+}
+
+.auth-grid-row:hover td a, .auth-grid-row-alt:hover td a
+{
+	color: white;
+}
+
+.auth-grid-row td a, .auth-grid-row-alt td a
+{
+	color: #666666;
+}

@@ -1,0 +1,54 @@
+﻿@using UMS.Core.Data.Models.Directory
+@model UMS.Web.ViewModels.Dashboard
+@{
+    ViewBag.Title = "Dashboard";
+}
+<div class="columns sidebar-right">
+    <div class="left">
+        @Html.Partial("_PasswordNotice", Session["User"] as User)
+        @Html.Partial("_WallPosts", Model.WallPosts)
+    </div>
+    <div class="right">
+        @if (Model.DisplayWeather)
+        {
+            <div class="box">
+                <div class="head">
+                    Current Weather
+                </div>
+                <div id="weather">
+                </div>
+            </div>
+        }
+        <div class="box">
+            <div class="head">
+                Quick Links
+            </div>
+            @Html.Partial("_QuickLinks", Model.QuickLinks)
+        </div>
+        <div class="box">
+            <div class="head">
+                My Links
+            </div>
+            <ul>
+                <li>@Html.ActionLink("My Information", "Index", "Me")</li>
+                <li>@Html.ActionLink("My Password", "Password", "Me")</li>
+                <li>@Html.ActionLink("My Photo", "Photo", "Me")</li>
+                <li>@Html.ActionLink("My Account", "Account", "Me")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+@section Script
+{
+    @if (Model.DisplayWeather && !String.IsNullOrWhiteSpace(Model.WeatherApiKey))
+    {
+        <script src="@Url.Content("~/Scripts/ums.weather.js")"></script>
+        <script type="text/javascript">
+            var key = "@Model.WeatherApiKey";
+            $(function () {
+                var vm = new WeatherModel("#weather");
+                vm.update();
+            });
+        </script>
+    }
+}

@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="PPI.UMS.Web.App_Master.User" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="SHORTCUT ICON" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/png" href="/Images/UMS.png" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        function revealModal(divID) {
+            window.onscroll = function () {
+                document.getElementById(divID).style.top = document.body.scrollTop;
+            };
+            document.getElementById(divID).style.display = "block";
+            document.getElementById(divID).style.top = document.body.scrollTop;
+        }
+
+        function hideModal(divID) {
+            document.getElementById(divID).style.display = "none";
+        }
+    </script>
+</head>
+<body class="user">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:LoginView ID="LoginView1" runat="server">
+        <RoleGroups>
+            <asp:RoleGroup Roles="Admin,System">
+                <ContentTemplate>
+                    <div runat="server" class="user-adminpanel">
+                        <asp:Label ID="lblUsername" runat="server"></asp:Label> |
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Forms/Admin/Admin-Dash.aspx"
+                            Text="<%$ Resources:User,Mast_ViewAdminPortal %>"></asp:HyperLink>
+                    </div>
+                </ContentTemplate>
+            </asp:RoleGroup>
+        </RoleGroups>
+    </asp:LoginView>
+    <div class="user-page">
+        <div class="user-logo">
+            <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/UMS-Logo.png" AlternateText="Logo" />
+        </div>
+        <asp:Menu ID="Menu1" runat="server" CssClass="user-menu" Orientation="Horizontal"
+            IncludeStyleBlock="False" MaximumDynamicDisplayLevels="0" DataSourceID="SiteMapDataSource1">
+        </asp:Menu>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False"
+            SiteMapProvider="UserSiteMapProvider" />
+        <div class="user-content">
+            <div class="user-content-head">
+            </div>
+            <div class="user-content-mid">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="user-content-foot">
+            </div>
+        </div>
+        <div class="user-copy-info">
+            <div style="float: left;">
+                <asp:Label ID="lblCopyright" runat="server" Text="<%$ Resources:Global, CopyrightTag %>"></asp:Label>
+                <br />
+                <asp:Label ID="Label1" runat="server" Text="<%$ Resources:Global, OpenSourceTag %>"></asp:Label>
+            </div>
+            <div style="float: right; padding-right: 10px;">
+                <a class="login" href="#" onclick="revealModal('modalpage')" title="Support Lymphoma Awareness">
+                    <asp:Image ID="imgLymphoma" runat="server" ImageUrl="~/Images/Lymphoma-Ribbon.png"
+                        AlternateText="Lymphoma" Style="border: none;" />
+                </a>
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div id="modalpage">
+            <div class="modalbackground">
+            </div>
+            <div class="modalcontainer">
+                <div class="modal">
+                    <div class="modaltop">
+                        <asp:Label ID="lblRibbonTitle" runat="server" Text="<%$ Resources:Global, RibbonTitle %>"></asp:Label>
+                    </div>
+                    <div class="modalbody">
+                        <asp:Label ID="lblRibbonBody" runat="server" Text="<%$ Resources:Global, RibbonBody %>"></asp:Label>
+                    </div>
+                    <div class="modalfoot">
+                        <input type="button" value="Close" class="submit" onclick="hideModal('modalpage')" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

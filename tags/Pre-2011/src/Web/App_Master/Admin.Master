@@ -1,0 +1,125 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="PPI.UMS.Web.App_Master.Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="SHORTCUT ICON" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/Images/UMS.ico" />
+    <link rel="icon" type="image/png" href="/Images/UMS.png" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        function revealModal(divID) {
+            window.onscroll = function () {
+                document.getElementById(divID).style.top = document.body.scrollTop;
+            };
+            document.getElementById(divID).style.display = "block";
+            document.getElementById(divID).style.top = document.body.scrollTop;
+        }
+
+        function hideModal(divID) {
+            document.getElementById(divID).style.display = "none";
+        }
+    </script>
+</head>
+<body class="admin">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <div class="admin-head">
+        <div class="margin-wrapper">
+            <div class="admin-mast">
+                <div class="admin-mast-left">
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/UMS-Logo-Small.png" AlternateText="Logo" />
+                            </td>
+                            <td>
+                                &nbsp; &#151; an open source project
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="admin-mast-right">
+                    <asp:Label ID="lblUsername" runat="server" CssClass="username"></asp:Label>
+                    |
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Forms/Users/User-Info.aspx"
+                        Text="<%$ Resources:Admin,Mast_ViewUserPortal %>"></asp:HyperLink>
+                </div>
+                <div style="clear: both;">
+                </div>
+            </div>
+            <div class="admin-nav">
+                <div class="admin-nav-left">
+                    <asp:Label ID="lblDomainName" runat="server"></asp:Label>
+                </div>
+                <div class="admin-nav-right">
+                    <asp:Menu ID="Menu1" runat="server" CssClass="admin-nav" Orientation="Horizontal"
+                        DataSourceID="SiteMapDataSource1" MaximumDynamicDisplayLevels="0" StaticDisplayLevels="1"
+                        IncludeStyleBlock="False" OnMenuItemDataBound="Menu1_MenuItemDataBound">
+                    </asp:Menu>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="AdminSitemapProvider"
+                        ShowStartingNode="False" />
+                </div>
+                <div style="clear: both;">
+                </div>
+            </div>
+            <div class="admin-status" style="display: none;">
+                <asp:SiteMapPath ID="SiteMapPath1" runat="server" SiteMapProvider="AdminSitemapProvider"
+                    NodeStyle-CssClass="bread-node" CurrentNodeStyle-CssClass="bread-current">
+                </asp:SiteMapPath>
+                <br />
+                <asp:Label ID="lblPageInfo" runat="server" Font-Italic="true"></asp:Label>
+            </div>
+        </div>
+    </div>
+    <div class="admin-cont">
+        <div class="margin-wrapper">
+            <div class="admin-cont-left">
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="admin-foot">
+                    <asp:Label ID="lblVersion" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="http://umanage.codeplex.com/Thread/List.aspx"
+                        Target="_blank" Text="<%$ Resources:Admin,Foot_MakeSuggestion %>"></asp:HyperLink>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:HyperLink ID="HyperLink3" runat="server" style="cursor: pointer;" Text="<%$ Resources:Admin,Foot_Lymphoma %>"
+                        onclick="revealModal('modalpage')"></asp:HyperLink>
+                    <hr />
+                    <asp:Label ID="lblCopyright" runat="server" Text="<%$ Resources:Global, CopyrightTag %>"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="<%$ Resources:Global, OpenSourceTag %>"></asp:Label>                    
+                </div>
+            </div>
+            <div class="admin-cont-right">
+                <asp:ContentPlaceHolder ID="TaskBar" runat="server">
+                    </asp:ContentPlaceHolder>
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+    </div>
+    <div id="modalpage">
+        <div class="modalbackground">
+        </div>
+        <div class="modalcontainer">
+            <div class="modal">
+                <div class="modaltop">
+                    <asp:Label ID="lblRibbonTitle" runat="server" Text="<%$ Resources:Global, RibbonTitle %>"></asp:Label>
+                </div>
+                <div class="modalbody">
+                    <asp:Label ID="lblRibbonBody" runat="server" Text="<%$ Resources:Global, RibbonBody %>"></asp:Label>
+                </div>
+                <div class="modalfoot">
+                    <input type="button" value="Close" class="submit" onclick="hideModal('modalpage')" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

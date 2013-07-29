@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap enableLocalization="true" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode>
+    <siteMapNode url="~/Forms/Users/User-Info.aspx" title="$resources:User,Menu_AboutMe_Title"  description="" />
+    <siteMapNode url="~/Forms/Users/User-Pass.aspx" title="$resources:User,Menu_MyPassword_Title"  description="" />
+    <siteMapNode url="~/Forms/Users/User-Account.aspx" title="$resources:User,Menu_MyAccount_Title"  description="" />
+  </siteMapNode>
+</siteMap>

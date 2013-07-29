@@ -1,0 +1,31 @@
+﻿@using UMS.Core.Data.Models.Directory
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @RenderSection("Head", false)
+}
+<div class="columns sidebar-left">
+    <div class="left">
+        <div class="box">
+            <div class="head">
+                My Options
+            </div>
+            <ul>
+                <li>@Html.ActionLink("My Information", "Index", "Me")</li>
+                <li>@Html.ActionLink("My Password", "Password", "Me")</li>
+                <li>@Html.ActionLink("My Photo", "Photo", "Me")</li>
+                <li>@Html.ActionLink("My Account", "Account", "Me")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        @Html.Partial("_PasswordNotice", Session["User"] as User)
+        @RenderBody()
+    </div>
+</div>
+@section Script
+{
+    @RenderSection("Script", false)
+}

@@ -1,0 +1,33 @@
+﻿@model IOrderedQueryable<UMS.Core.Data.Models.App.QuickLink>
+@{
+    ViewBag.Title = "Quick Links";
+    Layout = "~/Areas/Admin/Views/Shared/_Config.cshtml";
+    var grid = new WebGrid(Model);
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css/jquery")
+}
+<div class="box">
+    <div class="head">
+        Quick Links
+    </div>
+    <p>
+        Quick Links provide users with location specific hyperlinks. They can point to any
+        valid URL that a browser can open and in whatever order you prefer to see. Typical
+        uses will be to provide links to payroll sites, corporate sites, and even webmail
+        interfaces.
+    </p>
+    @Html.ActionLink("Add Quick Link", "Details", "Links", new { @class = "action next" })
+    @* ReSharper disable Html.PathError *@
+    @grid.GetHtml(tableStyle: "data", columns: grid.Columns(
+        grid.Column(style: "icon clear-fix", format: @<text><a class="delete" href="/Admin/Links/Delete/@item.LinkId">&nbsp;</a><a class="edit" href="/Admin/Links/Details/@item.LinkId">&nbsp;</a></text>),
+        grid.Column("Text", header: "Display Text"),
+        grid.Column("Url", header: "Url", style: "link", format: @<text><a target="_blank" href="@item.Url">@item.Url</a></text>),
+        grid.Column("NewWindows", "Displays in New Window?", @<text>@if (item.NewWindow)
+                                                                    { <text>Yes</text> }
+                                                                    else
+                                                                    { <text>No</text> }</text>)
+                                            ))
+    @* ReSharper restore Html.PathError *@
+</div>

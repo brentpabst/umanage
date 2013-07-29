@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+@section Head
+{
+    @RenderSection("Head", false)
+}
+<div class="columns sidebar-left">
+    <div class="left">
+        <div class="box">
+            <div class="head">
+                System
+            </div>
+            <ul>
+                <li>@Html.ActionLink("Summary", "Summary", "Config")</li>
+                <li>@Html.ActionLink("Active Directory", "Directory", "Config")</li>
+                <li>@Html.ActionLink("Database", "Database", "Config")</li>
+                <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                <li>@Html.ActionLink("Ignored Groups", "Groups", "Config")</li>
+                <li>@Html.ActionLink("Take Offline", "Offline", "Config")</li>
+                <li>@Html.ActionLink("User Authorization", "Index", "Users")</li>
+                <li><a>Email Templates</a></li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="head">
+                Home Page
+            </div>
+            <ul>
+                <li>@Html.ActionLink("Settings", "Home", "Config")</li>
+                <li>@Html.ActionLink("Quick Links", "Index", "Links")</li>
+                <li>@Html.ActionLink("Wall Posts", "Index", "Wall")</li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="head">
+                Active Directory
+            </div>
+            <ul>
+                <li>@Html.ActionLink("Office Locations", "Index", "Offices")</li>
+                <li>@Html.ActionLink("Departments", "Index", "Departments")</li>
+                <li>@Html.ActionLink("Password Notifications", "PasswordReminder", "Config")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        @RenderBody()
+    </div>
+</div>
+@section Script
+{
+    @RenderSection("Script", false)
+}

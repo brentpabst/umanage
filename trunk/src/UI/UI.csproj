@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2DE13BBC-9B26-4364-AAC7-74216F25A7D2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>THS.UMS.UI</RootNamespace>
+    <AssemblyName>THS.UMS.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.50927.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.50927\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AntiXSSLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.50927\lib\40\SanitizerProviders\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.50927\lib\40\SanitizerProviders\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SanitizerProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.50927\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Templates\EmailTest.txt" />
+    <Content Include="App_Data\Templates\Offline.txt" />
+    <Content Include="App_Themes\Default\Global.css" />
+    <Content Include="App_Themes\HomePage\Images\Logo.png" />
+    <Content Include="App_Themes\HomePage\Images\Right-Arrow.png" />
+    <Content Include="App_Themes\HomePage\Master.css" />
+    <Content Include="App_Themes\HomePage\_Reset.css" />
+    <Content Include="FederationMetadata\2007-06\FederationMetadata.xml" />
+    <Content Include="Forms\Admin\Config\HomeConfig.aspx" />
+    <Content Include="Forms\Admin\Config\HomeLinks.aspx" />
+    <Content Include="Forms\Admin\Config\HomePosts.aspx" />
+    <Content Include="Forms\Admin\Config\SysGroups.aspx" />
+    <Content Include="Forms\Admin\Groups\GroupDetail.aspx" />
+    <Content Include="Forms\Admin\Groups\GroupList.aspx" />
+    <Content Include="Forms\Users\Home.aspx" />
+    <Content Include="Forms\Users\UserView.aspx" />
+    <Content Include="Forms\Users\Search.aspx" />
+    <Content Include="App_Themes\Default\Images\Right-Arrow.png" />
+    <Content Include="App_Themes\Default\Reset.css" />
+    <Content Include="App_Themes\Default\User.css" />
+    <Content Include="Controls\Helpers\OutputMessage.ascx" />
+    <Content Include="Controls\Helpers\UserBadge.ascx" />
+    <Content Include="Controls\UserInfo.ascx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Forms\Admin\Config\AppDepartment.aspx" />
+    <Content Include="Forms\Admin\Config\AppLocation.aspx" />
+    <Content Include="Forms\Admin\Config\AppOffice.aspx" />
+    <Content Include="Forms\Admin\Config\AppSettings.aspx" />
+    <Content Include="Forms\Admin\Config\AppTemplates.aspx" />
+    <Content Include="Forms\Admin\Config\AppUsers.aspx" />
+    <Content Include="Forms\Admin\Config\SysAuto.aspx" />
+    <Content Include="Forms\Admin\Config\SysDatabase.aspx" />
+    <Content Include="Forms\Admin\Config\SysDirectory.aspx" />
+    <Content Include="Forms\Admin\Config\SysOffline.aspx" />
+    <Content Include="Forms\Admin\Config\SysReset.aspx" />
+    <Content Include="Forms\Admin\Config\SysSmtp.aspx" />
+    <Content Include="Forms\Admin\Config\SysSummary.aspx" />
+    <Content Include="Forms\Admin\Dashboard.aspx" />
+    <Content Include="Forms\Admin\User\UsrAdd.aspx" />
+    <Content Include="Forms\Admin\User\UsrAudit.aspx" />
+    <Content Include="Forms\Admin\User\UsrAuditDetail.aspx" />
+    <Content Include="Forms\Admin\User\UsrDetail.aspx" />
+    <Content Include="Forms\Admin\User\UsrList.aspx" />
+    <Content Include="Forms\Error.aspx" />
+    <Content Include="Forms\Setup\Setup.aspx" />
+    <Content Include="Forms\Users\Account.aspx" />
+    <Content Include="Forms\Users\Info.aspx" />
+    <Content Include="Forms\Users\Password.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\Loading.gif" />
+    <Content Include="Images\No-Photo.png" />
+    <Content Include="Images\UMS.ico" />
+    <Content Include="Images\UMS.png" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.jdigiclock.js" />
+    <Content Include="Scripts\ums.ajax.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UmsRequestValidator.cs" />
+    <Compile Include="App_Master\Config.master.cs">
+      <DependentUpon>Config.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Config.master.designer.cs">
+      <DependentUpon>Config.master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Master\User.Master.cs">
+      <DependentUpon>User.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\User.Master.designer.cs">
+      <DependentUpon>User.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EmpPhoto.ashx.cs">
+      <DependentUpon>EmpPhoto.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Helpers\OutputMessage.ascx.cs">
+      <DependentUpon>OutputMessage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Helpers\OutputMessage.ascx.designer.cs">
+      <DependentUpon>OutputMessage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Helpers\UserBadge.ascx.cs">
+      <DependentUpon>UserBadge.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Helpers\UserBadge.ascx.designer.cs">
+      <DependentUpon>UserBadge.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserInfo.ascx.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserInfo.ascx.designer.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppDepartment.aspx.cs">
+      <DependentUpon>AppDepartment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppDepartment.aspx.designer.cs">
+      <DependentUpon>AppDepartment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppLocation.aspx.cs">
+      <DependentUpon>AppLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppLocation.aspx.designer.cs">
+      <DependentUpon>AppLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppOffice.aspx.cs">
+      <DependentUpon>AppOffice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppOffice.aspx.designer.cs">
+      <DependentUpon>AppOffice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppSettings.aspx.cs">
+      <DependentUpon>AppSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppSettings.aspx.designer.cs">
+      <DependentUpon>AppSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppTemplates.aspx.cs">
+      <DependentUpon>AppTemplates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppTemplates.aspx.designer.cs">
+      <DependentUpon>AppTemplates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppUsers.aspx.cs">
+      <DependentUpon>AppUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\AppUsers.aspx.designer.cs">
+      <DependentUpon>AppUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\HomeConfig.aspx.cs">
+      <DependentUpon>HomeConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\HomeConfig.aspx.designer.cs">
+      <DependentUpon>HomeConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\HomeLinks.aspx.cs">
+      <DependentUpon>HomeLinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\HomeLinks.aspx.designer.cs">
+      <DependentUpon>HomeLinks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\HomePosts.aspx.cs">
+      <DependentUpon>HomePosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\HomePosts.aspx.designer.cs">
+      <DependentUpon>HomePosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysGroups.aspx.cs">
+      <DependentUpon>SysGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysGroups.aspx.designer.cs">
+      <DependentUpon>SysGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysAuto.aspx.cs">
+      <DependentUpon>SysAuto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysAuto.aspx.designer.cs">
+      <DependentUpon>SysAuto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysDatabase.aspx.cs">
+      <DependentUpon>SysDatabase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysDatabase.aspx.designer.cs">
+      <DependentUpon>SysDatabase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysDirectory.aspx.cs">
+      <DependentUpon>SysDirectory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysDirectory.aspx.designer.cs">
+      <DependentUpon>SysDirectory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysOffline.aspx.cs">
+      <DependentUpon>SysOffline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysOffline.aspx.designer.cs">
+      <DependentUpon>SysOffline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysReset.aspx.cs">
+      <DependentUpon>SysReset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysReset.aspx.designer.cs">
+      <DependentUpon>SysReset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysSmtp.aspx.cs">
+      <DependentUpon>SysSmtp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysSmtp.aspx.designer.cs">
+      <DependentUpon>SysSmtp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysSummary.aspx.cs">
+      <DependentUpon>SysSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Config\SysSummary.aspx.designer.cs">
+      <DependentUpon>SysSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Groups\GroupDetail.aspx.cs">
+      <DependentUpon>GroupDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Groups\GroupDetail.aspx.designer.cs">
+      <DependentUpon>GroupDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Groups\GroupList.aspx.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Groups\GroupList.aspx.designer.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrAdd.aspx.cs">
+      <DependentUpon>UsrAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrAdd.aspx.designer.cs">
+      <DependentUpon>UsrAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrAudit.aspx.cs">
+      <DependentUpon>UsrAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrAudit.aspx.designer.cs">
+      <DependentUpon>UsrAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrAuditDetail.aspx.cs">
+      <DependentUpon>UsrAuditDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrAuditDetail.aspx.designer.cs">
+      <DependentUpon>UsrAuditDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrDetail.aspx.cs">
+      <DependentUpon>UsrDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrDetail.aspx.designer.cs">
+      <DependentUpon>UsrDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrList.aspx.cs">
+      <DependentUpon>UsrList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\User\UsrList.aspx.designer.cs">
+      <DependentUpon>UsrList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setup\Setup.aspx.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Setup\Setup.aspx.designer.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\UserView.aspx.cs">
+      <DependentUpon>UserView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\UserView.aspx.designer.cs">
+      <DependentUpon>UserView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Info.aspx.cs">
+      <DependentUpon>Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Info.aspx.designer.cs">
+      <DependentUpon>Info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Password.aspx.cs">
+      <DependentUpon>Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Password.aspx.designer.cs">
+      <DependentUpon>Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Master\User.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AO\AO.csproj">
+      <Project>{4A66B93B-F65B-42CE-92B0-B5DD809E1067}</Project>
+      <Name>AO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{519924C9-0F7C-4A17-81FF-64E6AB236876}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.Utilities\UI.Utilities.csproj">
+      <Project>{A8B4D2EF-CF94-4D1B-A150-335C35392603}</Project>
+      <Name>UI.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\EmpPhoto.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Master\Config.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Forms\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Logs\" />
+    <Folder Include="App_Data\Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Forms\Admin\Config\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Forms\Admin\User\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Config\web.config.WIF">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_Config\web.config.WIA">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_Config\web.config.Debug.WIF">
+      <DependentUpon>web.config.WIF</DependentUpon>
+    </None>
+    <None Include="App_Config\web.config.Release.WIF">
+      <DependentUpon>web.config.WIF</DependentUpon>
+    </None>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Config\web.config.Debug.WIA">
+      <DependentUpon>web.config.WIA</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Config\web.config.Release.WIA">
+      <DependentUpon>web.config.WIA</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2809</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

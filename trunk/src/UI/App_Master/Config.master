@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/App_Master/User.Master" AutoEventWireup="true"
+    CodeBehind="Config.master.cs" Inherits="THS.UMS.UI.App_Master.Config" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
+    <div class="left config-left">
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
+            <HeaderTemplate>
+                <ul class="config-menu">
+            </HeaderTemplate>
+            <FooterTemplate>
+                </ul>
+            </FooterTemplate>
+            <ItemTemplate>
+                <li>
+                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass='<%# IsSelected((string)Eval("url")) %>'
+                        NavigateUrl='<%# Eval("url") %>' Text='<%# Eval("title") %>'></asp:HyperLink>
+                </li>
+            </ItemTemplate>
+        </asp:Repeater>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False"
+            StartFromCurrentNode="True" StartingNodeOffset="-1" />
+    </div>
+    <div class="left config-right">
+        <asp:ContentPlaceHolder ID="Content" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="clear">
+    </div>
+</asp:Content>
