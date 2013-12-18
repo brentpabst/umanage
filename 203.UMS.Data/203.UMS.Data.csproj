@@ -51,11 +51,15 @@
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoryProvider.cs" />
     <Compile Include="Repositories\RepositoryFactory.cs" />
-    <Compile Include="Repositories\Sql\SqlRepository.cs" />
-    <Compile Include="Repositories\Sql\SqlRepositoryProvider.cs" />
     <Compile Include="Init\SystemDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataUow.cs" />
+    <Compile Include="Repositories\Sql\SqlRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\Sql\SqlRepositoryProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SystemDb.cs" />
   </ItemGroup>
   <ItemGroup>
