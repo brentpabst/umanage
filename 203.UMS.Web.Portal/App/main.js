@@ -11,7 +11,7 @@ define('jquery', function () { return jQuery; });
 define('knockout', ko);
 define('moment', moment);
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'services/logger'], function (system, app, viewLocator, logger) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'services/logger', 'services/bindings'], function (system, app, viewLocator, logger, koBindings) {
 
     // Enable debug message to show in the console 
     system.debug(true);
@@ -23,6 +23,9 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'services/log
         dialog: true,
         widget: true
     });
+
+    // Initialize custom Knockout bindings
+    koBindings.init();
 
     // Toastr settings
     toastr.options.positionClass = 'toast-bottom-right';

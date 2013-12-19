@@ -16,8 +16,8 @@
             <br />
             <br />
             <h3>Loading...</h3>
-            <div class="progress progress-info progress-striped active">
-                <div class="bar" style="width: 100%;"></div>
+            <div class="progress progress-striped active">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
             </div>
             &copy; @DateTime.UtcNow.Year <a href="http://www.brentpabst.com" target="_blank">Brent Pabst</a>
             <br />
@@ -26,7 +26,7 @@
     </div>
     @Scripts.Render("~/scripts/vendor")
     <script type="text/javascript" src="/Scripts/require.js" data-main="/App/main"></script>
-    <!-- 
+    <!--
         *****
         Server/User Information
         *****

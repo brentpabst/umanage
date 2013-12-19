@@ -151,12 +151,16 @@
     <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WallPostController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="App\main.js" />
+    <Content Include="App\services\bindings.js" />
     <Content Include="App\services\logger.js" />
     <Content Include="App\viewmodels\my\account.js" />
     <Content Include="App\viewmodels\dashboard.js" />
@@ -192,6 +196,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\ums.less" />
     <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
     <Content Include="Scripts\almond-custom.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

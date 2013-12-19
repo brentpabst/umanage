@@ -12,11 +12,10 @@ namespace _203.UMS.Web.UI.Controllers
     {
         private readonly Connections _conn;
         private readonly DirectoryUow _dirRepo;
-
-
+        
         public SystemController(IDbUow uow)
         {
-            _conn = new Config.Connections(uow);
+            _conn = new Connections(uow);
             var settings = _conn.GetDirectorySettings(true);
             _dirRepo = new DirectoryUow(settings);
         }

@@ -12,7 +12,7 @@ namespace _203.UMS.Web.UI
             AreaRegistration.RegisterAllAreas();
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            FilterConfig.RegisterHttpFilters(GlobalConfiguration.Configuration.Filters);
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

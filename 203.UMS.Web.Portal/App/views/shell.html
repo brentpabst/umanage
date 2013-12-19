@@ -8,11 +8,7 @@
         </div>
     </nav>
     <section class="row">
-        <div class="span12" data-bind="compose: {
-            model: router.activeItem,
-            afterCompose: router.afterCompose,
-            transition: 'entrance'
-        }">
+        <div class="span12" data-bind="router: { transition: 'entrance' }">
         </div>
     </section>
     <footer class="row">
