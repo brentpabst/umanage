@@ -1,8 +1,6 @@
 ﻿using _203.UMS.Data.Interfaces;
 using _203.UMS.Directory;
 using _203.UMS.Models.Directory;
-using AttributeRouting;
-using AttributeRouting.Web.Http;
 using System;
 using System.Linq;
 using System.Net;
@@ -14,33 +12,31 @@ using System.Web.Http;
 
 namespace _203.UMS.Web.UI.Controllers
 {
-    [RouteArea("api"), RoutePrefix("users")]
+    [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
-        private readonly IDbUow _dbRepo;
         private readonly DirectoryUow _dirRepo;
 
         public UsersController(IDbUow uow)
         {
-            _dbRepo = uow;
-            var conf = new Config.Connections(_dbRepo);
+            var conf = new Config.Connections(uow);
             var settings = conf.GetDirectorySettings(true);
             _dirRepo = new DirectoryUow(settings);
         }
 
-        [GET(""), HttpGet]
+        [Route(""), HttpGet]
         public IQueryable<User> GetUsers()
         {
             return _dirRepo.Users.GetAll();
         }
 
-        [GET("me"), HttpGet]
+        [Route("me"), HttpGet]
         public User GetCurrentUser()
         {
             return _dirRepo.Users.Get(HttpContext.Current.User.Identity.Name);
         }
 
-        [POST("me"), HttpPost]
+        [Route("me"), HttpPost]
         public User PostCurrentUser(User user)
         {
             var u = GetCurrentUser();
@@ -51,20 +47,20 @@ namespace _203.UMS.Web.UI.Controllers
             return _dirRepo.Users.Get(user.UserId);
         }
 
-        [GET("{id}"), HttpGet]
+        [Route("{id}"), HttpGet]
         public User GetUser(Guid id)
         {
             return _dirRepo.Users.Get(id);
         }
 
-        [POST("{id}"), HttpPost]
+        [Route("{id}"), HttpPost]
         public User PostUser(User user)
         {
             _dirRepo.Users.Update(user);
             return _dirRepo.Users.Get(user.UserId);
         }
 
-        [GET("{id}/account/enable"), HttpGet]
+        [Route("{id}/account/enable"), HttpGet]
         public User Enable(Guid id)
         {
             if (!_dirRepo.Users.Enable(id))
@@ -72,7 +68,7 @@ namespace _203.UMS.Web.UI.Controllers
             return GetUser(id);
         }
 
-        [GET("{id}/account/disable"), HttpGet]
+        [Route("{id}/account/disable"), HttpGet]
         public User Disable(Guid id)
         {
             if (!_dirRepo.Users.Disable(id))
@@ -80,7 +76,7 @@ namespace _203.UMS.Web.UI.Controllers
             return GetUser(id);
         }
 
-        [GET("{id}/account/unlock"), HttpGet]
+        [Route("{id}/account/unlock"), HttpGet]
         public User Unlock(Guid id)
         {
             if (!_dirRepo.Users.Unlock(id))
@@ -88,7 +84,7 @@ namespace _203.UMS.Web.UI.Controllers
             return GetUser(id);
         }
 
-        [GET("{id}/password/expire"), HttpGet]
+        [Route("{id}/password/expire"), HttpGet]
         public User ExpirePassword(Guid id)
         {
             if (!_dirRepo.Users.ExpirePassword(id))
@@ -100,7 +96,7 @@ namespace _203.UMS.Web.UI.Controllers
         // TODO: /users/{id}/password/reset - Changes the user's password with a reset code
         // TODO: /users/{id}/password/change - Changes the user's password
 
-        [GET("me/photo"), HttpGet]
+        [Route("me/photo"), HttpGet]
         public HttpResponseMessage GetCurrentUserPhoto()
         {
             var u = GetCurrentUser();
@@ -115,14 +111,14 @@ namespace _203.UMS.Web.UI.Controllers
             return r;
         }
 
-        [POST("me/photo"), HttpPost]
+        [Route("me/photo"), HttpPost]
         public bool UpdatePhoto([FromBody] byte[] photo)
         {
             var u = GetCurrentUser();
             return _dirRepo.Users.UpdatePhoto(u.UserId, photo);
         }
 
-        [GET("{id}/photo"), HttpGet]
+        [Route("{id}/photo"), HttpGet]
         public HttpResponseMessage GetPhoto(Guid id)
         {
             var img = _dirRepo.Users.GetPhoto(id);
@@ -136,7 +132,7 @@ namespace _203.UMS.Web.UI.Controllers
             return r;
         }
 
-        [POST("{id}/photo"), HttpPost]
+        [Route("{id}/photo"), HttpPost]
         public bool UpdatePhoto(Guid id, [FromBody] byte[] photo)
         {
             return _dirRepo.Users.UpdatePhoto(id, photo);

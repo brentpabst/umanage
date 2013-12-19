@@ -1,5 +1,7 @@
-﻿using System.Web.Http;
-using _203.UMS.Web.Filters;
+﻿using Newtonsoft.Json.Serialization;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
 
 namespace _203.UMS.Web.UI
 {
@@ -7,18 +9,26 @@ namespace _203.UMS.Web.UI
     {
         public static void Register(HttpConfiguration config)
         {
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+            config.MapHttpAttributeRoutes();
 
-            // To disable tracing in your application, please comment out or remove the following line of code
-            // For more information, refer to: http://www.asp.net/web-api
-            //config.EnableSystemDiagnosticsTracing();
+#if DEBUG
+            // Remove XML
+            // We test against JSON for simplicity, Web API Should provide XML properly if the caller wants it
+            var matches = config.Formatters
+                           .Where(f => f.SupportedMediaTypes.Any(m => m.MediaType.ToString() == "application/xml" ||
+                                                                      m.MediaType.ToString() == "text/xml"))
+                           .ToList();
+            foreach (var match in matches)
+                config.Formatters.Remove(match);
+#endif
 
-            config.Filters.Add(new UmsExceptionFilter());
-            config.Filters.Add(new ValidateModelFilter());
+            // JSON Settings
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            if (HttpContext.Current.IsDebuggingEnabled)
+                json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            
         }
     }
 }

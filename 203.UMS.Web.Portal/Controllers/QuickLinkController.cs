@@ -1,14 +1,13 @@
-﻿using _203.UMS.Data.Interfaces;
+﻿
+using _203.UMS.Data.Interfaces;
 using _203.UMS.Models.App;
 using _203.UMS.Web.Config;
-using AttributeRouting;
-using AttributeRouting.Web.Http;
 using System.Linq;
 using System.Web.Http;
 
 namespace _203.UMS.Web.UI.Controllers
 {
-    [RouteArea("api"), RoutePrefix("links")]
+    [RoutePrefix("api/links")]
     public class QuickLinkController : ApiController
     {
         private readonly IDbUow _dbRepo;
@@ -19,7 +18,7 @@ namespace _203.UMS.Web.UI.Controllers
             _settings = new Settings(uow);
         }
 
-        [GET(""), HttpGet]
+        [Route(""), HttpGet]
         public IQueryable<QuickLink> GetAll()
         {
             return _dbRepo.QuickLinks.GetAll().OrderBy(q => q.DisplayOrder);

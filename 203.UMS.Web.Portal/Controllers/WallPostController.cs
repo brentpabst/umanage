@@ -1,8 +1,6 @@
 ﻿using _203.UMS.Data.Interfaces;
 using _203.UMS.Models.App;
 using _203.UMS.Web.Config;
-using AttributeRouting;
-using AttributeRouting.Web.Http;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Web.Http;
@@ -10,7 +8,7 @@ using System.Xml;
 
 namespace _203.UMS.Web.UI.Controllers
 {
-    [RouteArea("api"), RoutePrefix("posts")]
+    [RoutePrefix("api/posts")]
     public class WallPostController : ApiController
     {
         private readonly IDbUow _dbRepo;
@@ -21,7 +19,7 @@ namespace _203.UMS.Web.UI.Controllers
             _settings = new Settings(uow);
         }
 
-        [GET(""), HttpGet]
+        [Route(""), HttpGet]
         public IQueryable<WallPost> GetAll()
         {
             var overidePosts = _settings.Get<bool>("OverrideWallPosts");

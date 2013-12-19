@@ -3,6 +3,7 @@ using _203.UMS.Data.Interfaces;
 using _203.UMS.Data.Repositories;
 using _203.UMS.Data.Repositories.Interfaces;
 using _203.UMS.Data.Repositories.Sql;
+using _203.UMS.Web.Dependencies;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;

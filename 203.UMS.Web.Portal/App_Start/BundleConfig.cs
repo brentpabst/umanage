@@ -19,7 +19,6 @@ namespace _203.UMS.Web.UI
                 .Include("~/Scripts/jquery-{version}.js")
                 .Include("~/Scripts/bootstrap.js")
                 .Include("~/Scripts/knockout-{version}.js")
-                .Include("~/Scripts/sammy-{version}.js")
                 .Include("~/Scripts/moment.js")
                 .Include("~/Scripts/Q.js")
                 .Include("~/Scripts/toastr.js")
@@ -27,7 +26,6 @@ namespace _203.UMS.Web.UI
 
             bundles.Add(
              new StyleBundle("~/styles/css")
-                .Include("~/Content/ie10mobile.css") // Must be first. IE10 mobile viewport fix
                 .Include("~/Content/bootstrap.css")
                 .Include("~/Content/bootstrap-responsive.css")
                 .Include("~/Content/durandal.css")

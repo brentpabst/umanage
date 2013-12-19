@@ -1,34 +1,18 @@
-﻿define(['durandal/system', 'durandal/plugins/router', 'services/logger'],
-    function (system, router, logger) {
-        var shell = {
-            activate: activate,
-            router: router,
-            date: date
-        };
-
-        return shell;
-
-        function activate() {
-            return boot();
+﻿define(['durandal/system', 'plugins/router'], function (system, router) {
+    return {
+        date: moment().utc(),
+        router: router,
+        activate: function () {
+            router.map([
+            { route: '', title: 'Dashboard', moduleId: 'viewmodels/dashboard', nav: true },
+            { route: 'dashboard', title: 'Dashboard', moduleId: 'viewmodels/dashboard', nav: true },
+            { route: 'my/info', title: 'Information', moduleId: 'viewmodels/my/info', nav: true },
+            { route: 'my/account', title: 'Account', moduleId: 'viewmodels/my/account', nav: true },
+            { route: 'my/password', title: 'Password', moduleId: 'viewmodels/my/password', nav: true },
+            { route: 'my/photo', title: 'Photo', moduleId: 'viewmodels/my/photo', nav: true }
+            ]).buildNavigationModel()
+                .mapUnknownRoutes('viewmodels/404', '404')
+                .activate();
         }
-
-        function date() {
-            return moment.utc();
-        }
-        
-        //#region Internal Methods
-        function boot() {
-            router.mapNav('dashboard', null, 'Dashboard').settings = { admin: false };
-            router.mapNav('my/info', null, 'Information').settings = { admin: false };
-            router.mapNav('my/account', null, 'Account').settings = { admin: false };
-            router.mapNav('my/password', null, 'Password').settings = { admin: false };
-            router.mapNav('my/photo', null, 'Photo').settings = { admin: false };
-            log('uManage Loaded!', null, true);
-            return router.activate('dashboard');
-        }
-
-        function log(msg, data, showToast) {
-            logger.log(msg, data, system.getModuleId(shell), showToast);
-        }
-        //#endregion
-    });
+    };
+});

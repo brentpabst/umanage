@@ -1,36 +1,38 @@
-﻿/// <reference path="main.js" />
-require.config({
-    paths: { "text": "durandal/amd/text" }
+﻿requirejs.config({
+    paths: {
+        'text': '../Scripts/text',
+        'durandal': '../Scripts/durandal',
+        'plugins': '../Scripts/durandal/plugins',
+        'transitions': '../Scripts/durandal/transitions'
+    }
 });
 
-define(['durandal/app', 'durandal/viewLocator', 'durandal/system', 'durandal/plugins/router', 'services/logger'],
-    function (app, viewLocator, system, router, logger) {
+define('jquery', function () { return jQuery; });
+define('knockout', ko);
+define('moment', moment);
 
-        // Enable debug message to show in the console 
-        system.debug(true);
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'services/logger'], function (system, app, viewLocator, logger) {
 
-        app.start().then(function () {
-            toastr.options.positionClass = 'toast-bottom-right';
-            toastr.options.backgroundpositionClass = 'toast-bottom-right';
+    // Enable debug message to show in the console 
+    system.debug(true);
 
-            router.handleInvalidRoute = function (route, params) {
-                logger.logError('No Route Found', route, 'main', true);
-            };
+    app.title = 'uManage';
 
-            // When finding a viewmodel module, replace the viewmodel string 
-            // with view to find it partner view.
-            router.useConvention();
-            viewLocator.useConvention();
-
-            // Set the application title
-            app.title = "uManage";
-
-            // Adapt to touch devices
-            app.adaptToDevice();
-            //Show the app by setting the root view model for our application.
-            setTimeout(function() {
-                app.setRoot('viewmodels/shell');
-            }, 1000);
-
-        });
+    app.configurePlugins({
+        router: true,
+        dialog: true,
+        widget: true
     });
+
+    // Toastr settings
+    toastr.options.positionClass = 'toast-bottom-right';
+    toastr.options.backgroundpositionClass = 'toast-bottom-right';
+
+    // Timer allows for testing of splash page
+    setTimeout(function () {
+        app.start().then(function () {
+            viewLocator.useConvention();
+            app.setRoot('viewmodels/shell', 'entrance');
+        });
+    }, 0);
+});
