@@ -151,9 +151,6 @@
     <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WallPostController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,7 +190,6 @@
     <Content Include="Content\toastr.min.css" />
     <Content Include="Fiddler.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
     <Content Include="Content\ums.less" />
     <Content Include="favicon.ico" />
     <Content Include="Scripts\almond-custom.js" />
