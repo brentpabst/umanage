@@ -140,8 +140,16 @@
     <Content Include="App\main.js" />
     <Content Include="App\services\bindings.js" />
     <Content Include="App\viewmodels\dash.js" />
+    <Content Include="App\viewmodels\my\account.js" />
+    <Content Include="App\viewmodels\my\info.js" />
+    <Content Include="App\viewmodels\my\password.js" />
+    <Content Include="App\viewmodels\my\photo.js" />
     <Content Include="App\viewmodels\shell.js" />
     <Content Include="App\views\dash.html" />
+    <Content Include="App\views\my\account.html" />
+    <Content Include="App\views\my\info.html" />
+    <Content Include="App\views\my\password.html" />
+    <Content Include="App\views\my\photo.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
