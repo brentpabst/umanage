@@ -6,8 +6,8 @@ using _203.UMS.Data.Repositories.Sql;
 using _203.UMS.Web.Dependencies;
 using System.Web.Http;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(_203.UMS.Web.UI.NinjectWebCommon), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(_203.UMS.Web.UI.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(_203.UMS.Web.UI.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(_203.UMS.Web.UI.NinjectWebCommon), "Stop")]
 
 namespace _203.UMS.Web.UI
 {
