@@ -9,6 +9,9 @@ namespace _203.UMS.Web.UI
     {
         public static void Register(HttpConfiguration config)
         {
+            // Web API configuration and services
+
+            // Web API routes
             config.MapHttpAttributeRoutes();
 
 #if DEBUG
@@ -28,7 +31,12 @@ namespace _203.UMS.Web.UI
 
             if (HttpContext.Current.IsDebuggingEnabled)
                 json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-            
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
         }
     }
 }

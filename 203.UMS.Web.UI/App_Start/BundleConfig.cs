@@ -5,10 +5,14 @@ namespace _203.UMS.Web.UI
 {
     public class BundleConfig
     {
+        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.IgnoreList.Clear();
             AddDefaultIgnorePatterns(bundles.IgnoreList);
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(
                 new ScriptBundle("~/scripts/modernizr")
@@ -28,7 +32,6 @@ namespace _203.UMS.Web.UI
                 .Include("~/Content/durandal.css")
              );
 
-            // Site
             var site = new Bundle("~/styles/ums")
                 .Include("~/Content/ums.less");
             site.Transforms.Add(new LessTransform());
@@ -36,7 +39,7 @@ namespace _203.UMS.Web.UI
             bundles.Add(site);
         }
 
-        public static void AddDefaultIgnorePatterns(IgnoreList ignoreList)
+        private static void AddDefaultIgnorePatterns(IgnoreList ignoreList)
         {
             if (ignoreList == null)
             {
@@ -50,7 +53,7 @@ namespace _203.UMS.Web.UI
             ignoreList.Ignore("*.min.css", OptimizationMode.WhenDisabled);
         }
 
-        public class LessTransform : IBundleTransform
+        private class LessTransform : IBundleTransform
         {
             public void Process(BundleContext context, BundleResponse response)
             {
