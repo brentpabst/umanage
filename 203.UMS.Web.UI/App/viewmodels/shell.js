@@ -1,8 +1,10 @@
 ﻿define(['plugins/router', 'durandal/app', 'data/users'], function (router, app, users) {
+    var user = ko.observable();
+
     return {
         year: moment().utc().year(),
         router: router,
-        user: users.getCurrentUser(),
+        user: users.currentUser,
         activate: function () {
             router.map([
                 { route: '', title: 'Dashboard', moduleId: 'viewmodels/dash', nav: true },
