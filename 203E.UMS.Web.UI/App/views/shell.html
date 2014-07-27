@@ -1,0 +1,89 @@
+﻿<div class="container master">
+    <header class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="navbar-brand" src="/Content/images/uManage.png" alt="uManage" />
+        </div>
+        <form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for User..." autofocus="autofocus">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+        <p class="navbar-text navbar-right">Signed in as <a href="/#/my/info" class="navbar-link">Brent Pabst</a></p>
+    </header>
+    <div id="primary" class="row">
+        <aside id="primary-nav" class="left-panel col-sm-3 collapse in">
+            <div class="user-info">
+                <div class="user-basic clearfix" data-toggle="collapse" data-target="#user-extended">
+                    <img class="user-image img-responsive pull-left" style="max-height:43px;" src="/Content/images/No-Photo.png" alt="No Photo" />
+                    <div class="user-name pull-left">
+                        Brent Pabst
+                    </div>
+                    <div class="user-info-expand">
+                        <span class="fa fa-caret-down pull-right"></span>
+                    </div>
+                </div>
+                <div id="user-extended" class="collapse">
+                    <div class="user-extended-info">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Brent Pabst
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <a href="/#my/info">View Details</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Account Expires
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <a href="/#my/account">Never</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Password Expires
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <a href="/#my/password">Never</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav role="navigation">
+                <ul data-bind="foreach: router.navigationModel">
+                    <li data-bind="css: { 'no-link': !displayLink, border: !displayLink, active: isActive }">
+                        <!--ko if: !displayLink-->
+                        <span data-bind="text: title"></span>
+                        <!--/ko-->
+                        <!--ko if: displayLink-->
+                        <a data-bind="attr: { href: hash }">
+                            <i data-bind="attr: { class: iconClass }"></i>
+                            &nbsp;<span data-bind="text: title"></span>
+                        </a>
+                        <!--/ko-->
+                    </li>
+                </ul>
+                <ul>
+                    <li class="no-link border">Quick Links</li>
+                    <li><a href="#"><i class="fa fa-github fa-fw fa-lg"></i>&nbsp; uManage on GitHub</a></li>
+                    <li><a href="#"><i class="fa fa-user fa-fw fa-lg"></i>&nbsp; Brent Pabst</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="main-panel col-sm-9" role="main" data-bind="router: { }"></div>
+    </div>
+    <footer class="small">
+        a <strong>203 Enterprises</strong> project
+    </footer>
+</div>
