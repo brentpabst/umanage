@@ -1,5 +1,5 @@
-﻿define(['plugins/router'], function (router) {
-    var userInfoExpandContract = function() {
+﻿define(['plugins/router', 'services/datacontext'], function (router, ctx) {
+    var userInfoExpandContract = function () {
         // Changes the caret when the user clicks the user info panel
         router.on('router:navigation:composition-complete', function () {
             $('#user-extended').on('show.bs.collapse', function () {
@@ -14,6 +14,7 @@
     }
     return {
         router: router,
+        testMessage: testMessage,
         activate: function () {
             router.map([
                 { route: '', title: 'Home', moduleId: 'viewmodels/home', nav: true, iconClass: 'fa fa-home fa-fw fa-lg', displayLink: true },

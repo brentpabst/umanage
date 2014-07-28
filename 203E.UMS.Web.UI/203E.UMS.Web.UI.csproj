@@ -119,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\main.js" />
+    <Content Include="App\services\datacontext.js" />
+    <Content Include="App\services\dataservice.js" />
     <Content Include="App\viewmodels\404.js" />
     <Content Include="App\viewmodels\admin\dash.js" />
     <Content Include="App\viewmodels\home.js" />
@@ -220,12 +222,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\203E.UMS.Models\203E.UMS.Models.csproj">
+      <Project>{8187B8C0-2F07-4BD7-8EF5-EE1C3EB0E17C}</Project>
+      <Name>203E.UMS.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
