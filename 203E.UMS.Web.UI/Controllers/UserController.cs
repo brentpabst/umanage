@@ -1,4 +1,6 @@
-﻿using _203E.UMS.Models;
+﻿using System.Web;
+using _203E.UMS.Directory;
+using _203E.UMS.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -9,22 +11,24 @@ namespace E203.UMS.Web.UI.Controllers
     [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
+        private readonly IDirectoryUow _dir;
 
-        /// <summary>
-        /// Gets the users.
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
+        public UsersController(IDirectoryUow dir)
+        {
+            if (_dir == null)
+                _dir = dir;
+        }
+
         [Route(""), HttpGet]
         public IEnumerable<User> GetUsers()
         {
-            throw new NotImplementedException();
+            return _dir.Users.GetAllUsers();
         }
 
         [Route("me"), HttpGet]
         public User GetCurrentUser()
         {
-            throw new NotImplementedException();
+            return _dir.Users.GetUser(HttpContext.Current.User.Identity.Name);
         }
 
         [Route("me"), HttpPost]
@@ -48,7 +52,7 @@ namespace E203.UMS.Web.UI.Controllers
         [Route("{id}"), HttpGet]
         public User GetUser(Guid id)
         {
-            throw new NotImplementedException();
+            return _dir.Users.GetUser(id);
         }
 
         [Route("{id}"), HttpPost]
