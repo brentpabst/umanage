@@ -1,11 +1,11 @@
 ﻿define(['plugins/http'], function (http) {
     "use strict";
 
-    //var getTest = function () {
-    //    return http.get('/api/test');
-    //};
+    var currentUser = function () {
+        return http.get('/api/users/me');
+    };
 
     return {
-        
+        currentUser: currentUser
     }
 });
