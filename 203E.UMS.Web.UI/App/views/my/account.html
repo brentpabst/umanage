@@ -25,23 +25,23 @@
                     <div class="form-group">
                         <label for="userPrincipalName" class="col-sm-3 control-label">User Principal Name</label>
                         <div class="col-sm-9">
-                            <p class="form-control-static" id="userPrincipalName" data-bind="text: UserPrincipalName"></p>
+                            <p class="form-control-static" id="userPrincipalName" data-bind="text: userPrincipalName"></p>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="ntUsername" class="col-sm-3 control-label">Windows User Name</label>
                         <div class="col-sm-9">
-                            <p class="form-control-static" id="ntUsername" data-bind="text: NtUserName"></p>
+                            <p class="form-control-static" id="ntUsername" data-bind="text: ntUserName"></p>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="isAccountLocked" class="col-sm-3 control-label">Account Locked?</label>
                         <div class="col-sm-9">
                             <p class="form-control-static" id="isAccountLocked">
-                                <!-- ko if: AccountIsLocked -->
+                                <!-- ko if: accountIsLocked -->
                                 <span>Yes</span>
                                 <!-- /ko -->
-                                <!-- ko if: !AccountIsLocked -->
+                                <!-- ko if: !accountIsLocked -->
                                 <span>No</span>
                                 <!-- /ko -->
                             </p>
@@ -51,10 +51,10 @@
                         <label for="accountExpiration" class="col-sm-3 control-label">Account Expiration</label>
                         <div class="col-sm-9">
                             <p class="form-control-static" id="accountExpiration">
-                                <!-- ko if: AccountExpires -->
-                                <span data-bind="text: moment(AccountExpirationDate).format('LLLL')"></span>
+                                <!-- ko if: accountExpires -->
+                                <span data-bind="text: moment(accountExpirationDate).format('LLLL')"></span>
                                 <!-- /ko -->
-                                <!-- ko if: !AccountExpires -->
+                                <!-- ko if: !accountExpires -->
                                 Never Expires
                                 <!-- /ko -->
                             </p>
@@ -64,10 +64,10 @@
                         <label for="passwordExpiration" class="col-sm-3 control-label">Password Expiration</label>
                         <div class="col-sm-9">
                             <p class="form-control-static" id="passwordExpiration">
-                                <!-- ko if: PasswordExpires -->
-                                <span data-bind="text: moment(PasswordExpirationDate).format('LLLL')"></span>
+                                <!-- ko if: passwordExpires -->
+                                <span data-bind="text: moment(passwordExpirationDate).format('LLLL')"></span>
                                 <!-- /ko -->
-                                <!-- ko if: !PasswordExpires -->
+                                <!-- ko if: !passwordExpires -->
                                 Never Expires
                                 <!-- /ko -->
                             </p>
@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="distinguishedName" class="col-sm-3 control-label">Distinguished Name</label>
                         <div class="col-sm-9">
-                            <p id="distinguishedName" class="form-control-static" data-bind="text: DistinguishedName"></p>
+                            <p id="distinguishedName" class="form-control-static" data-bind="text: distinguishedName"></p>
                         </div>
                     </div>
                 </div>

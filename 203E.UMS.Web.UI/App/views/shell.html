@@ -18,7 +18,7 @@
             </div>
         </form>
         <!-- ko with:currentUser -->
-        <p class="navbar-text navbar-right">Signed in as <a href="/#/my/info" class="navbar-link" data-bind="text: DisplayName"></a></p>
+        <p class="navbar-text navbar-right">Signed in as <a href="/#/my/info" class="navbar-link" data-bind="text: displayName"></a></p>
         <!-- /ko -->
     </header>
     <div id="primary" class="row">
@@ -27,8 +27,8 @@
                 <div class="user-basic clearfix" data-toggle="collapse" data-target="#user-extended">
                     <img class="user-image img-responsive pull-left" style="max-height:43px;" src="/Content/images/No-Photo.png" alt="No Photo" />
                     <div class="user-name pull-left">
-                        <div data-bind="text: DisplayName"></div>
-                        <div class="small text-muted" data-bind="text: Title"></div>
+                        <div data-bind="text: displayName"></div>
+                        <div class="small text-muted" data-bind="text: title"></div>
                     </div>
                     <div class="user-info-expand">
                         <span class="fa fa-caret-down pull-right"></span>
@@ -37,7 +37,7 @@
                 <div id="user-extended" class="collapse">
                     <div class="user-extended-info">
                         <div class="row">
-                            <div class="col-sm-6" data-bind="text: DisplayName"></div>
+                            <div class="col-sm-6" data-bind="text: displayName"></div>
                             <div class="col-sm-6 text-right">
                                 <a href="/#my/info">View Details</a>
                             </div>
@@ -47,12 +47,12 @@
                                 Account Expires
                             </div>
                             <div class="col-sm-6 text-right">
-                                <!-- ko if: AccountExpires-->
+                                <!-- ko if: accountExpires-->
                                 <a href="/#my/account">
-                                    <time data-bind="attr: { datetime: AccountExpirationDate }, text:moment(AccountExpirationDate).fromNow()"></time>
+                                    <time data-bind="attr: { datetime: accountExpirationDate }, text:moment(accountExpirationDate).fromNow()"></time>
                                 </a>
                                 <!-- /ko -->
-                                <!-- ko if: !AccountExpires-->
+                                <!-- ko if: !accountExpires-->
                                 <a href="/#my/account">Never</a>
                                 <!-- /ko -->
                             </div>
@@ -62,12 +62,12 @@
                                 Password Expires
                             </div>
                             <div class="col-sm-6 text-right">
-                                <!-- ko if: PasswordExpires-->
+                                <!-- ko if: passwordExpires-->
                                 <a href="/#my/password">
-                                    <time data-bind="attr: { datetime: PasswordExpirationDate }, text:moment(PasswordExpirationDate).fromNow()"></time>
+                                    <time data-bind="attr: { datetime: passwordExpirationDate }, text:moment(passwordExpirationDate).fromNow()"></time>
                                 </a>
                                 <!-- /ko -->
-                                <!-- ko if: !PasswordExpires-->
+                                <!-- ko if: !passwordExpires-->
                                 <a href="/#my/password">Never</a>
                                 <!-- /ko -->
                             </div>

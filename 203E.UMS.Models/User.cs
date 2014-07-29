@@ -89,6 +89,13 @@ namespace _203E.UMS.Models
         /// The password expiration date.
         /// </value>
         public DateTime? PasswordExpirationDate { get; set; }
+        /// <summary>
+        /// Gets or sets the password last set date.
+        /// </summary>
+        /// <value>
+        /// The password last set date.
+        /// </value>
+        public DateTime? PasswordLastSetDate { get; set; }
         #endregion
 
         #region Demographic Properties

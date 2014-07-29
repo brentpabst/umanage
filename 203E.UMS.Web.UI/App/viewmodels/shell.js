@@ -1,19 +1,19 @@
 ﻿define(['plugins/router', 'services/datacontext'], function (router, ctx) {
-    var userInfoExpandContract = function() {
-            // Changes the caret when the user clicks the user info panel
-            router.on('router:navigation:composition-complete', function() {
-                $('#user-extended').on('show.bs.collapse', function() {
-                    $('.user-info-expand span').removeClass('fa-caret-down').addClass('fa-caret-up');
-                });
+    var userInfoExpandContract = function () {
+        // Changes the caret when the user clicks the user info panel
+        router.on('router:navigation:composition-complete', function () {
+            $('#user-extended').on('show.bs.collapse', function () {
+                $('.user-info-expand span').removeClass('fa-caret-down').addClass('fa-caret-up');
             });
-            router.on('router:navigation:composition-complete', function() {
-                $('#user-extended').on('hide.bs.collapse', function() {
-                    $('.user-info-expand span').removeClass('fa-caret-up').addClass('fa-caret-down');
-                });
+        });
+        router.on('router:navigation:composition-complete', function () {
+            $('#user-extended').on('hide.bs.collapse', function () {
+                $('.user-info-expand span').removeClass('fa-caret-up').addClass('fa-caret-down');
             });
-        },
+        });
+    },
         currentUser = ko.observable(),
-        loadCurrentUser = function() {
+        loadCurrentUser = function () {
             ctx.currentUser(currentUser);
         };
     return {

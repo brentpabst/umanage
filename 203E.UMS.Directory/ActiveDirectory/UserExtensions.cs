@@ -63,6 +63,7 @@ namespace _203E.UMS.Directory.ActiveDirectory
                 PasswordIsExpired = pass.GetExpiration(e) == DateTime.MinValue,
                 PasswordExpires = pass.GetExpiration(e) != DateTime.MaxValue,
                 PasswordExpirationDate = pass.GetExpiration(e),
+                PasswordLastSetDate = pass.GetLastSet(e),
 
                 Name = p.Name,
                 DisplayName = p.DisplayName,

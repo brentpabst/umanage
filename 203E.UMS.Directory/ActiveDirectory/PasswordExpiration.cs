@@ -62,6 +62,14 @@ namespace _203E.UMS.Directory.ActiveDirectory
 
             return _policy.MaxPasswordAge == TimeSpan.MaxValue ? DateTime.MaxValue : pwdLastSet.Add(_policy.MaxPasswordAge);
         }
+
+        internal DateTime? GetLastSet(DirectoryEntry user)
+        {
+            var ticks = user.GetLastPasswordTicks();
+            if (ticks != -1 && ticks!= 0)
+                return DateTime.FromFileTime(ticks);
+            return new DateTime?();
+        }
         #endregion
     }
 }
