@@ -55,19 +55,40 @@ namespace _203E.UMS.Models
         /// </value>
         public bool AccountIsExpired { get; set; }
         /// <summary>
+        /// Gets or sets a value indicating whether [account expires].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [account expires]; otherwise, <c>false</c>.
+        /// </value>
+        public bool AccountExpires { get; set; }
+        /// <summary>
         /// Gets or sets the account expiration date.
         /// </summary>
         /// <value>
         /// The account expiration date.
         /// </value>
-        public DateTime AccountExpirationDate { get; set; }
+        public DateTime? AccountExpirationDate { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether [password is expired].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [password is expired]; otherwise, <c>false</c>.
+        /// </value>
+        public bool PasswordIsExpired { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether [password expires].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [password expires]; otherwise, <c>false</c>.
+        /// </value>
+        public bool PasswordExpires { get; set; }
         /// <summary>
         /// Gets or sets the password expiration date.
         /// </summary>
         /// <value>
         /// The password expiration date.
         /// </value>
-        public DateTime PasswordExpirationDate { get; set; }
+        public DateTime? PasswordExpirationDate { get; set; }
         #endregion
 
         #region Demographic Properties

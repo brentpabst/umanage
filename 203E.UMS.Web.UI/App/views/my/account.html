@@ -14,7 +14,7 @@
         </div>
     </div>
 </div>
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" data-bind="with: currentUser">
     <div class="row">
         <div class="col-sm-12">
             <div class="info-panel" id="basicAccount">
@@ -25,31 +25,52 @@
                     <div class="form-group">
                         <label for="userPrincipalName" class="col-sm-3 control-label">User Principal Name</label>
                         <div class="col-sm-9">
-                            <p class="form-control-static" id="userPrincipalName">brent@203ent.com</p>
+                            <p class="form-control-static" id="userPrincipalName" data-bind="text: UserPrincipalName"></p>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="ntUsername" class="col-sm-3 control-label">Windows User Name</label>
                         <div class="col-sm-9">
-                            <p class="form-control-static" id="ntUsername">203ent\brent</p>
+                            <p class="form-control-static" id="ntUsername" data-bind="text: NtUserName"></p>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="isAccountLocked" class="col-sm-3 control-label">Account Locked?</label>
                         <div class="col-sm-9">
-                            <p class="form-control-static" id="isAccountLocked">No</p>
+                            <p class="form-control-static" id="isAccountLocked">
+                                <!-- ko if: AccountIsLocked -->
+                                <span>Yes</span>
+                                <!-- /ko -->
+                                <!-- ko if: !AccountIsLocked -->
+                                <span>No</span>
+                                <!-- /ko -->
+                            </p>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="accountExpiration" class="col-sm-3 control-label">Account Expiration</label>
                         <div class="col-sm-9">
-                            <p class="form-control-static" id="accountExpiration">Next Month</p>
+                            <p class="form-control-static" id="accountExpiration">
+                                <!-- ko if: AccountExpires -->
+                                <span data-bind="text: moment(AccountExpirationDate).format('LLLL')"></span>
+                                <!-- /ko -->
+                                <!-- ko if: !AccountExpires -->
+                                Never Expires
+                                <!-- /ko -->
+                            </p>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="passwordExpiration" class="col-sm-3 control-label">Password Expiration</label>
                         <div class="col-sm-9">
-                            <p class="form-control-static" id="passwordExpiration">In about 6 months</p>
+                            <p class="form-control-static" id="passwordExpiration">
+                                <!-- ko if: PasswordExpires -->
+                                <span data-bind="text: moment(PasswordExpirationDate).format('LLLL')"></span>
+                                <!-- /ko -->
+                                <!-- ko if: !PasswordExpires -->
+                                Never Expires
+                                <!-- /ko -->
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -62,7 +83,7 @@
                     <div class="form-group">
                         <label for="distinguishedName" class="col-sm-3 control-label">Distinguished Name</label>
                         <div class="col-sm-9">
-                            <p id="distinguishedName" class="form-control-static">DN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+                            <p id="distinguishedName" class="form-control-static" data-bind="text: DistinguishedName"></p>
                         </div>
                     </div>
                 </div>

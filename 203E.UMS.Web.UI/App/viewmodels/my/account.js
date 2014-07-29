@@ -1,4 +1,4 @@
-﻿define(['plugins/router'], function (router) {
+﻿define(['plugins/router', 'viewmodels/shell'], function (router, shell) {
     var expandAll = function () {
         $('.info-panel .collapse').collapse('show');
     },
@@ -7,6 +7,7 @@
     }
 
     return {
+        currentUser: shell.currentUser,
         expandAll: expandAll,
         hideAll: hideAll,
         activate: function () {

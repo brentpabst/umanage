@@ -58,7 +58,10 @@ namespace _203E.UMS.Directory.ActiveDirectory
                 AccountIsLocked = p.IsAccountLockedOut(),
                 AccountIsDisabled = !p.Enabled.GetValueOrDefault(),
                 AccountIsExpired = p.AccountExpirationDate.HasValue && p.AccountExpirationDate.GetValueOrDefault() <= DateTime.UtcNow,
-                AccountExpirationDate = p.AccountExpirationDate.GetValueOrDefault(),
+                AccountExpires = p.AccountExpirationDate.HasValue,
+                AccountExpirationDate = p.AccountExpirationDate.HasValue ? p.AccountExpirationDate.GetValueOrDefault() : new DateTime?(),
+                PasswordIsExpired = pass.GetExpiration(e) == DateTime.MinValue,
+                PasswordExpires = pass.GetExpiration(e) != DateTime.MaxValue,
                 PasswordExpirationDate = pass.GetExpiration(e),
 
                 Name = p.Name,
