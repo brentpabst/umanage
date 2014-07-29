@@ -14,7 +14,6 @@
     }
     return {
         router: router,
-        testMessage: testMessage,
         activate: function () {
             router.map([
                 { route: '', title: 'Home', moduleId: 'viewmodels/home', nav: true, iconClass: 'fa fa-home fa-fw fa-lg', displayLink: true },
