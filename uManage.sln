@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{11DA48
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "203E.UMS.Models", "203E.UMS.Models\203E.UMS.Models.csproj", "{5107377E-CDCA-4F5F-938E-3E4C5F9EA67A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{CEC84CED-A518-425E-9D46-D5E7932DA5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEC84CED-A518-425E-9D46-D5E7932DA5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEC84CED-A518-425E-9D46-D5E7932DA5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5107377E-CDCA-4F5F-938E-3E4C5F9EA67A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5107377E-CDCA-4F5F-938E-3E4C5F9EA67A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5107377E-CDCA-4F5F-938E-3E4C5F9EA67A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5107377E-CDCA-4F5F-938E-3E4C5F9EA67A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
