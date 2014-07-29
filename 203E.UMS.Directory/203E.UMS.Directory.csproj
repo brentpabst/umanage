@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5107377E-CDCA-4F5F-938E-3E4C5F9EA67A}</ProjectGuid>
+    <ProjectGuid>{D719D5E8-038D-4DC7-897C-33B5FE7A933D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_203E.UMS.Models</RootNamespace>
-    <AssemblyName>203E.UMS.Models</AssemblyName>
+    <RootNamespace>_203E.UMS.Directory</RootNamespace>
+    <AssemblyName>203E.UMS.Directory</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,10 +42,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Directory.cs" />
-    <Compile Include="DirectorySettings.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="ActiveDirectory\ActiveDirectoryUow.cs" />
+    <Compile Include="ActiveDirectory\DirectoryExtensions.cs" />
+    <Compile Include="ActiveDirectory\DirectoryPolicy.cs" />
+    <Compile Include="ActiveDirectory\DirectoryRepository.cs" />
+    <Compile Include="ActiveDirectory\PasswordExpiration.cs" />
+    <Compile Include="ActiveDirectory\PasswordPolicyEnum.cs" />
+    <Compile Include="ActiveDirectory\UserExtensions.cs" />
+    <Compile Include="ActiveDirectory\UserRepository.cs" />
+    <Compile Include="IDirectoryRepository.cs" />
+    <Compile Include="IDirectoryUow.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\203E.UMS.Models\203E.UMS.Models.csproj">
+      <Project>{5107377E-CDCA-4F5F-938E-3E4C5F9EA67A}</Project>
+      <Name>203E.UMS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\203E.UMS\203E.UMS.csproj">
+      <Project>{0ae97e85-cf9a-427e-9e3c-04d264206fa4}</Project>
+      <Name>203E.UMS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
