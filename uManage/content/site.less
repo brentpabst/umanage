@@ -1,0 +1,205 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
+html, body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    cursor: default;
+    background: #ddd url(/content/images/Background.png) no-repeat fixed left bottom;
+    background-size: contain;
+    color: #333;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+}
+
+.master {
+    box-shadow: rgba(0,0,0,0.45) 0 2px 70px 0;
+    padding: 0;
+}
+
+header {
+    &.navbar-default {
+        margin-bottom: 0;
+        background-color: #2C3742;
+        border: none;
+        border-radius: 0;
+        min-height: 30px;
+    }
+
+    p.navbar-text {
+        color: #bfbfbf !important;
+
+        a {
+            color: #bfbfbf !important;
+        }
+    }
+}
+
+div#primary {
+    margin: 0;
+    background-color: #eee;
+
+    .left-panel {
+        padding: 15px;
+
+        hr {
+            border-color: #bbb;
+        }
+
+        .user-info {
+            border-radius: 5px;
+            border: solid 1px #bbb;
+            background-color: #fff;
+
+            .user-basic {
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #D9EDF7;
+                }
+            }
+
+            .user-image {
+                padding: 5px 0 5px 5px;
+                max-height: 40px;
+            }
+
+            .user-name {
+                padding: 4px 0 0 10px;
+            }
+
+            .user-info-expand {
+                padding: 15px 15px 0 0;
+            }
+
+            #user-extended {
+                border-top: solid 1px #aaa;
+
+                .user-extended-info {
+                    padding: 5px;
+                }
+            }
+        }
+
+        nav {
+            padding: 15px 0 0 0;
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    padding: 5px 5px;
+
+                    &.separator {
+                        margin-top: 8px;
+                        border-top: solid 1px #bbb;
+                    }
+
+                    &.no-link {
+                        text-transform: uppercase;
+                        font-size: small;
+                        font-weight: 600;
+                    }
+
+                    &.border {
+                        padding-bottom: 0;
+                        margin-bottom: 5px;
+                        border-bottom: solid 1px #bbb;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: #888;
+
+                        &:hover {
+                            color: #333;
+                        }
+                    }
+
+                    &.active {
+                        background-color: #D9EDF7;
+
+                        a {
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .main-panel {
+        padding: 15px;
+        min-height: 500px;
+        background-color: white;
+        border-left: solid 1px #bbb;
+
+        .wall-post {
+            padding: 20px 0 0 0;
+
+            &:first-of-type {
+                padding: 0;
+            }
+
+            .wall-post-header {
+                border-bottom: solid 2px #bbb;
+                margin: 0 0 10px 0;
+                padding: 0 0 5px 0;
+
+                h1 {
+                    font-size: x-large;
+                    margin: 0;
+                }
+
+                time {
+                    font-size: smaller;
+                }
+            }
+
+            .wall-post-content {
+            }
+        }
+
+        .info-panel {
+            .info-panel-header {
+                margin: 10px 0;
+                padding: 0 5px;
+                border-bottom: solid 1px #83d1f8;
+                font-size: 15px;
+                text-transform: uppercase;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            .info-panel-content {
+            }
+        }
+    }
+}
+
+footer {
+    background-color: #2C3742;
+    color: #bfbfbf;
+    padding: 13px 0 13px 9px;
+}
+
+@media (max-width: 767px) {
+    html, body {
+        background-image: none;
+    }
+
+    .main-panel {
+        border-left: none;
+    }
+
+    .navbar-form, .navbar-text {
+        border: none;
+        padding: 0 20px;
+    }
+
+    .navbar-form {
+        margin: 8px 0;
+    }
+}
