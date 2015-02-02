@@ -11,7 +11,10 @@
             display: none !important;
         }
     </style>
-    @Context.ViewBag.Styles
+    <link rel="stylesheet" type="text/css" href="/content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/content/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/content/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/content/site.css" />
     <script type="text/javascript" src="/scripts/modernizr-2.8.3.js"></script>
 
 </head>
@@ -20,7 +23,7 @@
     <div data-ng-include="'/app/views/shell.html'"></div>
     @Context.ViewBag.Scripts
     <!-- Vendor Scripts -->
-    <script type="text/javascript" src="/scripts/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="/scripts/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="/scripts/bootstrap.js"></script>
     <script type="text/javascript" src="/scripts/moment.js"></script>
     <script type="text/javascript" src="/scripts/moment-with-locales.js"></script>

@@ -2,7 +2,6 @@
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
-using SquishIt.Framework;
 
 namespace uManage
 {
@@ -25,20 +24,8 @@ namespace uManage
 
             pipelines.BeforeRequest += (ctx) =>
             {
-                ctx.ViewBag.Styles = Bundle.Css().RenderCachedAssetTag("styles");
-                ctx.ViewBag.Scripts = Bundle.JavaScript().RenderNamed("scripts");
                 return null;
             };
-
-            Bundle.Css()
-                .Add("~/content/bootstrap.css")
-                .Add("~/content/bootstrap-theme.css")
-                .Add("~/content/font-awesome.css")
-                .Add("~/content/site.less")
-                .AsCached("styles", "/content/styles.css");
-
-            Bundle.JavaScript()
-                .AsNamed("scripts", "/content/scripts.js");
         }
     }
 }
