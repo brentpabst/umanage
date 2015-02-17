@@ -35,6 +35,7 @@ namespace uManage
             appBuilder.UseStaticFiles("/scripts");
             appBuilder.UseStaticFiles("/content");
             appBuilder.UseStaticFiles("/fonts");
+            appBuilder.UseStaticFiles("/app");
             appBuilder.UseFileServer(new FileServerOptions()
             {
                 RequestPath = PathString.Empty,

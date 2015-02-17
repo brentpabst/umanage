@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" data-ng-app="ums">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,125 +11,19 @@
     <link href="content/font-awesome.css" rel="stylesheet">
     <link href="content/site.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container master">
-        <header class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-nav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="fa fa-2x fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img src="/content/images/uManage.png" alt="uManage" />
-                </a>
-            </div>
-            <form class="navbar-form navbar-right" role="search">
-                <input type="text" class="form-control" placeholder="Search for User..." autofocus="autofocus">
-            </form>
-            <p class="navbar-text navbar-right">Signed in as <a href="/#/my/info" class="navbar-link">Brent Pabst</a></p>
-        </header>
-        <div id="primary" class="row">
-            <aside id="primary-nav" class="left-panel col-sm-3 collapse in">
-                <div class="user-info">
-                    <div class="user-basic clearfix" data-toggle="collapse" data-target="#user-extended">
-                        <img class="user-image img-responsive pull-left" src="https://secure.gravatar.com/avatar/619db1e0dec6a97bb41112757305c666.png?s=40&d=retro" alt="Brent Pabst" />
-                        <div class="user-name pull-left">
-                            <div>Brent Pabst</div>
-                            <div class="small text-muted">CEO & Founder</div>
-                        </div>
-                        <div class="user-info-expand">
-                            <span class="fa fa-caret-down pull-right"></span>
-                        </div>
-                    </div>
-                    <div id="user-extended" class="collapse">
-                        <div class="user-extended-info">
-                            <div class="row">
-                                <div class="col-sm-6">Brent Pabst</div>
-                                <div class="col-sm-6 text-right">
-                                    <a href="#/my/info">View Details</a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    Account Expires
-                                </div>
-                                <div class="col-sm-6 text-right">
-                                    <a href="#/my/account">
-                                        <time>8 Months</time>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    Password Expires
-                                </div>
-                                <div class="col-sm-6 text-right">
-                                    <a href="#/my/password">
-                                        <time>Next Year</time>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <nav role="navigation">
-                    <ul>
-                        <li class="active"><a href="#/home"><i class="fa fa-home fa-fw fa-lg"></i>&nbsp; Home</a></li>
-                        <li><a href="#/dashboard"><i class="fa fa-dashboard fa-fw fa-lg"></i>&nbsp; Dashboard</a></li>
-                        <li><a href="#/users"><i class="fa fa-users fa-fw fa-lg"></i>&nbsp; Users</a></li>
-                        <li><a href="#/groups"><i class="fa fa-key fa-fw fa-lg"></i>&nbsp; Groups</a></li>
-                        <li><a href="#/settings"><i class="fa fa-cog fa-fw fa-lg"></i>&nbsp; Settings</a></li>
-                    </ul>
-                    <ul>
-                        <li class="no-link border">Quick Links</li>
-                        <li><a href="http://github.com/203ent/uManage"><i class="fa fa-github fa-fw fa-lg"></i>&nbsp; uManage on GitHub</a></li>
-                        <li><a href="http://brentpabst.com/"><i class="fa fa-user fa-fw fa-lg"></i>&nbsp; Brent Pabst</a></li>
-                    </ul>
-                </nav>
-            </aside>
-            <div class="main-panel col-sm-9" role="main">
-                <div>
-                    <div class="wall-post">
-                        <div class="wall-post-header">
-                            <h1>Welcome to uManage</h1>
-                            <time>Saturday, July 26th, 2014</time>
-                        </div>
-                        <div class="wall-post-content">
-                            This is a test...
-                        </div>
-                    </div>
-                    <div class="wall-post">
-                        <div class="wall-post-header">
-                            <h1>Welcome to uManage</h1>
-                            <time>Saturday, July 26th, 2014</time>
-                        </div>
-                        <div class="wall-post-content">
-                            <p>You have successfully installed uManage and are almost ready to start letting users access the system. There are a few more setup tasks to complete but they are all fairly painless and straightforward. At this point, you have setup the application, connected to the database, and connected to the directory.</p>
-                            <p>The next steps all have to do with configuring uManage to work how you want it to work. These steps are typically needed for most installations:</p>
-                            <ol>
-                                <li>Configure Administrative Users &amp; Roles</li>
-                                <li>Configure Locations</li>
-                                <li>Configure Optional Settings</li>
-                            </ol>
-                            <h4>Feature Requests</h4>
-                            <p>We obviously want to improve the system and make it easier for everyone to use. If you have, a specific feature or ideas in mind feel free to visit <a href="https://github.com/203ent/uManage" target="_blank">GitHub</a> and suggest the feature. We cannot guarantee we will implement everything but we will at least look at your request.</p>
-                            <p>If you want to code something out, feel free to fork/patch the repository and send it in!</p>
-                            <h4>Getting Support &amp; Help</h4>
-                            <p>
-                                uManage is an open source product and as such you can usually get support and additional documentation from <a href="https://github.com/203ent/uManage" target="_blank">GitHub</a>. If you need more assistance or want to inquire about specific customization commercial assistance is provided by <a href="http://www.203ent.com" target="_blank">203 Enterprises</a>
-                                along with consulting and technical assistance services.
-                            </p>
-                            <div class="alert alert-warning"><strong>Hold on!</strong> You should probably <a class="alert-link" href="">remove this Wall Post</a> before you allow users to access the system.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer class="small">
-            a <strong>203 Enterprises</strong> project
-        </footer>
-    </div>
+<body>    
+    <div data-ng-include="'/app/views/shell.html'"></div>
     <script src="scripts/jquery-2.1.3.js"></script>
     <script src="scripts/bootstrap.js"></script>
+    
+    <!-- Angular -->
+    <script src="/scripts/angular.js"></script>
+    <script src="/scripts/angular-route.js"></script>
+    <script src="/scripts/angular-sanitize.js"></script>
+    <script src="/scripts/angular-resource.js"></script>
+
+    <!-- Bootstrapping -->
+    <script src="/app/app.js"></script>
+    <script src="/app/routes.js"></script>
 </body>
 </html>
