@@ -4,7 +4,7 @@ body {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-size: 13px;
   cursor: default;
-  background: #dddddd url(/Content/images/Background.png) no-repeat fixed left bottom;
+  background: #dddddd url(/content/images/Background.png) no-repeat fixed left bottom;
   background-size: contain;
   color: #333;
 }
