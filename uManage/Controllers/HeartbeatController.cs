@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Web;
+using System.Web.Http;
 
 namespace uManage.Controllers
 {
@@ -8,7 +9,8 @@ namespace uManage.Controllers
         [Route("")]
         public string Get()
         {
-            return "API OK";
+            var response = "API OK. Hello " + RequestContext.Principal.Identity.Name;
+            return response;
         }
     }
 }
