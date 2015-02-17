@@ -17,10 +17,15 @@ h2 {
 }
 header.navbar-default {
   margin-bottom: 0;
-  background-color: #2C3742;
   border: none;
   border-radius: 0;
+  box-shadow: none;
   min-height: 30px;
+  border-bottom: solid 1px #bbb;
+}
+header form.navbar-form {
+  margin-left: 0;
+  margin-right: 0;
 }
 header p.navbar-text {
   color: #bfbfbf !important;
