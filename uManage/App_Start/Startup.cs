@@ -18,7 +18,7 @@ namespace uManage
             // Setup Windows Auth
             var listener = (HttpListener)appBuilder.Properties["System.Net.HttpListener"];
             listener.AuthenticationSchemes = AuthenticationSchemes.IntegratedWindowsAuthentication;
-
+            
             // Build a config
             var config = new HttpConfiguration();
 
