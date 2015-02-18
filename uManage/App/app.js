@@ -6,7 +6,8 @@ var ums = angular.module('ums', [
     'ngRoute',
     'ngSanitize',
 
-    'umsRouting'
+    'umsRouting',
+    'umsControllers'
 ]);
 
 ums.run([
@@ -21,6 +22,7 @@ ums.run([
 
 ums.config(['$logProvider', function ($logProvider) {
     if ($logProvider.debugEnabled) {
+        console.log("Debugging Enabled");
         $logProvider.debugEnabled(true);
     }
 }]);
