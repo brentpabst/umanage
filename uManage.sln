@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uManage", "uManage\uManage.csproj", "{3A8870CD-914B-4C53-B9F2-8F251B1B079B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uManange.Models", "uManange.Models\uManange.Models.csproj", "{CF36FE39-ADB6-4A27-9F16-D95738FBA32F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3A8870CD-914B-4C53-B9F2-8F251B1B079B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A8870CD-914B-4C53-B9F2-8F251B1B079B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A8870CD-914B-4C53-B9F2-8F251B1B079B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF36FE39-ADB6-4A27-9F16-D95738FBA32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF36FE39-ADB6-4A27-9F16-D95738FBA32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF36FE39-ADB6-4A27-9F16-D95738FBA32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF36FE39-ADB6-4A27-9F16-D95738FBA32F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
