@@ -1,0 +1,21 @@
+﻿using System;
+using uManange.Models;
+
+namespace uManage.Directories
+{
+    public interface IDirectoryRepository
+    {
+        /// <summary>
+        /// Gets the directory.
+        /// </summary>
+        /// <param name="directoryId">The directory identifier.</param>
+        /// <returns></returns>
+        Directory GetDirectory(Guid directoryId);
+        /// <summary>
+        /// Updates the directory.
+        /// </summary>
+        /// <param name="directory">The directory.</param>
+        /// <returns></returns>
+        bool UpdateDirectory(Directory directory);
+    }
+}
