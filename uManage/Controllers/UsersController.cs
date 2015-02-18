@@ -2,23 +2,32 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
+using uManage.Directories;
 using uManange.Models;
 
 namespace uManage.Controllers
 {
     [RoutePrefix("api/users")]
-    public class UserController : ApiController
+    public class UsersController : ApiController
     {
+        private readonly IDirectoryService _dir;
+
+        public UsersController(IDirectoryService dir)
+        {
+            if (_dir == null)
+                _dir = dir;
+        }
+
         [Route(""), HttpGet]
         public IEnumerable<User> GetUsers()
         {
-            throw new NotImplementedException();
+            return _dir.Users.GetAllUsers();
         }
 
         [Route("me"), HttpGet]
         public User GetCurrentUser()
         {
-            throw new NotImplementedException();
+            return _dir.Users.GetUser(RequestContext.Principal.Identity.Name);
         }
 
         [Route("me"), HttpPost]
@@ -42,7 +51,7 @@ namespace uManage.Controllers
         [Route("{id}"), HttpGet]
         public User GetUser(Guid id)
         {
-            throw new NotImplementedException();
+            return _dir.Users.GetUser(id);
         }
 
         [Route("{id}"), HttpPost]

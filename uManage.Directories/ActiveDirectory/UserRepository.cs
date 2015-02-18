@@ -2,10 +2,9 @@
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
-using uManage.Directories.ActiveDirectory;
 using uManange.Models;
 
-namespace uManage.Directories
+namespace uManage.Directories.ActiveDirectory
 {
     public class UserRepository:IUserRepository
     {

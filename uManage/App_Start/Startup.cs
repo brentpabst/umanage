@@ -22,6 +22,9 @@ namespace uManage
             // Build a config
             var config = new HttpConfiguration();
 
+            // Wire up dependency injection
+            config.DependencyResolver = new NinjectResolver(NinjectConfig.CreateKernel());
+
             // Wire up the routes
             config.MapHttpAttributeRoutes();
 

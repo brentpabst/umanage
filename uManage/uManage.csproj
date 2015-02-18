@@ -60,6 +60,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
@@ -87,9 +90,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\NinjectConfig.cs" />
+    <Compile Include="App_Start\NinjectResolver.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\HeartbeatController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -238,6 +243,10 @@
     <Content Include="Scripts\npm.js" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\uManage.Directories\uManage.Directories.csproj">
+      <Project>{B9F93D40-1706-4427-87B3-3E81CBA08137}</Project>
+      <Name>uManage.Directories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\uManange.Models\uManange.Models.csproj">
       <Project>{CF36FE39-ADB6-4A27-9F16-D95738FBA32F}</Project>
       <Name>uManange.Models</Name>
