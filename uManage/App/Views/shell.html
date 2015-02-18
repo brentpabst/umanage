@@ -1,0 +1,81 @@
+﻿<div class="container master" data-ng-controller="ShellCtrl">
+    <header class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-2x fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#/">
+                <img src="/content/images/uManage.png" alt="uManage" />
+            </a>
+        </div>
+        <form class="navbar-form navbar-right" role="search">
+            <input type="text" class="form-control" placeholder="Search for People..." autofocus="autofocus">
+        </form>
+        <p class="navbar-text navbar-right">Signed in as <a href="/#/my/info" class="navbar-link">Brent Pabst</a></p>
+    </header>
+    <div id="primary" class="row">
+        <aside id="primary-nav" class="left-panel col-sm-3 collapse in">
+            <div class="user-info">
+                <div class="user-basic clearfix" data-toggle="collapse" data-target="#user-extended">
+                    <img class="user-image img-responsive pull-left" src="https://secure.gravatar.com/avatar/619db1e0dec6a97bb41112757305c666.png?s=40&d=retro" alt="Brent Pabst" />
+                    <div class="user-name pull-left">
+                        <div>Brent Pabst</div>
+                        <div class="small text-muted">CEO & Founder</div>
+                    </div>
+                    <div class="user-info-expand">
+                        <span class="fa fa-caret-down pull-right"></span>
+                    </div>
+                </div>
+                <div id="user-extended" class="collapse">
+                    <div class="user-extended-info">
+                        <div class="row">
+                            <div class="col-sm-6">Brent Pabst</div>
+                            <div class="col-sm-6 text-right">
+                                <a href="#/my">View Details</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Account Expires
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <a href="#/my/account">
+                                    <time>8 Months</time>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Password Expires
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <a href="#/my/password">
+                                    <time>Next Year</time>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav role="navigation">
+                <ul>
+                    <li class="active"><a href="#/home"><i class="fa fa-home fa-fw fa-lg"></i>&nbsp; Home</a></li>
+                    <li><a href="#/dashboard"><i class="fa fa-dashboard fa-fw fa-lg"></i>&nbsp; Dashboard</a></li>
+                    <li><a href="#/users"><i class="fa fa-users fa-fw fa-lg"></i>&nbsp; People</a></li>
+                    <li><a href="#/groups"><i class="fa fa-key fa-fw fa-lg"></i>&nbsp; Groups</a></li>
+                    <li><a href="#/settings"><i class="fa fa-cog fa-fw fa-lg"></i>&nbsp; Settings</a></li>
+                </ul>
+                <ul>
+                    <li class="no-link border">Quick Links</li>
+                    <li><a href="http://github.com/203ent/uManage"><i class="fa fa-github fa-fw fa-lg"></i>&nbsp; uManage on GitHub</a></li>
+                    <li><a href="http://brentpabst.com/"><i class="fa fa-user fa-fw fa-lg"></i>&nbsp; Brent Pabst</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="main-panel col-sm-9" role="main" data-ng-view></div>
+    </div>
+    <footer class="small">
+        a <strong>203 Enterprises</strong> project
+    </footer>
+</div>
