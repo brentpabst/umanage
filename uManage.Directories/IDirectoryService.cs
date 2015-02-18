@@ -2,7 +2,7 @@
 
 namespace uManage.Directories
 {
-    public interface IDirectoryUow : IDisposable
+    public interface IDirectoryService : IDisposable
     {
         string ConnectedServer { get; set; }
         IDirectoryRepository Directory { get; }
