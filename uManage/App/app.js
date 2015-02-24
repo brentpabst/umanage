@@ -5,16 +5,17 @@
 var ums = angular.module('ums', [
     'ngRoute',
     'ngSanitize',
+    'ngResource',
 
     'umsRouting',
     'umsControllers'
 ]);
 
 ums.run([
-    '$rootScope', '$route', function($rootScope, $route) {
-        $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
-            if (current && current.$$route && current.$$route.title) {
-                $rootScope.title = current.$$route.title;
+    '$rootScope', '$route', function ($rootScope, $route) {
+        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+            if ($route && $route.current && $route.current.title) {
+                $rootScope.title = $route.current.title;
             }
         });
     }
