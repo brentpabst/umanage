@@ -1,19 +1,19 @@
-﻿'use strict';
+﻿"use strict";
 
 /* App Module */
 
-var ums = angular.module('ums', [
-    'ngRoute',
-    'ngSanitize',
-    'ngResource',
+var ums = angular.module("ums", [
+    "ngRoute",
+    "ngSanitize",
+    "ngResource",
 
-    'umsRouting',
-    'umsControllers'
+    "umsRouting",
+    "umsControllers"
 ]);
 
 ums.run([
-    '$rootScope', '$route', function ($rootScope, $route) {
-        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+    "$rootScope", "$route", function ($rootScope, $route) {
+        $rootScope.$on("$routeChangeSuccess", function (event, current, previous) {
             if ($route && $route.current && $route.current.title) {
                 $rootScope.title = $route.current.title;
             }
@@ -21,7 +21,7 @@ ums.run([
     }
 ]);
 
-ums.config(['$logProvider', function ($logProvider) {
+ums.config(["$logProvider", function ($logProvider) {
     if ($logProvider.debugEnabled) {
         console.log("Debugging Enabled");
         $logProvider.debugEnabled(true);
