@@ -2,11 +2,22 @@
 
 var controllers = angular.module("umsControllers", []);
 
-controllers.controller("ShellCtrl", ["$rootScope", "$route", "$scope",
-    function ($rootScope, $route, $scope) {
-        //$scope.routes = $route.routes;
+controllers.controller("ShellCtrl", ["$rootScope", "$route", "$location", "$scope",
+    function ($rootScope, $route, $location, $scope) {
+        $scope.routes = [];
+
+        $scope.isActive = function(viewLocation) {
+            return viewLocation === $location.path();
+        }
 
         function activate() {
+            // Load Menu
+            angular.forEach($route.routes, function (route) {
+                if (route.title && route.navEnabled) {
+                    $scope.routes.push(route);
+                }
+            });
+
             // Load the user's bootstrap info here
             console.log("Shell Loaded");
         }

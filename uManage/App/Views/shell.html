@@ -60,11 +60,7 @@
             </div>
             <nav role="navigation">
                 <ul>
-                    <li class="active"><a href="#/home"><i class="fa fa-home fa-fw fa-lg"></i>&nbsp; Home</a></li>
-                    <li><a href="#/dashboard"><i class="fa fa-dashboard fa-fw fa-lg"></i>&nbsp; Dashboard</a></li>
-                    <li><a href="#/users"><i class="fa fa-users fa-fw fa-lg"></i>&nbsp; People</a></li>
-                    <li><a href="#/groups"><i class="fa fa-key fa-fw fa-lg"></i>&nbsp; Groups</a></li>
-                    <li><a href="#/settings"><i class="fa fa-cog fa-fw fa-lg"></i>&nbsp; Settings</a></li>
+                    <li data-ng-class="{'active': isActive(r.originalPath)}" data-ng-repeat="r in routes"><a href="#{{r.originalPath}}" data-ng-bind-html="r.navContent"></a></li>
                 </ul>
                 <ul>
                     <li class="no-link border">Quick Links</li>
