@@ -65,7 +65,7 @@ namespace uManage
                     c.IncludeXmlComments(appPath + @"\uManage.Models.xml");
                     c.IncludeXmlComments(appPath + @"\uManage.Directories.xml");
                 })
-                .EnableSwaggerUi();
+                .EnableSwaggerUi(c => c.DisableValidator());
 
             // Activate the API
             appBuilder.UseWebApi(config);
