@@ -7,8 +7,8 @@
     <ProjectGuid>{CF36FE39-ADB6-4A27-9F16-D95738FBA32F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>uManange.Models</RootNamespace>
-    <AssemblyName>uManange.Models</AssemblyName>
+    <RootNamespace>uManage.Models</RootNamespace>
+    <AssemblyName>uManage.Models</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,7 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\uManange.Models.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\uManage.Models.xml</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\uManange.Models.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\uManage.Models.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

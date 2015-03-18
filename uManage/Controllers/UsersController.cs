@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
 using uManage.Directories;
-using uManange.Models;
+using uManage.Models;
 
 namespace uManage.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace uManange.Models
+namespace uManage.Models
 {
     public class User
     {

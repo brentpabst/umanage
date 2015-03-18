@@ -43,8 +43,8 @@ namespace uManage
                     c.IgnoreObsoleteProperties();
                     c.DescribeAllEnumsAsStrings();
                     c.IncludeXmlComments(appPath + @"\uManage.xml");
-                    //c.IncludeXmlComments(appPath + @"\uManage.Models.xml");
-                    //c.IncludeXmlComments(appPath + @"\uManage.Directories.xml");
+                    c.IncludeXmlComments(appPath + @"\uManage.Models.xml");
+                    c.IncludeXmlComments(appPath + @"\uManage.Directories.xml");
                 })
                 .EnableSwaggerUi();
 

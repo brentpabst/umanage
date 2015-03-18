@@ -1,5 +1,5 @@
 ﻿
-namespace uManange.Models
+namespace uManage.Models
 {
     public class DirectorySettings
     {

@@ -59,9 +59,9 @@
     <Compile Include="ActiveDirectory\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\uManange.Models\uManange.Models.csproj">
-      <Project>{CF36FE39-ADB6-4A27-9F16-D95738FBA32F}</Project>
-      <Name>uManange.Models</Name>
+    <ProjectReference Include="..\uManage.Models\uManage.Models.csproj">
+      <Project>{cf36fe39-adb6-4a27-9f16-d95738fba32f}</Project>
+      <Name>uManage.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

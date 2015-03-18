@@ -1,6 +1,6 @@
 ﻿using System;
 using System.DirectoryServices.AccountManagement;
-using uManange.Models;
+using uManage.Models;
 
 namespace uManage.Directories.ActiveDirectory
 {

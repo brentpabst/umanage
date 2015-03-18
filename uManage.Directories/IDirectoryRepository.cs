@@ -1,5 +1,5 @@
 ﻿using System;
-using uManange.Models;
+using uManage.Models;
 
 namespace uManage.Directories
 {

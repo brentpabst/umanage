@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using uManange.Models;
+using uManage.Models;
 
 namespace uManage.Directories
 {
