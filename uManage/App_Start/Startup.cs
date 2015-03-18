@@ -1,9 +1,11 @@
-﻿using Microsoft.Owin;
+﻿using System.IO;
+using Microsoft.Owin;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
 using Owin;
 using System.Net;
 using System.Web.Http;
+using Swashbuckle.Application;
 
 namespace uManage
 {
@@ -18,7 +20,7 @@ namespace uManage
             // Setup Windows Auth
             var listener = (HttpListener)appBuilder.Properties["System.Net.HttpListener"];
             listener.AuthenticationSchemes = AuthenticationSchemes.IntegratedWindowsAuthentication;
-            
+
             // Build a config
             var config = new HttpConfiguration();
 
@@ -30,6 +32,21 @@ namespace uManage
 
             // Remove the XML formatter
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+
+            // Enable Swagger
+            var appPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase); ;
+            config
+                .EnableSwagger(c =>
+                {
+                    c.SingleApiVersion("v1", "uManage Api");
+                    c.IgnoreObsoleteActions();
+                    c.IgnoreObsoleteProperties();
+                    c.DescribeAllEnumsAsStrings();
+                    c.IncludeXmlComments(appPath + @"\uManage.xml");
+                    //c.IncludeXmlComments(appPath + @"\uManage.Models.xml");
+                    //c.IncludeXmlComments(appPath + @"\uManage.Directories.xml");
+                })
+                .EnableSwaggerUi();
 
             // Activate the API
             appBuilder.UseWebApi(config);
