@@ -4,6 +4,9 @@ using uManage.Models;
 
 namespace uManage.Directories
 {
+    /// <summary>
+    /// User Repository
+    /// </summary>
     public interface IUserRepository
     {
         /// <summary>

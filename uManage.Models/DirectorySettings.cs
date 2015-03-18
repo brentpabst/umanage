@@ -1,6 +1,9 @@
 ﻿
 namespace uManage.Models
 {
+    /// <summary>
+    /// Directory Settings
+    /// </summary>
     public class DirectorySettings
     {
         /// <summary>

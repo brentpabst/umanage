@@ -2,6 +2,9 @@
 
 namespace uManage.Models
 {
+    /// <summary>
+    /// User
+    /// </summary>
     public class User
     {
         #region Account Properties

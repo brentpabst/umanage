@@ -3,6 +3,9 @@ using uManage.Models;
 
 namespace uManage.Directories
 {
+    /// <summary>
+    /// Directory Repository
+    /// </summary>
     public interface IDirectoryRepository
     {
         /// <summary>

@@ -6,7 +6,10 @@ using uManage.Models;
 
 namespace uManage.Directories.ActiveDirectory
 {
-    public class UserRepository:IUserRepository
+    /// <summary>
+    /// User Repository
+    /// </summary>
+    public class UserRepository : IUserRepository
     {
         private readonly PrincipalContext _ctx;
         /// <summary>

@@ -1,6 +1,9 @@
 ﻿
 namespace uManage.Models
 {
+    /// <summary>
+    /// Directory
+    /// </summary>
     public class Directory
     {
         /// <summary>
