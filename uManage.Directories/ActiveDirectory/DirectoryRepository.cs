@@ -1,5 +1,6 @@
 ﻿using System;
 using System.DirectoryServices.AccountManagement;
+using System.Threading.Tasks;
 using uManage.Models;
 
 namespace uManage.Directories.ActiveDirectory
@@ -27,9 +28,13 @@ namespace uManage.Directories.ActiveDirectory
         /// <param name="directoryId">The directory identifier.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public Directory GetDirectory(Guid directoryId)
+        public async Task<Directory> GetDirectory(Guid directoryId)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                throw new NotImplementedException();
+                return new Directory();
+            });
         }
 
         /// <summary>
@@ -38,9 +43,13 @@ namespace uManage.Directories.ActiveDirectory
         /// <param name="directory">The directory.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public bool UpdateDirectory(Directory directory)
+        public async Task<bool> UpdateDirectory(Directory directory)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                throw new NotImplementedException();
+                return false;
+            });
         }
     }
 }

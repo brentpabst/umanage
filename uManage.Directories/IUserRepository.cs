@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using uManage.Models;
 
 namespace uManage.Directories
@@ -13,86 +14,86 @@ namespace uManage.Directories
         /// Gets all users.
         /// </summary>
         /// <returns></returns>
-        IQueryable<User> GetAllUsers();
+        Task<IQueryable<User>> GetAllUsers();
         /// <summary>
         /// Gets the user.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        User GetUser(Guid userId);
+        Task<User> GetUser(Guid userId);
         /// <summary>
         /// Gets the user.
         /// </summary>
         /// <param name="userPrincipalName">Name of the user principal.</param>
         /// <returns></returns>
-        User GetUser(string userPrincipalName);
+        Task<User> GetUser(string userPrincipalName);
         /// <summary>
         /// Adds the user.
         /// </summary>
         /// <param name="user">The user.</param>
         /// <returns></returns>
-        bool AddUser(User user);
+        Task<bool> AddUser(User user);
         /// <summary>
         /// Updates the user.
         /// </summary>
         /// <param name="user">The user.</param>
         /// <returns></returns>
-        bool UpdateUser(User user);
+        Task<bool> UpdateUser(User user);
         /// <summary>
         /// Deletes the user.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        bool DeleteUser(Guid userId);
+        Task<bool> DeleteUser(Guid userId);
         /// <summary>
         /// Enables the user account.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        bool EnableUserAccount(Guid userId);
+        Task<bool> EnableUserAccount(Guid userId);
         /// <summary>
         /// Disables the user account.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        bool DisableUserAccount(Guid userId);
+        Task<bool> DisableUserAccount(Guid userId);
         /// <summary>
         /// Unlocks the user account.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        bool UnlockUserAccount(Guid userId);
+        Task<bool> UnlockUserAccount(Guid userId);
         /// <summary>
         /// Expires the user password.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        bool ExpireUserPassword(Guid userId);
+        Task<bool> ExpireUserPassword(Guid userId);
         /// <summary>
         /// Sets the user password.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <param name="pass">The pass.</param>
         /// <returns></returns>
-        bool SetUserPassword(Guid userId, string pass);
+        Task<bool> SetUserPassword(Guid userId, string pass);
         /// <summary>
         /// Clears the user photo.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        bool ClearUserPhoto(Guid userId);
+        Task<bool> ClearUserPhoto(Guid userId);
         /// <summary>
         /// Gets the user photo.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        byte[] GetUserPhoto(Guid userId);
+       Task<byte[]> GetUserPhoto(Guid userId);
         /// <summary>
         /// Updates the user photo.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <param name="photo">The photo.</param>
         /// <returns></returns>
-        bool UpdateUserPhoto(Guid userId, byte[] photo);
+        Task<bool> UpdateUserPhoto(Guid userId, byte[] photo);
     }
 }

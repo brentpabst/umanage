@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using uManage.Models;
 
 namespace uManage.Directories
@@ -13,12 +14,12 @@ namespace uManage.Directories
         /// </summary>
         /// <param name="directoryId">The directory identifier.</param>
         /// <returns></returns>
-        Directory GetDirectory(Guid directoryId);
+        Task<Directory> GetDirectory(Guid directoryId);
         /// <summary>
         /// Updates the directory.
         /// </summary>
         /// <param name="directory">The directory.</param>
         /// <returns></returns>
-        bool UpdateDirectory(Directory directory);
+        Task<bool> UpdateDirectory(Directory directory);
     }
 }

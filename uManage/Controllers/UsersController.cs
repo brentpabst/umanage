@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 using uManage.Directories;
 using uManage.Models;
 
@@ -30,9 +31,15 @@ namespace uManage.Controllers
         /// </summary>
         /// <returns></returns>
         [Route(""), HttpGet]
-        public IEnumerable<User> GetUsers()
+        [ResponseType(typeof(IEnumerable<User>))]
+        public async Task<IHttpActionResult> GetUsers()
         {
-            return _dir.Users.GetAllUsers();
+            var result = await _dir.Users.GetAllUsers();
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
         }
 
         /// <summary>
@@ -40,9 +47,15 @@ namespace uManage.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("me"), HttpGet]
-        public User GetCurrentUser()
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> GetCurrentUser()
         {
-            return _dir.Users.GetUser(RequestContext.Principal.Identity.Name);
+            var result = await _dir.Users.GetUser(RequestContext.Principal.Identity.Name);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
         }
 
         /// <summary>
@@ -52,7 +65,8 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("me"), HttpPost]
-        public User UpdateCurrentUser(User user)
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> UpdateCurrentUser(User user)
         {
             throw new NotImplementedException();
         }
@@ -63,7 +77,7 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("me/photo"), HttpGet]
-        public HttpResponseMessage GetCurrentUserPhoto()
+        public async Task<IHttpActionResult> GetCurrentUserPhoto()
         {
             throw new NotImplementedException();
         }
@@ -75,7 +89,7 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("me/photo"), HttpPost]
-        public HttpResponseMessage UpdateCurrentUserPhoto(byte[] photo)
+        public async Task<IHttpActionResult> UpdateCurrentUserPhoto(byte[] photo)
         {
             throw new NotImplementedException();
         }
@@ -86,9 +100,10 @@ namespace uManage.Controllers
         /// <param name="id">The user identifier.</param>
         /// <returns></returns>
         [Route("{id}"), HttpGet]
-        public User GetUser(Guid id)
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> GetUser(Guid id)
         {
-            return _dir.Users.GetUser(id);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -99,7 +114,8 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("{id}"), HttpPost]
-        public User UpdateUser(Guid id, User user)
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> UpdateUser(Guid id, User user)
         {
             throw new NotImplementedException();
         }
@@ -111,7 +127,7 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("{id}/photo"), HttpGet]
-        public HttpResponseMessage GetUserPhoto(Guid id)
+        public async Task<IHttpActionResult> GetUserPhoto(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -124,7 +140,7 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("{id}/photo"), HttpPost]
-        public HttpResponseMessage UpdateUserPhoto(Guid id, byte[] photo)
+        public async Task<IHttpActionResult> UpdateUserPhoto(Guid id, byte[] photo)
         {
             throw new NotImplementedException();
         }
@@ -136,7 +152,8 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("{id}/account/enable"), HttpPost]
-        public HttpResponseMessage EnableAccount(Guid id)
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> EnableAccount(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -148,7 +165,8 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("{id}/account/disable"), HttpPost]
-        public HttpResponseMessage DisableAccount(Guid id)
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> DisableAccount(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -160,7 +178,8 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("{id}/account/unlock"), HttpPost]
-        public HttpResponseMessage UnlockAccount(Guid id)
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> UnlockAccount(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -172,7 +191,8 @@ namespace uManage.Controllers
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         [Route("{id}/password/expire"), HttpPost]
-        public HttpResponseMessage ExpirePassword(Guid id)
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> ExpirePassword(Guid id)
         {
             throw new NotImplementedException();
         }
