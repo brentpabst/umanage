@@ -16,6 +16,9 @@ local.properties
 .settings/
 .loadpath
 
+# Ghost Doc stupidness
+*.GhostDoc.xml
+
 # External tool builders
 .externalToolBuilders/
 
