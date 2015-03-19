@@ -2,10 +2,10 @@
 
 var controllers = angular.module("umsControllers", []);
 
-controllers.controller("ShellCtrl", ["$rootScope", "$route", "$location", "$scope", "$http",
-    function ($rootScope, $route, $location, $scope, $http) {
+controllers.controller("ShellCtrl", ["$rootScope", "$route", "$location", "$scope", "currentUser",
+    function ($rootScope, $route, $location, $scope, currentUser) {
         $scope.routes = [];
-        $scope.currentUser = null;
+        $scope.currentUser = currentUser.query();
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
@@ -20,10 +20,10 @@ controllers.controller("ShellCtrl", ["$rootScope", "$route", "$location", "$scop
             });
 
             // Load the user's bootstrap info here
-            $http.get("/api/users/me").success(function (data) {
-                $scope.currentUser = data;
-                console.log("Hi " + $scope.currentUser.firstName + "!");
-            });
+            //$http.get("/api/users/me").success(function (data) {
+            //    $scope.currentUser = data;
+            //    console.log("Hi " + $scope.currentUser.firstName + "!");
+            //});
 
             console.log("Shell Loaded");
         }

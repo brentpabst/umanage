@@ -8,6 +8,7 @@ var ums = angular.module("ums", [
     "ngResource",
 
     "umsRouting",
+    "umsServices",
     "umsControllers"
 ]);
 
