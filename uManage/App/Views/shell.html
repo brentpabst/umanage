@@ -41,7 +41,11 @@
                             </div>
                             <div class="col-sm-6 text-right">
                                 <a href="#/me/account">
-                                    <time>{{currentUser.accountExpirationDate}}</time>
+                                    <time data-ng-show="{{currentUser.accountExpires}}"
+                                          datetime="{{currentUser.accountExpirationDate}}">
+                                        {{currentUser.accountExpirationDate | fromNow}}
+                                    </time>
+                                    <span data-ng-hide="{{currentUser.accountExpires}}">Never</span>
                                 </a>
                             </div>
                         </div>
@@ -51,7 +55,11 @@
                             </div>
                             <div class="col-sm-6 text-right">
                                 <a href="#/me/password">
-                                    <time>{{currentUser.passwordExpirationDate}}</time>
+                                    <time data-ng-show="{{currentUser.passwordExpires}}"
+                                          datetime="{{currentUser.passwordExpirationDate}}">
+                                        {{currentUser.passwordExpirationDate | fromNow}}
+                                    </time>
+                                    <span data-ng-hide="{{currentUser.passwordExpires}}">Never</span>
                                 </a>
                             </div>
                         </div>

@@ -4,8 +4,10 @@
 
 var filters = angular.module("umsFilters", []);
 
-filters.filter("fromNow", ["$window", function ($window) {
-    return function (date) {
-        return $window.moment(date).fromNow();
+filters.filter("fromNow", ["$window",
+    function ($window) {
+        return function (date) {
+            return $window.moment(date).fromNow();
+        }
     }
-}]);
+]);

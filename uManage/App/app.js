@@ -9,8 +9,9 @@ var ums = angular.module("ums", [
     "angular-loading-bar",
 
     "umsRouting",
-    "umsFilters",
-    "umsControllers"
+    "umsControllers",
+    "umsServices",
+    "umsFilters"
 ]);
 
 ums.run([
