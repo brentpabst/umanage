@@ -12,16 +12,16 @@
         <form class="navbar-form navbar-right" role="search">
             <input type="text" class="form-control" placeholder="Search for People..." autofocus="autofocus">
         </form>
-        <p class="navbar-text navbar-right">Signed in as <a href="/#/me/info" class="navbar-link">Brent Pabst</a></p>
+        <p class="navbar-text navbar-right">Signed in as <a href="/#/me/info" class="navbar-link">{{currentUser.displayName}}</a></p>
     </header>
     <div id="primary" class="row">
         <aside id="primary-nav" class="left-panel col-sm-3 collapse in">
             <div class="user-info">
                 <div class="user-basic clearfix" data-toggle="collapse" data-target="#user-extended">
-                    <img class="user-image img-responsive pull-left" src="https://secure.gravatar.com/avatar/619db1e0dec6a97bb41112757305c666.png?s=40&d=retro" alt="Brent Pabst" />
+                    <img class="user-image img-responsive pull-left" src="https://secure.gravatar.com/avatar/619db1e0dec6a97bb41112757305c666.png?s=40&d=retro" alt="{{currentUser.displayName}}" />
                     <div class="user-name pull-left">
-                        <div>Brent Pabst</div>
-                        <div class="small text-muted">CEO & Founder</div>
+                        <div>{{currentUser.displayName}}</div>
+                        <div class="small text-muted">{{currentUser.title}}</div>
                     </div>
                     <div class="user-info-expand">
                         <span class="fa fa-caret-down pull-right"></span>
@@ -30,7 +30,7 @@
                 <div id="user-extended" class="collapse">
                     <div class="user-extended-info">
                         <div class="row">
-                            <div class="col-sm-6">Brent Pabst</div>
+                            <div class="col-sm-6">{{currentUser.displayName}}</div>
                             <div class="col-sm-6 text-right">
                                 <a href="#/me">View Details</a>
                             </div>
@@ -41,7 +41,11 @@
                             </div>
                             <div class="col-sm-6 text-right">
                                 <a href="#/me/account">
-                                    <time>8 Months</time>
+                                    <time data-ng-show="{{currentUser.accountExpires}}"
+                                          datetime="{{currentUser.accountExpirationDate}}">
+                                        {{currentUser.accountExpirationDate | fromNow}}
+                                    </time>
+                                    <span data-ng-hide="{{currentUser.accountExpires}}">Never</span>
                                 </a>
                             </div>
                         </div>
@@ -51,7 +55,11 @@
                             </div>
                             <div class="col-sm-6 text-right">
                                 <a href="#/me/password">
-                                    <time>Next Year</time>
+                                    <time data-ng-show="{{currentUser.passwordExpires}}"
+                                          datetime="{{currentUser.passwordExpirationDate}}">
+                                        {{currentUser.passwordExpirationDate | fromNow}}
+                                    </time>
+                                    <span data-ng-hide="{{currentUser.passwordExpires}}">Never</span>
                                 </a>
                             </div>
                         </div>

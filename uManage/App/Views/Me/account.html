@@ -26,20 +26,20 @@
                         <div class="form-group">
                             <label for="userPrincipalName" class="col-sm-3 control-label">User Principal Name</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static" id="userPrincipalName">UPN</p>
+                                <p class="form-control-static" id="userPrincipalName">{{currentUser.userPrincipalName}}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="ntUsername" class="col-sm-3 control-label">Windows User Name</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static" id="ntUsername">NT</p>
+                                <p class="form-control-static" id="ntUsername">{{currentUser.ntUserName}}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="isAccountLocked" class="col-sm-3 control-label">Account Locked?</label>
                             <div class="col-sm-9">
                                 <p class="form-control-static" id="isAccountLocked">
-                                    <span>Yes</span>
+                                    {{currentUser.accountIsLocked}}
                                 </p>
                             </div>
                         </div>
@@ -47,7 +47,11 @@
                             <label for="accountExpiration" class="col-sm-3 control-label">Account Expiration</label>
                             <div class="col-sm-9">
                                 <p class="form-control-static" id="accountExpiration">
-                                    <span>Next Week</span>
+                                    <time data-ng-show="{{currentUser.accountExpires}}"
+                                          datetime="{{currentUser.accountExpirationDate}}">
+                                        {{currentUser.accountExpirationDate | fromNow}}
+                                    </time>
+                                    <span data-ng-hide="{{currentUser.accountExpires}}">Never</span>
                                 </p>
                             </div>
                         </div>
@@ -55,7 +59,11 @@
                             <label for="passwordExpiration" class="col-sm-3 control-label">Password Expiration</label>
                             <div class="col-sm-9">
                                 <p class="form-control-static" id="passwordExpiration">
-                                    <span>Next Month</span>
+                                    <time data-ng-show="{{currentUser.passwordExpires}}"
+                                          datetime="{{currentUser.passwordExpirationDate}}">
+                                        {{currentUser.passwordExpirationDate | fromNow}}
+                                    </time>
+                                    <span data-ng-hide="{{currentUser.passwordExpires}}">Never</span>
                                 </p>
                             </div>
                         </div>
@@ -69,7 +77,7 @@
                         <div class="form-group">
                             <label for="distinguishedName" class="col-sm-3 control-label">Distinguished Name</label>
                             <div class="col-sm-9">
-                                <p id="distinguishedName" class="form-control-static">DN</p>
+                                <p id="distinguishedName" class="form-control-static">{{currentUser.distinguishedName}}</p>
                             </div>
                         </div>
                     </div>

@@ -9,22 +9,27 @@
     <link href="content/bootstrap.css" rel="stylesheet">
     <link href="content/bootstrap-theme.css" rel="stylesheet">
     <link href="content/font-awesome.css" rel="stylesheet">
+    <link href="content/loading-bar.css" rel="stylesheet">
     <link href="content/site.css" rel="stylesheet">
 </head>
-<body>    
-    <div data-ng-include="'/app/views/shell.html'"></div>
+<body>
+    <div data-ng-include="'/app/views/shell.html'" data-ng-cloak></div>
     <script src="scripts/jquery-2.1.3.js"></script>
     <script src="scripts/bootstrap.js"></script>
-    
+    <script src="scripts/moment.js"></script>
+
     <!-- Angular -->
     <script src="/scripts/angular.js"></script>
     <script src="/scripts/angular-route.js"></script>
     <script src="/scripts/angular-sanitize.js"></script>
     <script src="/scripts/angular-resource.js"></script>
+    <script src="/scripts/loading-bar.js"></script>
 
     <!-- Bootstrapping -->
     <script src="/app/app.js"></script>
     <script src="/app/routes.js"></script>
     <script src="/app/controllers.js"></script>
+    <script src="/app/services.js"></script>
+    <script src="/app/filters.js"></script>
 </body>
 </html>

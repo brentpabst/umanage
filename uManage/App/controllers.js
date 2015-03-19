@@ -5,8 +5,8 @@ var controllers = angular.module("umsControllers", []);
 controllers.controller("ShellCtrl", ["$rootScope", "$route", "$location", "$scope",
     function ($rootScope, $route, $location, $scope) {
         $scope.routes = [];
-
-        $scope.isActive = function(viewLocation) {
+        
+        $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
         }
 
@@ -18,7 +18,6 @@ controllers.controller("ShellCtrl", ["$rootScope", "$route", "$location", "$scop
                 }
             });
 
-            // Load the user's bootstrap info here
             console.log("Shell Loaded");
         }
 
