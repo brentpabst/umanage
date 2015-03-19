@@ -157,6 +157,12 @@
     <Content Include="Content\Images\uManage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\loading-bar.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\loading-bar.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\site.css">
       <DependentUpon>site.less</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -270,6 +276,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\loading-bar.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\loading-bar.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\npm.js" />
   </ItemGroup>
   <ItemGroup>

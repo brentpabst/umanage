@@ -6,6 +6,7 @@ var ums = angular.module("ums", [
     "ngRoute",
     "ngSanitize",
     "ngResource",
+    "angular-loading-bar",
 
     "umsRouting",
     "umsServices",
