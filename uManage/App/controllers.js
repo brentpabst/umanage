@@ -5,7 +5,7 @@ var controllers = angular.module("umsControllers", []);
 controllers.controller("ShellCtrl", ["$rootScope", "$route", "$location", "$scope",
     function ($rootScope, $route, $location, $scope) {
         $scope.routes = [];
-        
+
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
         }
@@ -25,16 +25,14 @@ controllers.controller("ShellCtrl", ["$rootScope", "$route", "$location", "$scop
     }
 ]);
 
-controllers.controller("HomeCtrl", [
-    "$scope",
+controllers.controller("HomeCtrl", ["$scope",
     function ($scope) {
         // Do something on the home page..
     }
 ]);
 
-controllers.controller("MeCtrl", [
-    "$scope",
-    function ($scope) {
+controllers.controller("MeCtrl", ["$rootScope", "$scope",
+    function ($rootScope, $scope) {
         // Do something on the user's pages..
     }
 ]);

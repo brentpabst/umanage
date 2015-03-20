@@ -25,7 +25,10 @@ ums.run([
         });
 
         // Load the user's basic information
-        $rootScope.currentUser = currentUser.query();
+        $rootScope.loadCurrentUser = function() {
+            $rootScope.currentUser = currentUser.query();
+        }
+        $rootScope.loadCurrentUser();
     }
 ]);
 

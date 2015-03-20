@@ -1,7 +1,7 @@
 ﻿﻿<div>
     <div class="row">
         <div class="col-sm-6">
-            <h2>Display Name</h2>
+            <h2>{{currentUser.displayName}}</h2>
         </div>
         <div class="col-sm-6">
             <div class="btn-toolbar pull-right" role="toolbar">
@@ -29,31 +29,31 @@
                         <div class="form-group">
                             <label for="firstName" class="col-sm-4 control-label">First Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="firstName" placeholder="First Name" />
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name" data-ng-model="currentUser.firstName" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="middleName" class="col-sm-4 control-label">Middle Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="middleName" placeholder="Middle Name" />
+                                <input type="text" class="form-control" id="middleName" placeholder="Middle Name" data-ng-model="currentUser.middleName" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="lastName" class="col-sm-4 control-label">Last Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" />
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" data-ng-model="currentUser.lastName" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-sm-4 control-label">E-Mail Address</label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="email" placeholder="E-Mail Address" />
+                                <input type="email" class="form-control" id="email" placeholder="E-Mail Address" data-ng-model="currentUser.email" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="website" class="col-sm-4 control-label">Website</label>
                             <div class="col-sm-8">
-                                <input type="url" class="form-control" id="website" placeholder="Website" />
+                                <input type="url" class="form-control" id="website" placeholder="Website" data-ng-model="currentUser.website" />
                             </div>
                         </div>
                     </div>
@@ -66,43 +66,43 @@
                         <div class="form-group">
                             <label for="office" class="col-sm-4 control-label">Office</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="office" placeholder="Office" />
+                                <input type="text" class="form-control" id="office" placeholder="Office" data-ng-model="currentUser.office" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="adress1" class="col-sm-4 control-label">Address</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="adress1" placeholder="Address" />
+                                <input type="text" class="form-control" id="adress1" placeholder="Address" data-ng-model="currentUser.address1" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="address2" class="col-sm-4 control-label">Box/Ste/Apt</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="address2" placeholder="Box / Suite / Apartment" />
+                                <input type="text" class="form-control" id="address2" placeholder="Box / Suite / Apartment" data-ng-model="currentUser.address2" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="city" class="col-sm-4 control-label">City</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="city" placeholder="City" />
+                                <input type="text" class="form-control" id="city" placeholder="City" data-ng-model="currentUser.city" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="province" class="col-sm-4 control-label">State/Province</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="province" placeholder="State/Province" />
+                                <input type="text" class="form-control" id="province" placeholder="State/Province" data-ng-model="currentUser.province" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="postalCode" class="col-sm-4 control-label">Postal Code</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="postalCode" placeholder="Postal Code" />
+                                <input type="text" class="form-control" id="postalCode" placeholder="Postal Code" data-ng-model="currentUser.postCode" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="country" class="col-sm-4 control-label">Country</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="country" placeholder="Country" />
+                                <input type="text" class="form-control" id="country" placeholder="Country" data-ng-model="currentUser.country" />
                             </div>
                         </div>
                     </div>
@@ -115,37 +115,37 @@
                         <div class="form-group">
                             <label for="officePhone" class="col-sm-4 control-label">Office Phone</label>
                             <div class="col-sm-8">
-                                <input type="tel" class="form-control" id="officePhone" placeholder="Office Phone" />
+                                <input type="tel" class="form-control" id="officePhone" placeholder="Office Phone" data-ng-model="currentUser.officePhone" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="homePhone" class="col-sm-4 control-label">Home Phone</label>
                             <div class="col-sm-8">
-                                <input type="tel" class="form-control" id="homePhone" placeholder="Home Phone" />
+                                <input type="tel" class="form-control" id="homePhone" placeholder="Home Phone" data-ng-model="currentUser.homePhone" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="mobilePhone" class="col-sm-4 control-label">Mobile Phone</label>
                             <div class="col-sm-8">
-                                <input type="tel" class="form-control" id="mobilePhone" placeholder="Mobile Phone" />
+                                <input type="tel" class="form-control" id="mobilePhone" placeholder="Mobile Phone" data-ng-model="currentUser.mobilePhone" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="fax" class="col-sm-4 control-label">Fax</label>
                             <div class="col-sm-8">
-                                <input type="tel" class="form-control" id="fax" placeholder="Fax" />
+                                <input type="tel" class="form-control" id="fax" placeholder="Fax" data-ng-model="currentUser.fax" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="pager" class="col-sm-4 control-label">Pager</label>
                             <div class="col-sm-8">
-                                <input type="tel" class="form-control" id="pager" placeholder="Pager" />
+                                <input type="tel" class="form-control" id="pager" placeholder="Pager" data-ng-model="currentUser.pager" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="sipPhone" class="col-sm-4 control-label">SIP/Skype</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="sipPhone" placeholder="SIP / Skype" />
+                                <input type="text" class="form-control" id="sipPhone" placeholder="SIP / Skype" data-ng-model="currentUser.sipPhone" />
                             </div>
                         </div>
                     </div>
@@ -195,31 +195,31 @@
                         <div class="form-group">
                             <label for="organization" class="col-sm-4 control-label">Organization</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="organization" placeholder="Organization" />
+                                <input type="text" class="form-control" id="organization" placeholder="Organization" data-ng-model="currentUser.organization" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="department" class="col-sm-4 control-label">Department</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="department" placeholder="Department" />
+                                <input type="text" class="form-control" id="department" placeholder="Department" data-ng-model="currentUser.department" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="jobTitle" class="col-sm-4 control-label">Job Title</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="jobTitle" placeholder="Job Title" />
+                                <input type="text" class="form-control" id="jobTitle" placeholder="Job Title" data-ng-model="currentUser.title" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="employeeId" class="col-sm-4 control-label">Employee ID</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="employeeId" placeholder="Employee ID" />
+                                <input type="text" class="form-control" id="employeeId" placeholder="Employee ID" data-ng-model="currentUser.employeeId" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="badgeId" class="col-sm-4 control-label">Badge ID</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="badgeId" placeholder="Badge ID" />
+                                <input type="text" class="form-control" id="badgeId" placeholder="Badge ID" data-ng-model="currentUser.badgeId" />
                             </div>
                         </div>
                     </div>
