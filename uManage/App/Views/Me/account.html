@@ -49,8 +49,8 @@
                                 <p class="form-control-static" id="accountExpiration">
                                     <time data-ng-show="{{currentUser.accountExpires}}"
                                           datetime="{{currentUser.accountExpirationDate}}"
-                                          title="{{currentUser.accountExpirationDate}}">
-                                        {{currentUser.accountExpirationDate | fromNow}}
+                                          title="{{currentUser.accountExpirationDate | amDateFormat:'lll'}}">
+                                        {{currentUser.accountExpirationDate | amTimeAgo}}
                                     </time>
                                     <span data-ng-hide="{{currentUser.accountExpires}}">Never</span>
                                 </p>
@@ -62,8 +62,8 @@
                                 <p class="form-control-static" id="passwordExpiration">
                                     <time data-ng-show="{{currentUser.passwordExpires}}"
                                           datetime="{{currentUser.passwordExpirationDate}}"
-                                          title="{{currentUser.passwordExpirationDate}}">
-                                        {{currentUser.passwordExpirationDate | fromNow}}
+                                          title="{{currentUser.passwordExpirationDate | amDateFormat:'lll'}}">
+                                        {{currentUser.passwordExpirationDate | amTimeAgo}}
                                     </time>
                                     <span data-ng-hide="{{currentUser.passwordExpires}}">Never</span>
                                 </p>
