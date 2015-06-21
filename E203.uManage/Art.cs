@@ -5,9 +5,10 @@
         public static string Logo = @"
 
 ****************************************
-**                                     *
-**        Welcome to uManage!          *
-**                                     *
+**                                    **
+**        Welcome to uManage!         **
+**         © 203 Enterprises          **
+**                                    **
 ****************************************
 
                 888888                  
