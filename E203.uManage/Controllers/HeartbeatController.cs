@@ -9,7 +9,7 @@ namespace E203.uManage.Controllers
         [HttpGet]
         public IHttpActionResult Heartbeat()
         {
-            return Ok(StartupArt.Logo);
+            return Ok(Art.Logo);
         }
     }
 }

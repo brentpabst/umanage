@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using Microsoft.Owin.Hosting;
 using System;
+using NLog;
 
 namespace E203.uManage
 {
@@ -8,22 +9,33 @@ namespace E203.uManage
     {
         static void Main(string[] args)
         {
-            var baseAddress = ConfigurationManager.AppSettings["Uri"];
+            LoggerConfig.StartLogging();
+            var logger = LogManager.GetLogger("uManage");
 
-            if (String.IsNullOrWhiteSpace(baseAddress))
-                throw new ArgumentNullException(baseAddress, "Base Address Not Specified!  Check app.config and ensure the Uri appSetting has been provided!");
-
-            using (WebApp.Start<Startup>(baseAddress))
+            try
             {
-                Console.WriteLine(StartupArt.Header);
-                Console.WriteLine(StartupArt.Logo);
-                Console.WriteLine("Listening on " + baseAddress);
-                Console.WriteLine("Ready to Serve!");
+                logger.Info("Starting uManage...");
+                logger.Trace(Art.Logo);
+                
+                var baseAddress = ConfigurationManager.AppSettings["Uri"];
+                if (String.IsNullOrWhiteSpace(baseAddress))
+                    throw new ArgumentNullException(baseAddress, "Base Address Not Specified!  Check app.config and ensure the Uri appSetting has been provided!");
+                logger.Info("Base Address Set: {0}", baseAddress);
 
-                if (Environment.UserInteractive)
-                    Console.WriteLine("Press Enter to Quit");
+                logger.Info("Starting Web Server");
+                using (WebApp.Start<Startup>(baseAddress))
+                {
+                    logger.Info("uManage is Ready to Serve!");
+                    
+                    if(Environment.UserInteractive)
+                        logger.Info("Press Any Key to Exit");
 
-                Console.ReadLine();
+                    Console.ReadLine();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Fatal(ex, "Unhandled error, uManage must terminate!");
             }
         }
     }

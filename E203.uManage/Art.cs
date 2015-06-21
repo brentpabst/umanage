@@ -1,14 +1,15 @@
 ﻿namespace E203.uManage
 {
-    public class StartupArt
+    public class Art
     {
-        public static string Header = @"
-########################################
-# Welcome to uManage                   #
-# Loading...                           #
-########################################
-";
         public static string Logo = @"
+
+****************************************
+**                                     *
+**        Welcome to uManage!          *
+**                                     *
+****************************************
+
                 888888                  
              888888888888               
            8888888888888888             
