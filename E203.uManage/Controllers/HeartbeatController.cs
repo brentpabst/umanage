@@ -1,4 +1,9 @@
-﻿using System.Web.Http;
+﻿using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace E203.uManage.Controllers
 {
@@ -7,9 +12,14 @@ namespace E203.uManage.Controllers
     {
         [Route("")]
         [HttpGet]
-        public IHttpActionResult Heartbeat()
+        [ResponseType(typeof(string))]
+        public async Task<HttpResponseMessage> Heartbeat()
         {
-            return Ok(Art.Logo);
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(Art.Logo, Encoding.ASCII, "text/plain")
+            };
+            return await Task.FromResult(response);
         }
     }
 }

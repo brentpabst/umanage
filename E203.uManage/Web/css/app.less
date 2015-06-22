@@ -6,14 +6,39 @@ html, body {
     height: 100%;
     cursor: default;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    background: #ddd url(/img/Background.png) no-repeat fixed left bottom;
-    background-size: contain;
-    color: #333;    
+    color: #333;
 }
 
-body {
-    overflow: hidden;
-    max-width: 960px;
-    margin: 0 auto;
-    background-color: white;
+.logo {
+    max-height: 36px;
+}
+
+.user {
+    padding: 16px;
+    height: auto;
+
+    h1 {
+        font-size: 1em;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        font-size: .8em;
+        margin: 0;
+    }
+
+    .face {
+        border-radius: 30px;
+        border: 1px solid #ddd;
+        width: 48px;
+    }
+}
+
+
+
+.footer {
+    padding: 12px 6px;
+    text-align: center;
+    font-size: small;
 }

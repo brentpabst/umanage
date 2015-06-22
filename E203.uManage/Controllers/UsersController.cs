@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace E203.uManage.Controllers
 {
-    public class UsersController
+    [RoutePrefix("api/users")]
+    public class UsersController:ApiController
     {
+        [Route("me")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetCurrentUser()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

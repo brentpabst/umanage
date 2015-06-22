@@ -127,9 +127,6 @@
     <Content Include="Web\img\404.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web\img\Background.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Web\img\No-Photo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
