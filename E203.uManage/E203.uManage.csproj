@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\HeartbeatController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="LoggerConfig.cs" />
@@ -136,6 +137,12 @@
     <Content Include="Web\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\E203.uManage.Services\E203.uManage.Services.csproj">
+      <Project>{56141EFF-41B5-43BD-A035-99F74D2529AE}</Project>
+      <Name>E203.uManage.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
