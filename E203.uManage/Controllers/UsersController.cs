@@ -12,7 +12,6 @@ namespace E203.uManage.Controllers
     {
         private readonly IUserService _userService;
 
-        // TODO: Needs dependency injection to actually work
         public UsersController(IUserService userService)
         {
             if (_userService == null)

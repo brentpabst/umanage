@@ -5,6 +5,8 @@ using Microsoft.Owin.StaticFiles;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
+using Ninject.Web.Common.OwinHost;
+using Ninject.Web.WebApi.OwinHost;
 using Owin;
 using System.Net;
 using System.Web.Http;
@@ -50,6 +52,10 @@ namespace E203.uManage
                 RequestPath = PathString.Empty,
                 FileSystem = new PhysicalFileSystem(@".\Web")
             });
+
+            // Endable Ninject
+            appBuilder.UseNinjectMiddleware(DependencyConfig.CreateKernel);
+            appBuilder.UseNinjectWebApi(config);
 
             appBuilder.UseWebApi(config);
         }
