@@ -9,17 +9,19 @@ namespace E203.uManage.Services.ActiveDirectory
     {
         public Task<IEnumerable<User>> GetAllUsers()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(default(IEnumerable<User>));
         }
 
         public Task<User> GetUser(Guid userId)
         {
-            throw new NotImplementedException();
+            var user = new User { UserId = userId };
+            return Task.FromResult(user);
         }
 
         public Task<User> GetUser(string userName)
         {
-            throw new NotImplementedException();
+            var user = new User {NtUserName = userName};
+            return Task.FromResult(user);
         }
     }
 }

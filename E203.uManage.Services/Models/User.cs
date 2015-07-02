@@ -43,11 +43,13 @@ namespace E203.uManage.Services.Models
             get
             {
                 var name = "";
+                if (string.IsNullOrWhiteSpace(LastName) && string.IsNullOrWhiteSpace(FirstName))
+                    return null;
 
-                if (!String.IsNullOrWhiteSpace(FirstName))
+                if (!string.IsNullOrWhiteSpace(FirstName))
                     name += FirstName;
 
-                if (!String.IsNullOrWhiteSpace(LastName))
+                if (!string.IsNullOrWhiteSpace(LastName))
                     name += " " + LastName;
 
                 return name;
@@ -59,13 +61,16 @@ namespace E203.uManage.Services.Models
             get
             {
                 var name = "";
-                if (!String.IsNullOrWhiteSpace(LastName) && String.IsNullOrWhiteSpace(FirstName))
+                if (string.IsNullOrWhiteSpace(LastName) && string.IsNullOrWhiteSpace(FirstName))
+                    return null;
+
+                if (!string.IsNullOrWhiteSpace(LastName) && string.IsNullOrWhiteSpace(FirstName))
                     name = LastName;
 
-                if (!String.IsNullOrWhiteSpace(LastName) && !String.IsNullOrWhiteSpace(FirstName))
+                if (!string.IsNullOrWhiteSpace(LastName) && !string.IsNullOrWhiteSpace(FirstName))
                     name = LastName + ", " + FirstName;
 
-                if (String.IsNullOrWhiteSpace(MiddleName))
+                if (string.IsNullOrWhiteSpace(MiddleName))
                     return name;
 
                 if (MiddleName.Length > 2)
