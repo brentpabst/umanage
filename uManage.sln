@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E203.uManage", "E203.uManag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E203.uManage.Services", "E203.uManage.Services\E203.uManage.Services.csproj", "{56141EFF-41B5-43BD-A035-99F74D2529AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E203.uManage.Directories", "E203.uManage.Directory\E203.uManage.Directories.csproj", "{53E5E749-237A-48F9-82A9-9BC2BC2BBE66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{56141EFF-41B5-43BD-A035-99F74D2529AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56141EFF-41B5-43BD-A035-99F74D2529AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56141EFF-41B5-43BD-A035-99F74D2529AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E5E749-237A-48F9-82A9-9BC2BC2BBE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E5E749-237A-48F9-82A9-9BC2BC2BBE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E5E749-237A-48F9-82A9-9BC2BC2BBE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E5E749-237A-48F9-82A9-9BC2BC2BBE66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
