@@ -30,8 +30,10 @@ namespace E203.uManage.Handlers
             // Run the request
             var response = await base.SendAsync(request, cancellationToken);
 
-            // Log the request complete time and time taken
+            // Stop the stopwatch... it's the final countdown!!!
             stopwatch.Stop();
+
+            // Log the request complete time and time taken
             logger.Debug("{{ \"apiRequestComplete\": {{ \"request\": \"{0} {1}\", \"user\": \"{2}\", \"ipAddress\": \"{3}\", \"timeTaken\": \"{4}ms\" }}}}",
                 request.Method.Method,
                 request.RequestUri.PathAndQuery.ToLower(),
