@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using E203.uManage.Handlers;
+using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
@@ -52,6 +53,9 @@ namespace E203.uManage
                 RequestPath = PathString.Empty,
                 FileSystem = new PhysicalFileSystem(@".\Web")
             });
+
+            // Enable Message Handlers
+            config.MessageHandlers.Add(new ApiLoggingHandler());
 
             // Endable Ninject
             appBuilder.UseNinjectMiddleware(DependencyConfig.CreateKernel);

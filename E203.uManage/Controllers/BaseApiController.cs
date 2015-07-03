@@ -9,8 +9,6 @@ namespace E203.uManage.Controllers
 {
     public class BaseApiController : ApiController
     {
-        public Logger SystemLogger = LogManager.GetLogger("uManage");
-
         public ClaimsPrincipal CurrentUser
         {
             get
@@ -26,5 +24,7 @@ namespace E203.uManage.Controllers
                 return user;
             }
         }
+
+        internal Logger SystemLogger = LogManager.GetLogger("uManage");
     }
 }

@@ -121,6 +121,7 @@
     <Compile Include="Controllers\HeartbeatController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DependencyConfig.cs" />
+    <Compile Include="Handlers\ApiLoggingHandler.cs" />
     <Compile Include="LoggerConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
