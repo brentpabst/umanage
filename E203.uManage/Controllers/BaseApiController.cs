@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Net.Http;
 using System.Security;
 using System.Security.Claims;
@@ -8,6 +9,8 @@ namespace E203.uManage.Controllers
 {
     public class BaseApiController : ApiController
     {
+        public Logger SystemLogger = LogManager.GetLogger("uManage");
+
         public ClaimsPrincipal CurrentUser
         {
             get
