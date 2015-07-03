@@ -23,6 +23,7 @@ namespace E203.uManage
             fileTarget.ArchiveAboveSize = 20971520;  // 20 MB
             fileTarget.ArchiveNumbering = ArchiveNumberingMode.Rolling;
 
+            // TODO: These need to be configurable by the user otherwise the logs get freaking huge!
             config.LoggingRules.Add(new LoggingRule("*", LogLevel.Trace, consoleTarget));
             config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, fileTarget));
 
