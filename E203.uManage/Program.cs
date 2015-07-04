@@ -15,7 +15,7 @@ namespace E203.uManage
             try
             {
                 logger.Info("Starting uManage...");
-                logger.Trace(Art.Logo);
+                logger.Debug(Art.Logo);
 
                 var baseAddress = ConfigurationManager.AppSettings["Uri"];
                 if (String.IsNullOrWhiteSpace(baseAddress))

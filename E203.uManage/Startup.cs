@@ -55,7 +55,8 @@ namespace E203.uManage
             });
 
             // Enable Message Handlers
-            config.MessageHandlers.Add(new ApiLoggingHandler());
+            config.MessageHandlers.Add(new ApiLoggingHandler()); // TODO: For any non-200 OK response, this throws a 500 error 
+            // ArgumentException: The 'DelegatingHandler' list is invalid because the property 'InnerHandler' of 'ApiLoggingHandler' is not null. Parameter name: handlers
 
             // Endable Ninject
             appBuilder.UseNinjectMiddleware(DependencyConfig.CreateKernel);

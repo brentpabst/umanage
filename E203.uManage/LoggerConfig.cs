@@ -24,7 +24,7 @@ namespace E203.uManage
             fileTarget.ArchiveNumbering = ArchiveNumberingMode.Rolling;
 
             // TODO: These need to be configurable by the user otherwise the logs get freaking huge!
-            config.LoggingRules.Add(new LoggingRule("*", LogLevel.Trace, consoleTarget));
+            config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, consoleTarget));
             config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, fileTarget));
 
             LogManager.Configuration = config;
