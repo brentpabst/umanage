@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\UserPrincipalExt.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Models\User.cs" />

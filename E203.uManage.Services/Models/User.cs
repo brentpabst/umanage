@@ -17,7 +17,7 @@ namespace E203.uManage.Services.Models
         [ReadOnly(true)]
         public bool? AccountIsLocked { get; set; }
         [ReadOnly(true)]
-        public bool? AccountIsDisabled { get; set; }
+        public bool? AccountIsEnabled { get; set; }
         [ReadOnly(true)]
         public bool? AccountIsExpired { get; set; }
         [ReadOnly(true)]
@@ -36,25 +36,10 @@ namespace E203.uManage.Services.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
-
+        
         [ReadOnly(true)]
-        public string DisplayName
-        {
-            get
-            {
-                var name = "";
-                if (string.IsNullOrWhiteSpace(LastName) && string.IsNullOrWhiteSpace(FirstName))
-                    return null;
+        public string DisplayName { get; set; }
 
-                if (!string.IsNullOrWhiteSpace(FirstName))
-                    name += FirstName;
-
-                if (!string.IsNullOrWhiteSpace(LastName))
-                    name += " " + LastName;
-
-                return name;
-            }
-        }
         [ReadOnly(true)]
         public string SortName
         {
@@ -81,5 +66,7 @@ namespace E203.uManage.Services.Models
                 return name;
             }
         }
+
+        public string Email { get; set; }
     }
 }

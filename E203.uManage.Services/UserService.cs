@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.DirectoryServices.AccountManagement;
 using System.Threading.Tasks;
 using E203.uManage.Directory;
+using E203.uManage.Services.Extensions;
 using E203.uManage.Services.Models;
 
 namespace E203.uManage.Services
@@ -24,8 +25,11 @@ namespace E203.uManage.Services
 
         public Task<User> GetUser(Guid userId)
         {
-            var user = new User { UserId = userId };
-            return Task.FromResult(user);
+            using (var ctx = _directoryContext.LoadAndConnect())
+            {
+                var user = UserPrincipal.FindByIdentity(ctx, userId.ToString());
+                return user == null ? null : Task.FromResult(user.AsUser());
+            }
         }
 
         public Task<User> GetUser(string userName)
@@ -33,11 +37,7 @@ namespace E203.uManage.Services
             using (var ctx = _directoryContext.LoadAndConnect())
             {
                 var user = UserPrincipal.FindByIdentity(ctx, userName);
-                return Task.FromResult(new User
-                {
-                    NtUserName = user.SamAccountName,
-                    UserPrincipalName = user.UserPrincipalName
-                });
+                return user == null ? null : Task.FromResult(user.AsUser());
             }
         }
     }
