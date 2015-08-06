@@ -1,6 +1,7 @@
 ﻿using E203.uManage.Services;
 using E203.uManage.Services.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -16,6 +17,19 @@ namespace E203.uManage.Controllers
         {
             if (_userService == null)
                 _userService = userService;
+        }
+
+        [Route("")]
+        [HttpGet]
+        [ResponseType(typeof(IEnumerable<User>))]
+        public async Task<IHttpActionResult> GetAllUsers()
+        {
+            var users = await _userService.GetAllUsers();
+
+            if (users == null)
+                return NotFound();
+
+            return Ok(users);
         }
 
         [Route("me")]

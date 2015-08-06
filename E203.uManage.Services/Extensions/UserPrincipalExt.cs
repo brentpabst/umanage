@@ -1,12 +1,24 @@
-﻿using System;
-using E203.uManage.Services.Models;
+﻿using E203.uManage.Services.Models;
+using System;
+using System.Collections.Generic;
 using System.DirectoryServices.AccountManagement;
+using System.Linq;
 
 namespace E203.uManage.Services.Extensions
 {
     public static class UserPrincipalExt
     {
         public static User AsUser(this UserPrincipal userPrincipal)
+        {
+            return UserPrincipalToUser(userPrincipal);
+        }
+
+        public static IEnumerable<User> AsUserList(this IEnumerable<UserPrincipal> userPrincipals)
+        {
+            return userPrincipals.Select(UserPrincipalToUser);
+        }
+
+        private static User UserPrincipalToUser(UserPrincipal userPrincipal)
         {
             if (userPrincipal == null)
                 throw new ArgumentNullException("userPrincipal");

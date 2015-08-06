@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel;
 
 namespace E203.uManage.Services.Models
@@ -36,7 +35,7 @@ namespace E203.uManage.Services.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
-        
+
         [ReadOnly(true)]
         public string DisplayName { get; set; }
 

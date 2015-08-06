@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using E203.uManage.Directory;
 using E203.uManage.Services.Extensions;
 using E203.uManage.Services.Models;
+using System.Linq;
 
 namespace E203.uManage.Services
 {
@@ -20,7 +21,16 @@ namespace E203.uManage.Services
 
         public Task<IEnumerable<User>> GetAllUsers()
         {
-            return Task.FromResult(default(IEnumerable<User>));
+            using (var ctx = _directoryContext.LoadAndConnect())
+            {
+                var filter = new UserPrincipal(ctx) { DisplayName = "*", Enabled = true };
+                using (var search = new PrincipalSearcher(filter))
+                {
+                    var users = search.FindAll().OfType<UserPrincipal>();
+                    return Task.FromResult(users.AsUserList());
+                }
+                
+            }                
         }
 
         public Task<User> GetUser(Guid userId)
