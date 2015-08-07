@@ -10,12 +10,14 @@ namespace E203.uManage.Services.Extensions
     {
         public static User AsUser(this UserPrincipal userPrincipal)
         {
-            return UserPrincipalToUser(userPrincipal);
+            var user = UserPrincipalToUser(userPrincipal);
+            return user;
         }
 
-        public static IEnumerable<User> AsUserList(this IEnumerable<UserPrincipal> userPrincipals)
+        public static List<User> AsUserList(this IEnumerable<UserPrincipal> userPrincipals)
         {
-            return userPrincipals.Select(UserPrincipalToUser);
+            var users = userPrincipals.Select(UserPrincipalToUser).ToList();
+            return users;
         }
 
         private static User UserPrincipalToUser(UserPrincipal userPrincipal)

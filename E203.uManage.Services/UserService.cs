@@ -19,18 +19,17 @@ namespace E203.uManage.Services
                 _directoryContext = directoryContext;
         }
 
-        public Task<IEnumerable<User>> GetAllUsers()
+        public Task<List<User>> GetAllUsers()
         {
             using (var ctx = _directoryContext.LoadAndConnect())
             {
                 var filter = new UserPrincipal(ctx) { DisplayName = "*", Enabled = true };
                 using (var search = new PrincipalSearcher(filter))
                 {
-                    var users = search.FindAll().OfType<UserPrincipal>();
-                    return Task.FromResult(users.AsUserList());
+                    var users = search.FindAll().OfType<UserPrincipal>().AsUserList();
+                    return Task.FromResult(users);
                 }
-                
-            }                
+            }
         }
 
         public Task<User> GetUser(Guid userId)

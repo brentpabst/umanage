@@ -7,7 +7,7 @@ namespace E203.uManage.Services
 {
     public interface IUserService
     {
-        Task<IEnumerable<User>> GetAllUsers();
+        Task<List<User>> GetAllUsers();
         Task<User> GetUser(Guid userId);
         Task<User> GetUser(string userName);
     }

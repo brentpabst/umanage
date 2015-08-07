@@ -24,7 +24,7 @@ namespace E203.uManage.Controllers
         [ResponseType(typeof(IEnumerable<User>))]
         public async Task<IHttpActionResult> GetAllUsers()
         {
-            var users = await _userService.GetAllUsers();
+            var users = await _userService.GetAllUsers(); //TODO: This is horribly slow based on testing (750 users returned)
 
             if (users == null)
                 return NotFound();
