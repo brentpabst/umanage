@@ -1,9 +1,9 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using Microsoft.Owin.Hosting;
-using System;
 using NLog;
 
-namespace E203.uManage
+namespace S203.uManage
 {
     class Program
     {

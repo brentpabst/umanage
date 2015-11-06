@@ -1,12 +1,12 @@
-﻿using E203.uManage.Services;
-using E203.uManage.Services.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using S203.uManage.Services;
+using S203.uManage.Services.Models;
 
-namespace E203.uManage.Controllers
+namespace S203.uManage.Controllers
 {
     [RoutePrefix("api/users")]
     public class UsersController : BaseApiController

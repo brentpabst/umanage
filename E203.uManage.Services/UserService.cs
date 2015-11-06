@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.DirectoryServices.AccountManagement;
-using System.Threading.Tasks;
-using E203.uManage.Directory;
-using E203.uManage.Services.Extensions;
-using E203.uManage.Services.Models;
 using System.Linq;
+using System.Threading.Tasks;
+using S203.uManage.Directory;
+using S203.uManage.Services.Extensions;
+using S203.uManage.Services.Models;
 
-namespace E203.uManage.Services
+namespace S203.uManage.Services
 {
     public class UserService : IUserService
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace E203.uManage.Services.Models
+namespace S203.uManage.Services.Models
 {
     public class User
     {

@@ -1,7 +1,7 @@
 ﻿using Ninject;
 using Ninject.Extensions.Conventions;
 
-namespace E203.uManage
+namespace S203.uManage
 {
     public static class DependencyConfig
     {

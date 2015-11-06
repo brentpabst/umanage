@@ -1,9 +1,9 @@
-﻿using E203.uManage.Services.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using S203.uManage.Services.Models;
 
-namespace E203.uManage.Services
+namespace S203.uManage.Services
 {
     public interface IUserService
     {

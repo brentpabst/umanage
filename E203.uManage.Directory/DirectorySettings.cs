@@ -1,5 +1,5 @@
 ﻿
-namespace E203.uManage.Directory
+namespace S203.uManage.Directory
 {
     public class DirectorySettings
     {

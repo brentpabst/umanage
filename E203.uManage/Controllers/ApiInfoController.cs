@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 
-namespace E203.uManage.Controllers
+namespace S203.uManage.Controllers
 {
     [RoutePrefix("api")]
     public class ApiInfoController : BaseApiController

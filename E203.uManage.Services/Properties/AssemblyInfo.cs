@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("E203.uManage.Services")]
+[assembly: AssemblyTitle("S203.uManage.Services")]
 [assembly: AssemblyDescription("Active Directory Self-Service Portal")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("203 Enterprises")]
+[assembly: AssemblyCompany("203 Solutions")]
 [assembly: AssemblyProduct("uManage")]
-[assembly: AssemblyCopyright("Copyright © 203 Enterprises, 2015")]
+[assembly: AssemblyCopyright("Copyright © 203 Solutions, 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

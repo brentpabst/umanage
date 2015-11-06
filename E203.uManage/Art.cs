@@ -1,4 +1,4 @@
-﻿namespace E203.uManage
+﻿namespace S203.uManage
 {
     public class Art
     {
@@ -7,7 +7,7 @@
 ****************************************
 **                                    **
 **        Welcome to uManage!         **
-**        (c) 203 Enterprises         **
+**        (c) 203 Solutions           **
 **                                    **
 ****************************************
 

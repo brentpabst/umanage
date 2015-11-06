@@ -1,11 +1,11 @@
-﻿using NLog;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Security;
 using System.Security.Claims;
 using System.Web.Http;
+using NLog;
 
-namespace E203.uManage.Controllers
+namespace S203.uManage.Controllers
 {
     public class BaseApiController : ApiController
     {

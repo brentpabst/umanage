@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.DirectoryServices.AccountManagement;
 
-namespace E203.uManage.Directory.ActiveDirectory
+namespace S203.uManage.Directory.ActiveDirectory
 {
     public class DirectoryContext : IDirectoryContext
     {

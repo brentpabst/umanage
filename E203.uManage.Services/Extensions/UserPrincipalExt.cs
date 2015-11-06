@@ -1,10 +1,10 @@
-﻿using E203.uManage.Services.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
+using S203.uManage.Services.Models;
 
-namespace E203.uManage.Services.Extensions
+namespace S203.uManage.Services.Extensions
 {
     public static class UserPrincipalExt
     {

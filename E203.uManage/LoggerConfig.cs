@@ -2,7 +2,7 @@
 using NLog.Config;
 using NLog.Targets;
 
-namespace E203.uManage
+namespace S203.uManage
 {
     public static class LoggerConfig
     {

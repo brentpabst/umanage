@@ -1,4 +1,5 @@
-﻿using E203.uManage.Handlers;
+﻿using System.Net;
+using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Microsoft.Owin.FileSystems;
@@ -9,10 +10,9 @@ using Newtonsoft.Json.Serialization;
 using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
 using Owin;
-using System.Net;
-using System.Web.Http;
+using S203.uManage.Handlers;
 
-namespace E203.uManage
+namespace S203.uManage
 {
     public class Startup
     {

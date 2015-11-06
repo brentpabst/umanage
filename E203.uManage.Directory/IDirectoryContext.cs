@@ -1,6 +1,6 @@
 ﻿using System.DirectoryServices.AccountManagement;
 
-namespace E203.uManage.Directory
+namespace S203.uManage.Directory
 {
     public interface IDirectoryContext
     {
