@@ -7,8 +7,8 @@ using System.Web.Http.Description;
 
 namespace S203.uManage.Controllers
 {
-    [RoutePrefix("heartbeat")]
-    public class HeartbeatController : ApiController
+    [RoutePrefix("api/heartbeat")]
+    public class HeartbeatController : BaseApiController
     {
         [Route("")]
         [HttpGet]
@@ -17,7 +17,7 @@ namespace S203.uManage.Controllers
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new StringContent(Art.Logo, Encoding.ASCII, "text/plain")
+                Content = new StringContent(Art.Logo.Trim(), Encoding.ASCII, "text/plain")
             };
             return await Task.FromResult(response);
         }

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using S203.uManage.Services.Extensions;
 
 namespace S203.uManage.Controllers
 {
@@ -11,34 +13,36 @@ namespace S203.uManage.Controllers
     {
         [Route("")]
         [HttpGet]
-        [ResponseType(typeof(List<ApiModel>))]
+        [ResponseType(typeof(ApiModel))]
         public async Task<IHttpActionResult> GetAllApis()
         {
-            IApiExplorer apiExplorer = Configuration.Services.GetApiExplorer(); ;
-
             return await Task.Run(() =>
             {
+                var apiExplorer = Configuration.Services.GetApiExplorer();
+
                 var apiModel = new ApiModel
                 {
-                    Application = "uManage",
+                    Application = "uManage" + " v" + Assembly.GetExecutingAssembly().GetName().Version.Major,
                     Version = Assembly.GetExecutingAssembly().GetName().Version.ToString(),
+                    User = CurrentUser.Identity.Name,
                     Links = new Dictionary<string, string>()
                 };
 
                 foreach (var api in apiExplorer.ApiDescriptions)
                 {
-                    apiModel.Links.Add(api.ActionDescriptor.ActionName, api.RelativePath);
+                    apiModel.Links.Add(api.ActionDescriptor.ActionName, api.HttpMethod + " " + api.RelativePath);
                 }
 
                 return Ok(apiModel);
             });
         }
 
-        internal class ApiModel
+        public class ApiModel
         {
-            internal string Application { get; set; }
-            internal string Version { get; set; }
-            internal Dictionary<string, string> Links { get; set; }
+            public string Application { get; set; }
+            public string Version { get; set; }
+            public string User { get; set; }
+            public Dictionary<string, string> Links { get; set; }
         }
     }
 }
