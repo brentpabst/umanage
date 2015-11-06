@@ -11,7 +11,7 @@ namespace S203.uManage
 
             kernel.Bind(x =>
             {
-                x.FromAssembliesMatching("E203.uManage.*.dll")
+                x.FromAssembliesMatching("S203.uManage.*.dll")
                     .SelectAllClasses()
                     .BindAllInterfaces();
             });
