@@ -10,9 +10,21 @@ func main() {
 	path, _ := osext.ExecutableFolder()
 
 	r := gin.Default()
+
+	// Static route
 	r.Use(static.Serve("/", static.LocalFile(path+"/public", true)))
+
+	// API routes
+	// a := r.Group("/api")
+	// {
+	// 	// a.POST("/user", userEndpoint)
+	// }
+
+	// Not found route redirects to the web app for a pretty 404
 	r.NoRoute(func(c *gin.Context) {
-		c.File("./public/index.html")
+		c.Redirect(200, "/")
 	})
+
+	// Run gin
 	r.Run()
 }
