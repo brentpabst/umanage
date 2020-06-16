@@ -19,7 +19,7 @@ clean: ## Cleans the local workspace
 
 install: ## Install dependencies
 	go mod download
-	npm --prefix ./web install
+	npm --prefix ./web ci
 
 run: ## Runs the app
 	./bin/umanage

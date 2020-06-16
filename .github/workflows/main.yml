@@ -1,0 +1,23 @@
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/setup-node@v1.4.2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: ^1.14
+
+      - uses: actions/checkout@v2
+
+      - run: make install
+      - run: make build
