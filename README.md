@@ -1,4 +1,4 @@
-![](https://repository-images.githubusercontent.com/10535292/aa1a4f80-afd4-11ea-987c-fd9b0f4f1112)
+![](https://repository-images.githubusercontent.com/10535292/2e6cd280-afd5-11ea-84ab-c2b720ecf962)
 
 ## Local machine setup
 You will need a few components installed in order to pull, build, and run this app locally:
