@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&display=swap');
+
+// Global variables
+// ========================================================================
+
+//
+// Typography
+//
+
+$global-font-family: 'Montserrat',
+sans-serif;
+$global-font-size: 14px !default;
+
+//
+// Colors
+//
+
+$global-color: #000;
+$global-link-color: #2196f3;
+$global-link-hover-color: #0f6ecd;
+
+//
+// Backgrounds
+//
+
+$global-background: #e0e0e0;
+$global-primary-background: #2196f3;
+$global-secondary-background: #e91e63;
+$global-muted-background: #f8f8f8 !default;
+
+// Breakpoints
+// ========================================================================
+
+// Phone Portrait:   Galaxy (360x640), iPhone 6 (375x667), iPhone 6+ (414x736)
+// Phone Landscape:  Galaxy (640x360), iPhone 6 (667x375), iPhone 6+ (736x414)
+// Tablet Portrait:  iPad (768x1024), Galaxy Tab (800x1280),
+// Tablet Landscape: iPad (1024x768), iPad Pro (1024x1366),
+// Desktop:          Galaxy Tab (1280x800), iPad Pro (1366x1024)
+
+$breakpoint-small: 640px !default; // Phone landscape
+$breakpoint-medium: 960px !default; // Tablet Landscape
+$breakpoint-large: 1200px !default; // Desktop
+$breakpoint-xlarge: 1600px !default; // Large Screens
+
+$breakpoint-xsmall-max: ($breakpoint-small - 1) !default;
+$breakpoint-small-max: ($breakpoint-medium - 1) !default;
+$breakpoint-medium-max: ($breakpoint-large - 1) !default;
+$breakpoint-large-max: ($breakpoint-xlarge - 1) !default;
