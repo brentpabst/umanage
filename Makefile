@@ -1,5 +1,5 @@
-SRC := ./cmd
-DIST := ./bin
+SRC := cmd
+DIST := bin
 
 .PHONY: help build clean
 
@@ -11,15 +11,15 @@ help:
 build: ## Compile full app
 	export GO111MODULE=on
 	mkdir -p $(DIST)
-	npm --prefix ./web run build
+	npm --prefix web run build
 	GO111MODULE=on go build -o $(DIST)/umanage $(SRC)/server.go
 
 clean: ## Cleans the local workspace
-	rm -rf ./bin Gopkg.lock
+	rm -rf bin Gopkg.lock
 
 install: ## Install dependencies
 	go mod download
-	npm --prefix ./web install
+	npm --prefix web install
 
 run: ## Runs the app
-	./bin/umanage
+	bin/umanage
