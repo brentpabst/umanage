@@ -9,7 +9,12 @@
                 to="/"
                 class="uk-navbar-item uk-logo"
               >
-                Logo
+                <img
+                  src="@/assets/logo.png"
+                  style="max-height: 50px;"
+                  alt="umanage logo"
+                  uk-img
+                >
               </router-link>
             </div>
           </div>
