@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header>
-      <nav class="uk-navbar-container">
+    <header class="uk-margin-medium-bottom">
+      <nav class="uk-navbar-container uk-box-shadow-small">
         <div class="uk-container">
           <div class="uk-navbar">
             <div class="uk-navbar-left">
@@ -10,10 +10,9 @@
                 class="uk-navbar-item uk-logo"
               >
                 <img
-                  src="@/assets/logo.png"
-                  style="max-height: 50px;"
+                  src="@/assets/logo.svg"
                   alt="umanage logo"
-                  uk-img
+                  uk-svg
                 >
               </router-link>
             </div>
@@ -21,6 +20,15 @@
         </div>
       </nav>
     </header>
-    <router-view />
+    <div class="uk-container">
+      <router-view />
+    </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.uk-logo {
+  max-width: 170px;
+  color: #2196f3;
+}
+</style>
