@@ -43,19 +43,19 @@
           <br>
           <span class="uk-text-light">VoIP:</span>
           <br>
-          brent@github.com
+          1234-567890
           <br>
           <span class="uk-text-light">Office:</span>
           <br>
-          brent@github.com
+          +1234567890
           <br>
           <span class="uk-text-light">Mobile:</span>
           <br>
-          brent@github.com
+          +1234567890
           <br>
           <span class="uk-text-light">Fax:</span>
           <br>
-          brent@github.com
+          +1234567890
         </div>
         <div class="uk-width-expand">
           <p class="uk-text-uppercase">
