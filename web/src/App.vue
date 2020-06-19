@@ -16,6 +16,14 @@
                 >
               </router-link>
             </div>
+            <div class="uk-navbar-right">
+              <ul class="uk-navbar-nav">
+                <li class="uk-active">
+                  <a href="#">My Profile</a>
+                </li>
+                <li><a href="#">Directory</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
