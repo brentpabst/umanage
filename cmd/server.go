@@ -12,7 +12,7 @@ func main() {
 	r := gin.Default()
 
 	// Static route
-	r.Use(static.Serve("/", static.LocalFile(path+"/public", true)))
+	r.Use(static.Serve("/", static.LocalFile(path+"/public", false)))
 
 	// API routes
 	// a := r.Group("/api")
@@ -22,7 +22,7 @@ func main() {
 
 	// Not found route redirects to the web app for a pretty 404
 	r.NoRoute(func(c *gin.Context) {
-		c.Redirect(200, "/")
+		c.Redirect(304, "/")
 	})
 
 	// Run gin
