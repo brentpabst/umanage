@@ -17,12 +17,40 @@
               </router-link>
             </div>
             <div class="uk-navbar-right">
-              <ul class="uk-navbar-nav">
-                <li class="uk-active">
-                  <a href="#">My Profile</a>
-                </li>
-                <li><a href="#">Directory</a></li>
-              </ul>
+              <div class="uk-navbar-item">
+                <div>
+                  <a class="uk-navbar-toggle">
+                    <span uk-search-icon />
+                  </a>
+                  <div
+                    class="uk-drop"
+                    uk-drop="mode: click; pos: left-center; offset: 0"
+                  >
+                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                      <label for="search">
+                        <!-- eslint-disable vue-a11y/no-autofocus -->
+                        <input
+                          ref="search"
+                          class="uk-search-input"
+                          type="search"
+                          placeholder="Search for colleagues"
+                          autofocus="autofocus"
+                        >
+                        <!-- eslint-enable vue-a11y/no-autofocus -->
+                      </label>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="uk-navbar-item">
+                <img
+                  class="uk-border-circle uk-margin-small-right"
+                  style="max-height: 30px;"
+                  src="https://via.placeholder.com/175/2196f3/ffffff.webp?text=JD"
+                  alt="user picture"
+                >
+                <span uk-icon="chevron-down" />
+              </div>
             </div>
           </div>
         </div>
