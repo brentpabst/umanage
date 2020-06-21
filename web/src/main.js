@@ -5,8 +5,8 @@ import router from "./router";
 import UIkit from "uikit";
 import Icons from "uikit/dist/js/uikit-icons";
 import "@/assets/styles/main.scss";
-import i18n from './i18n'
-import store from './store'
+import i18n from "./i18n";
+import store from "./store";
 
 UIkit.use(Icons);
 window.UIkit = UIkit;
@@ -17,5 +17,8 @@ new Vue({
   router,
   i18n,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
+
+// Load initial config
+this.$store.dispatch("config/getConfig");

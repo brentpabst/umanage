@@ -76,8 +76,18 @@
                     uk-close
                   />
                   <ul class="uk-nav uk-nav-default">
-                    <li>
-                      <a href="#">Menu Item 1</a>
+                    <li
+                      v-for="item in menu"
+                      :key="item.order"
+                    >
+                      <a :href="item.url">
+                        <span
+                          :v-if="item.icon"
+                          class="uk-margin-small-right"
+                          :uk-icon="'icon: ' + item.icon"
+                        />
+                        {{ item.title }}
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -112,3 +122,19 @@
   left: 20px;
 }
 </style>
+
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  computed: mapState({
+    menu: state =>
+      state.config.menu.sort((a, b) => {
+        return a.order - b.order
+      })
+  }),
+  created() {
+    this.$store.dispatch('config/getConfig')
+  }
+}
+</script>
