@@ -26,8 +26,8 @@ jobs:
       - name: Handle weird Windows agent fixes
         if: runner.os == 'Windows'
         run: |
-          ls
-          rm -f ./web/browserlist.cmd
-          rm -f ./web/browserlist
+          ls ./web
+          rm -Force ./web/browserlist.cmd
+          rm -Force ./web/browserlist
 
       - run: make build
