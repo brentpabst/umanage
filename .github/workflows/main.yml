@@ -19,12 +19,6 @@ jobs:
         with:
           go-version: ^1.14
 
-      - name: Confirm image environment
-        run: |
-          go env
-          node -v
-          npm -v
-
       - uses: actions/checkout@v2
 
       - run: make install
