@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&display=swap");
 
 // Global variables
 // ========================================================================
@@ -7,8 +7,7 @@
 // Typography
 //
 
-$global-font-family: 'Montserrat',
-sans-serif;
+$global-font-family: "Montserrat", sans-serif;
 $global-font-size: 14px !default;
 
 //
@@ -25,7 +24,7 @@ $global-link-hover-color: #0f6ecd;
 
 $global-background: #e0e0e0;
 $global-primary-background: #2196f3;
-$global-secondary-background: #e91e63;
+$global-secondary-background: #f36e21;
 $global-muted-background: #f8f8f8 !default;
 
 // Breakpoints
