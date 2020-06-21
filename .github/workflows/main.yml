@@ -27,7 +27,8 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           ls ./web
-          rm -Force ./web/browserlist.cmd
-          rm -Force ./web/browserlist
+          rm -Force ./web/browserslist.ps1
+          rm -Force ./web/browserslist.cmd
+          rm -Force ./web/browserslist
 
       - run: make build
