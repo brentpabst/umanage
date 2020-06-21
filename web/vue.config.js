@@ -5,5 +5,14 @@ module.exports = {
     name: 'umanage'
   },
 
-  outputDir: '../bin/public'
+  outputDir: '../bin/public',
+
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: false
+    }
+  }
 }
