@@ -11,7 +11,7 @@ help:
 build: ## Compile full app
 	export GO111MODULE=on
 	mkdir -p $(DIST)
-	npm run build --cwd ./web --prefix ./web
+	npm run build --prefix ./web
 	GO111MODULE=on go build -o $(DIST)/umanage $(SRC)/server.go
 
 clean: ## Cleans the local workspace
