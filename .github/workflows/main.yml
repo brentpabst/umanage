@@ -24,5 +24,6 @@ jobs:
       - run: make install
       - run: |
           ls -la
+          rm -f ./web/browserlist.cmd
           rm -f ./web/browserlist
           make build
