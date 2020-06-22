@@ -82,7 +82,7 @@
                     >
                       <a :href="item.url">
                         <span
-                          :v-if="item.icon"
+                          v-if="!!item.icon"
                           class="uk-margin-small-right"
                           :uk-icon="'icon: ' + item.icon"
                         />

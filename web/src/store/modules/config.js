@@ -1,4 +1,4 @@
-import config from "../../services/config";
+import api from "../../services/api";
 const state = () => ({
   menu: [],
 });
@@ -7,7 +7,7 @@ const getters = {};
 
 const actions = {
   getConfig({ commit }) {
-    config.getConfig((conf) => {
+    api.getConfig((conf) => {
       commit("setMenu", conf.menu);
     });
   },
