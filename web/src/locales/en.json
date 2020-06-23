@@ -1,3 +1,9 @@
 {
-  "message": "hello i18n !!"
+  "footer": {
+    "copyright": "Copyright",
+    "provided": "provided under the"
+  },
+  "search": {
+    "phrase": "Search for colleagues..."
+  }
 }
