@@ -12,10 +12,10 @@
         </div>
         <div>
           <h1 class="uk-heading-medium uk-text-light">
-            Jane Doe
+            {{ user.name }}
           </h1>
-          <p><a>CEO</a> | <a>Charlotte</a> (3:28 PM) | He/Him/His</p>
-          <p>VoIP: 1234-567890 | M: +1234567890 | O: +1234567890 | <a>E-mail Jane</a></p>
+          <p>{{ user.title }} | <a>Charlotte</a> (3:28 PM)</p>
+          <p>VoIP: 1234-567890 | M: +1234567890 | O: +1234567890 | <a :href="'mailto:'+user.email">E-mail {{ user.given_name }}</a></p>
           <p>Assistant: <a>John Smith</a> | VoIP: 1234-567890 | O: +1234567890</p>
         </div>
       </div>
@@ -27,7 +27,7 @@
       </p>
       <span class="uk-text-light">Role:</span>
       <br>
-      CEO
+      {{ user.title }}
       <hr>
       <p class="uk-text-uppercase uk-text-bold">
         Contact Information
@@ -39,7 +39,7 @@
           </p>
           <span class="uk-text-light">E-mail:</span>
           <br>
-          jane@example.com
+          <a :href="'mailto:'+user.email">{{ user.email }}</a>
           <br>
           <span class="uk-text-light">VoIP:</span>
           <br>
@@ -87,13 +87,13 @@
           <br>
           <span class="uk-text-light">Office:</span>
           <br>
-          Address 1
+          {{ user.office_address.address1 }}
           <br>
-          Address 2
+          {{ user.office_address.address2 }}
           <br>
-          City, State, Postal Code
+          {{ user.office_address.city }}, {{ user.office_address.province }}, {{ user.office_address.post_code }}
           <br>
-          Country
+          {{ user.office_address.country }}
         </div>
       </div>
       <hr>
@@ -102,43 +102,18 @@
       </p>
       Possible things to add: Home Address, Home Phone, Personal Mobile, Birthday, Pronouns, About Me, Languages
     </div>
-
-    <!-- UserId<br>
-      UserName<br>
-      DistinguishedName<br>
-      IsLocked<br>
-      IsDisabled<br>
-      IsExpired<br>
-      ExpiresOn<br>
-      PasswordExpiresOn<br>
-      Name<br>
-      DisplayName<br>
-      SortName<br>
-      FirstName<br>
-      MiddleName<br>
-      LastName<br>
-      Email<br>
-      Website<br>
-
-      Organization<br>
-      Department<br>
-      Title<br>
-      Office<br>
-      EmployeeId<br>
-      BadgeId<br>
-
-      Address1<br>
-      Address2<br>
-      City<br>
-      Province<br>
-      PostCode<br>
-      Country<br>
-
-      HomePhone<br>
-      OfficePhone<br>
-      MobilePhone<br>
-      SipPhone<br>
-      Pager<br>
-      Fax<br> -->
   </div>
 </template>
+
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  computed: mapState({
+    user: state => state.users.currentUser
+  }),
+  created() {
+    this.$store.dispatch('users/getCurrentUser')
+  }
+}
+</script>
